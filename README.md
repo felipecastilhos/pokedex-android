@@ -11,10 +11,12 @@
 </div>
 
 ## About Android Pokedex project
-Hello there ,
+Hello there,
 In this project I tried showcasing how to build an Android Application with clean architecture and MVI using some of the jetpack libraries with Kotlin Coroutines & Dagger Hilt. This App is using the [GraphQL-Pokemon](https://github.com/favware/graphql-pokemon) as a remote data source.
 
 This app is based on the [Guide to app architecture](https://developer.android.com/jetpack/docs/guide) article, [Kotlin 1.5](https://kotlinlang.org/docs/reference/whatsnew13.html), and [coroutine](https://kotlinlang.org/docs/reference/coroutines/basics.html). I also used some android architecture components like [LiveData](https://developer.android.com/jetpack/arch/livedata), [ViewModel](https://developer.android.com/topic/libraries/architecture/viewmodel).
+
+You can check my short term backlog in my trello [here](https://trello.com/b/COqwO5Ww/poked%C3%A9x-android)
 
 Libraries Used
 ---------------
