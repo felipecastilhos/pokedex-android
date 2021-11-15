@@ -2,7 +2,7 @@
 on:
   # Triggers the workflow on pull request events to the develop branch
   push:
-    branches: [ develop ]
+    branches: [ main ]
 
 jobs:
   detekt:
