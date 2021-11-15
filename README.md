@@ -7,7 +7,9 @@
 **An android application archtecture exploration**
 
 ![GitHub](https://shields.io/github/license/felipecastilhos/pokedex-android)
-
+![WCAG WAI](https://img.shields.io/badge/WCAG_WAI-A-orange)
+![Code Style](https://img.shields.io/badge/code%20style-%E2%9D%A4-FF4081.svg)
+  
 </div>
 
 ## About Android Pokedex project
