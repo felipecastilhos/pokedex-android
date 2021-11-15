@@ -9,7 +9,8 @@
 ![GitHub](https://shields.io/github/license/felipecastilhos/pokedex-android)
 
 </div>
-# About Android Pokedex project
+
+## About Android Pokedex project
 Hello there ,
 In this project I tried showcasing how to build an Android Application with clean architecture and MVI using some of the jetpack libraries with Kotlin Coroutines & Dagger Hilt. This App is using the [GraphQL-Pokemon](https://github.com/favware/graphql-pokemon) as a remote data source.
 
