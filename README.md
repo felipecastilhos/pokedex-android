@@ -19,6 +19,8 @@ Libraries Used
 * [Apollo](https://www.apollographql.com/docs/android/)- GraphQL client for the JVM, Android and Kotlin multiplatform
 * [Dagger Hilt](https://dagger.dev/hilt/) - dependency injector
 * [Room](https://developer.android.com/training/data-storage/room) - Save data in a local database
-* [Espresso](https://developer.android.com/training/testing/espresso/) // UI test
-* [Junit](https://junit.org/junit4/) // unit tests
-* [Truth](https://github.com/google/truth) // Makes your test assertions and failure messages more readable
+* [Espresso](https://developer.android.com/training/testing/espresso/) - UI test
+* [Junit](https://junit.org/junit4/) - unit tests
+* [Truth](https://github.com/google/truth) - Makes your test assertions and failure messages more readable
+* [Detekt](https://github.com/detekt/detekt) - a static code analysis tool for the Kotlin programming language
+* [KTLint](https://github.com/pinterest/ktlint) - Kotlin linter in spirit of feross/standard (JavaScript) and gofmt (Go).
