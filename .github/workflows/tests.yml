@@ -64,16 +64,8 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-gradle-
 
-      - name: Start Emulator
-        run: ./scripts/start_emulator.sh
-        timeout-minutes: 20
-
-      - name: Android Tests
-        run: ./gradlew nebraska:debugExecuteScreenshotTests
-
-      - name: Upload Reports
-        if: ${{ always() }}
-        uses: actions/upload-artifact@v2
+      - name: Run instrumented tests
+        uses: reactivecircus/android-emulator-runner@v2
         with:
-          name: android-test-records
-          path: "**/build/reports"
+          api-level: 29
+          script: ./gradlew connectedCheck
