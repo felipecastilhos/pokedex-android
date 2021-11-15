@@ -4,7 +4,7 @@
 
 # Pokédex Android
 
-**An android application archtecture exploration**
+**An android application architecture exploration in compose**
 
 ![GitHub](https://shields.io/github/license/felipecastilhos/pokedex-android)
 ![WCAG WAI](https://img.shields.io/badge/WCAG_WAI-A-orange)
