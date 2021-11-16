@@ -11,6 +11,9 @@ object DependencyVersions {
     const val androidxEspresso = "3.4.0"
     const val androidxComposeJunit = "1.0.5"
     const val kotlinCompilerExtension = "1.0.1"
+
+    const val buildGradle = "7.0.3"
+    const val kotlinGradlePlugin = "1.5.21"
 }
 
 sealed class Dependencies {
@@ -57,4 +60,9 @@ object DependencyPlugins {
     const val androidApplication = "com.android.application"
     const val kotlinAndroid = "kotlin-android"
     const val kotlinAndroidExtensions = "kotlin-android-extensions"
+}
+
+object ClassPathDependencies {
+    const val buildGradle = "com.android.tools.build:gradle:${DependencyVersions.buildGradle}"
+    const val kotlinGradlePlugin = "org.jetbrains.kotlin:kotlin-gradle-plugin:${DependencyVersions.kotlinGradlePlugin}"
 }
