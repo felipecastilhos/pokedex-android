@@ -1,12 +1,40 @@
 # Controls when the workflow will run
-name: Test Suit
+name: Validate PR
 
 on:
   # Triggers the workflow on pull request events to the develop branch
-  push:
+  pull_request:
     branches: [ main ]
 
 jobs:
+  code_quality:
+    name: Check Code Quality
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      # Runs a set of commands using the runners shell
+      - name: Clone repo
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 1
+
+      - name: "Run detekt"
+        uses: alaegin/Detekt-Action@v1.18.1
+        with:
+          reviewdog_level: warning
+          github_token: ${{ secrets.github_token }}
+          detekt_config: config/detekt/detekt.yml
+          reviewdog_filter: file
+          detekt_excludes: "**/build/**,**/.idea/**,**/test/**,**/androidTest/**"
+          reviewdog_reporter: github-pr-review
+
+      - name: ktlint
+        uses: ScaCap/action-ktlint@master
+        with:
+          github_token: ${{ secrets.github_token }}
+          reporter: github-pr-review # Change reporter
+
   test_job:
     name: Unit Test
     runs-on: ubuntu-latest
