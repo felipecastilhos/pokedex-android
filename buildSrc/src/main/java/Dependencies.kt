@@ -14,11 +14,21 @@ object DependencyVersions {
 
     const val buildGradle = "7.0.3"
     const val kotlinGradlePlugin = "1.5.21"
+    const val daggerHilt = "2.28-alpha"
+    const val kapt = "2.28-alpha"
 }
 
 sealed class Dependencies {
     object Core {
         const val androidxCore = "androidx.core:core-ktx:${DependencyVersions.androidxCore}"
+    }
+
+    object CodeGeneration {
+        const val kapt = "com.google.dagger:hilt-android-compiler:${DependencyVersions.kapt}}"
+    }
+
+    object DependencyInjection {
+        const val daggerHilt = "com.google.dagger:hilt-android:${DependencyVersions.daggerHilt}"
     }
 
     object Compose {
@@ -60,9 +70,12 @@ object DependencyPlugins {
     const val androidApplication = "com.android.application"
     const val kotlinAndroid = "kotlin-android"
     const val kotlinAndroidExtensions = "kotlin-android-extensions"
+    const val kotlinKapt = "kotlin-kapt"
+    const val daggerHilt = "dagger.hilt.android.plugin"
 }
 
 object ClassPathDependencies {
     const val buildGradle = "com.android.tools.build:gradle:${DependencyVersions.buildGradle}"
     const val kotlinGradlePlugin = "org.jetbrains.kotlin:kotlin-gradle-plugin:${DependencyVersions.kotlinGradlePlugin}"
+    const val hiltGradlePlugin = "com.google.dagger:hilt-android-gradle-plugin:${DependencyVersions.daggerHilt}"
 }

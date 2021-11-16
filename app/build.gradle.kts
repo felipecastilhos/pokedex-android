@@ -2,6 +2,8 @@ plugins {
     id(DependencyPlugins.androidApplication)
     id(DependencyPlugins.kotlinAndroid)
     id(DependencyPlugins.kotlinAndroidExtensions)
+    id(DependencyPlugins.kotlinKapt)
+    id(DependencyPlugins.daggerHilt)
 }
 
 android {
@@ -64,6 +66,8 @@ dependencies {
     implementation(Dependencies.AndroidLifecycle.viewModelCompose)
     implementation(Dependencies.AndroidLifecycle.runtimeKtx)
     implementation(Dependencies.AndroidLifecycle.runtimeKtx)
+    implementation(Dependencies.DependencyInjection.daggerHilt)
+    implementation(Dependencies.CodeGeneration.kapt)
     testImplementation(Dependencies.Tests.jUnit)
     androidTestImplementation(Dependencies.Tests.androidxExtjUnit)
     androidTestImplementation(Dependencies.Tests.espresso)
