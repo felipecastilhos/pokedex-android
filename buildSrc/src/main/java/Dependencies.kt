@@ -20,27 +20,36 @@ sealed class Dependencies {
 
     object Compose {
         const val ui = "androidx.compose.ui:ui:${DependencyVersions.composeVersion}"
-        const val material = "androidx.compose.material:material:${DependencyVersions.composeVersion}"
-        const val uiToolingPreview = "androidx.compose.ui:ui-tooling-preview:${DependencyVersions.composeVersion}"
-        const val composeUiTooling = "androidx.compose.ui:ui-tooling:${DependencyVersions.composeVersion}"
+        const val material =
+            "androidx.compose.material:material:${DependencyVersions.composeVersion}"
+        const val uiToolingPreview =
+            "androidx.compose.ui:ui-tooling-preview:${DependencyVersions.composeVersion}"
+        const val composeUiTooling =
+            "androidx.compose.ui:ui-tooling:${DependencyVersions.composeVersion}"
     }
 
     object AndroidLifecycle {
-        const val viewModelCompose = "androidx.lifecycle:lifecycle-viewmodel-compose:${DependencyVersions.androidxLifecycle}"
-        const val runtimeKtx = "androidx.lifecycle:lifecycle-runtime-ktx:${DependencyVersions.androidxLifecycle}"
+        const val viewModelCompose =
+            "androidx.lifecycle:lifecycle-viewmodel-compose:${DependencyVersions.androidxLifecycle}"
+        const val runtimeKtx =
+            "androidx.lifecycle:lifecycle-runtime-ktx:${DependencyVersions.androidxLifecycle}"
     }
 
     object Ui {
         const val appCompat = "androidx.appcompat:appcompat:${DependencyVersions.androidxAppCompat}"
-        const val material = "com.google.android.material:material:${DependencyVersions.androidMaterial}"
-        const val activityCompose = "androidx.activity:activity-compose:${DependencyVersions.activityCompose}"
+        const val material =
+            "com.google.android.material:material:${DependencyVersions.androidMaterial}"
+        const val activityCompose =
+            "androidx.activity:activity-compose:${DependencyVersions.activityCompose}"
     }
 
     object Tests {
         const val jUnit = "junit:junit:${DependencyVersions.jUnitVersion}"
         const val androidxExtjUnit = "androidx.test.ext:junit:${DependencyVersions.androidxJunit}"
-        const val espresso = "androidx.test.espresso:espresso-core:${DependencyVersions.androidxEspresso}"
-        const val composejUnit = "androidx.compose.ui:ui-test-junit4:${DependencyVersions.androidxComposeJunit}"
+        const val espresso =
+            "androidx.test.espresso:espresso-core:${DependencyVersions.androidxEspresso}"
+        const val composejUnit =
+            "androidx.compose.ui:ui-test-junit4:${DependencyVersions.androidxComposeJunit}"
     }
 }
 
