@@ -1,18 +1,18 @@
 plugins {
-    id("com.android.application")
-    id("kotlin-android")
-    id("kotlin-android-extensions")
+    id(DependencyPlugins.androidApplication)
+    id(DependencyPlugins.kotlinAndroid)
+    id(DependencyPlugins.kotlinAndroidExtensions)
 }
 
 android {
-    compileSdk = 31
+    compileSdk = BuildConfigVersions.compileSdk
 
     defaultConfig {
         applicationId = "com.github.felipecastilhos.pokedexandroid"
-        minSdk = 23
-        targetSdk = 31
-        versionCode = 1
-        versionName = "1.0"
+        minSdk = BuildConfigVersions.minSdk
+        targetSdk = BuildConfigVersions.targetSdk
+        versionCode = BuildConfigVersions.versionCode
+        versionName = BuildConfigVersions.versionName
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
 
@@ -43,8 +43,7 @@ android {
     }
 
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.0.1"
-        kotlinCompilerVersion = "1.5.21"
+        kotlinCompilerExtensionVersion = DependencyVersions.kotlinCompilerExtension
     }
 
     packagingOptions {
@@ -55,19 +54,19 @@ android {
 }
 
 dependencies {
-    implementation("androidx.core:core-ktx:1.7.0")
-    implementation("androidx.appcompat:appcompat:1.3.1")
-    implementation("com.google.android.material:material:1.4.0")
-    implementation("androidx.compose.ui:ui:1.0.5")
-    implementation("androidx.compose.material:material:1.0.5")
-    implementation("androidx.compose.ui:ui-tooling-preview:1.0.5")
-    implementation("androidx.activity:activity-compose:1.4.0")
-    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.4.0")
-    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.4.0")
-    implementation("androidx.activity:activity-compose:1.4.0")
-    testImplementation("junit:junit:4.13.2")
-    androidTestImplementation("androidx.test.ext:junit:1.1.3")
-    androidTestImplementation("androidx.test.espresso:espresso-core:3.4.0")
-    androidTestImplementation("androidx.compose.ui:ui-test-junit4:1.0.5")
-    debugImplementation("androidx.compose.ui:ui-tooling:1.0.5")
+    implementation(Dependencies.Core.androidxCore)
+    implementation(Dependencies.Ui.appCompat)
+    implementation(Dependencies.Ui.material)
+    implementation(Dependencies.Ui.activityCompose)
+    implementation(Dependencies.Compose.ui)
+    implementation(Dependencies.Compose.material)
+    implementation(Dependencies.Compose.uiToolingPreview)
+    implementation(Dependencies.AndroidLifecycle.viewModelCompose)
+    implementation(Dependencies.AndroidLifecycle.runtimeKtx)
+    implementation(Dependencies.AndroidLifecycle.runtimeKtx)
+    testImplementation(Dependencies.Tests.jUnit)
+    androidTestImplementation(Dependencies.Tests.androidxExtjUnit)
+    androidTestImplementation(Dependencies.Tests.espresso)
+    androidTestImplementation(Dependencies.Tests.composejUnit)
+    debugImplementation(Dependencies.Compose.composeUiTooling)
 }
