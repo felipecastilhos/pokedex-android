@@ -19,7 +19,7 @@ In this project I tried showcasing how to build an Android Application in Jetpac
 
 This app is based on the [Guide to app architecture](https://developer.android.com/jetpack/docs/guide) article, [Kotlin 1.5](https://kotlinlang.org/docs/reference/whatsnew13.html), and [coroutine](https://kotlinlang.org/docs/reference/coroutines/basics.html). I also used some android architecture components like [LiveData](https://developer.android.com/jetpack/arch/livedata), [ViewModel](https://developer.android.com/topic/libraries/architecture/viewmodel).
 
-You can check my short term backlog in my trello [here](https://trello.com/b/COqwO5Ww/poked%C3%A9x-android)
+You can check my short term backlog in my Github Projects [here](https://github.com/felipecastilhos/pokedex-android/projects/1)
 
 Libraries Used
 ---------------
