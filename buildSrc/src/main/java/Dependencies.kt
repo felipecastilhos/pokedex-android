@@ -27,16 +27,6 @@ sealed class Dependencies {
         const val daggerHiltCompiler = "com.google.dagger:hilt-android-compiler:${DependencyVersions.daggerHilt}"
     }
 
-    object Compose {
-        const val ui = "androidx.compose.ui:ui:${DependencyVersions.composeVersion}"
-        const val material =
-            "androidx.compose.material:material:${DependencyVersions.composeVersion}"
-        const val uiToolingPreview =
-            "androidx.compose.ui:ui-tooling-preview:${DependencyVersions.composeVersion}"
-        const val composeUiTooling =
-            "androidx.compose.ui:ui-tooling:${DependencyVersions.composeVersion}"
-    }
-
     object AndroidLifecycle {
         const val viewModelCompose =
             "androidx.lifecycle:lifecycle-viewmodel-compose:${DependencyVersions.androidxLifecycle}"
@@ -44,10 +34,20 @@ sealed class Dependencies {
             "androidx.lifecycle:lifecycle-runtime-ktx:${DependencyVersions.androidxLifecycle}"
     }
 
-    object Ui {
+    object JetpackUi {
         const val appCompat = "androidx.appcompat:appcompat:${DependencyVersions.androidxAppCompat}"
         const val material =
             "com.google.android.material:material:${DependencyVersions.androidMaterial}"
+    }
+
+    object JetpackCompose {
+        const val ui = "androidx.compose.ui:ui:${DependencyVersions.composeVersion}"
+        const val material =
+            "androidx.compose.material:material:${DependencyVersions.composeVersion}"
+        const val uiToolingPreview =
+            "androidx.compose.ui:ui-tooling-preview:${DependencyVersions.composeVersion}"
+        const val composeUiTooling =
+            "androidx.compose.ui:ui-tooling:${DependencyVersions.composeVersion}"
         const val activityCompose =
             "androidx.activity:activity-compose:${DependencyVersions.activityCompose}"
     }
@@ -62,7 +62,7 @@ sealed class Dependencies {
     }
 }
 
-object DependencyPlugins {
+object ModulePlugins {
     const val androidApplication = "com.android.application"
     const val kotlinAndroid = "kotlin-android"
     const val kotlinAndroidExtensions = "kotlin-android-extensions"
@@ -70,7 +70,7 @@ object DependencyPlugins {
     const val daggerHilt = "dagger.hilt.android.plugin"
 }
 
-object ClassPathDependencies {
+object GradlePlugins {
     const val buildGradle = "com.android.tools.build:gradle:${DependencyVersions.buildGradle}"
     const val kotlinGradlePlugin = "org.jetbrains.kotlin:kotlin-gradle-plugin:${DependencyVersions.kotlinGradlePlugin}"
     const val hiltGradlePlugin = "com.google.dagger:hilt-android-gradle-plugin:${DependencyVersions.daggerHilt}"

@@ -1,9 +1,9 @@
 plugins {
-    id(DependencyPlugins.androidApplication)
-    id(DependencyPlugins.kotlinAndroid)
-    id(DependencyPlugins.kotlinAndroidExtensions)
-    id(DependencyPlugins.kotlinKapt)
-    id(DependencyPlugins.daggerHilt)
+    id(ModulePlugins.androidApplication)
+    id(ModulePlugins.kotlinAndroid)
+    id(ModulePlugins.kotlinAndroidExtensions)
+    id(ModulePlugins.kotlinKapt)
+    id(ModulePlugins.daggerHilt)
 }
 
 android {
@@ -56,21 +56,19 @@ android {
 }
 
 dependencies {
-    implementation(Dependencies.Core.androidxCore)
-    implementation(Dependencies.Ui.appCompat)
-    implementation(Dependencies.Ui.material)
-    implementation(Dependencies.Ui.activityCompose)
-    implementation(Dependencies.Compose.ui)
-    implementation(Dependencies.Compose.material)
-    implementation(Dependencies.Compose.uiToolingPreview)
-    implementation(Dependencies.AndroidLifecycle.viewModelCompose)
-    implementation(Dependencies.AndroidLifecycle.runtimeKtx)
-    implementation(Dependencies.AndroidLifecycle.runtimeKtx)
-    implementation(Dependencies.DependencyInjection.daggerHilt)
-    kapt(Dependencies.DependencyInjection.daggerHiltCompiler)
-    testImplementation(Dependencies.Tests.jUnit)
-    androidTestImplementation(Dependencies.Tests.androidxExtjUnit)
-    androidTestImplementation(Dependencies.Tests.espresso)
-    androidTestImplementation(Dependencies.Tests.composejUnit)
-    debugImplementation(Dependencies.Compose.composeUiTooling)
+    // Common libraries
+    jetpackUtilLibraries()
+    jetpackKotlinExtensionsLibraries()
+    jetpackAndroidLifecycleLibraries()
+
+    // UI Libraries
+    jetpackUiCommonsLibraries()
+    jetpackComposeLibraries()
+
+    // Add dependency injection dependencies
+    daggerHiltLibraries()
+
+    // Add Tests
+    unitTestsLibraries()
+    instrumentationTestsLibraries()
 }
