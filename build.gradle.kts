@@ -5,9 +5,9 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath(ClassPathDependencies.buildGradle)
-        classpath(ClassPathDependencies.kotlinGradlePlugin)
-        classpath(ClassPathDependencies.hiltGradlePlugin)
+        classpath(GradlePlugins.buildGradle)
+        classpath(GradlePlugins.kotlinGradlePlugin)
+        classpath(GradlePlugins.hiltGradlePlugin)
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
     }
