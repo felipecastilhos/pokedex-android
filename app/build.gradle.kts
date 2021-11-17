@@ -4,6 +4,7 @@ plugins {
     id(ModulePlugins.kotlinAndroidExtensions)
     id(ModulePlugins.kotlinKapt)
     id(ModulePlugins.daggerHilt)
+    id(ModulePlugins.apolloGraphql) version(DependencyVersions.apolloVersion)
 }
 
 android {
@@ -44,6 +45,10 @@ android {
         compose = true
     }
 
+    apollo {
+        generateKotlinModels.set(true)
+    }
+
     composeOptions {
         kotlinCompilerExtensionVersion = DependencyVersions.kotlinCompilerExtension
     }
@@ -67,6 +72,9 @@ dependencies {
 
     // Add dependency injection dependencies
     daggerHiltLibraries()
+
+    // Add networking libraries
+    apolloClientLibraries()
 
     // Add Tests
     unitTestsLibraries()
