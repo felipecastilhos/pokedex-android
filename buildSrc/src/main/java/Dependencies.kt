@@ -15,6 +15,7 @@ object DependencyVersions {
 
     const val buildGradle = "7.0.3"
     const val kotlinGradlePlugin = "1.5.21"
+    const val apolloVersion = "2.5.11"
 }
 
 sealed class Dependencies {
@@ -60,6 +61,11 @@ sealed class Dependencies {
         const val composejUnit =
             "androidx.compose.ui:ui-test-junit4:${DependencyVersions.androidxComposeJunit}"
     }
+
+    object Network {
+        const val apolloRuntime = "com.apollographql.apollo:apollo-runtime:${DependencyVersions.apolloVersion}"
+        const val apolloCoroutines = "com.apollographql.apollo:apollo-coroutines-support:${DependencyVersions.apolloVersion}"
+    }
 }
 
 object ModulePlugins {
@@ -68,6 +74,7 @@ object ModulePlugins {
     const val kotlinAndroidExtensions = "kotlin-android-extensions"
     const val kotlinKapt = "kotlin-kapt"
     const val daggerHilt = "dagger.hilt.android.plugin"
+    const val apolloGraphql = "com.apollographql.apollo"
 }
 
 object GradlePlugins {
