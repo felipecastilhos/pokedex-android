@@ -19,21 +19,22 @@ jobs:
         with:
           fetch-depth: 1
 
-      - name: "Run detekt"
-        uses: alaegin/Detekt-Action@v1.18.1
-        with:
-          reviewdog_level: warning
-          github_token: ${{ secrets.github_token }}
-          detekt_config: config/detekt/detekt.yml
-          reviewdog_filter: file
-          detekt_excludes: "**/build/**,**/.idea/**,**/test/**,**/androidTest/**"
-          reviewdog_reporter: github-pr-review
+#      - name: "Run detekt"
+#        uses: alaegin/Detekt-Action@v1.18.1
+#        with:
+#          reviewdog_level: warning
+#          github_token: ${{ secrets.github_token }}
+#          detekt_config: config/detekt/detekt.yml
+#          reviewdog_filter: file
+#          detekt_excludes: "**/build/**,**/.idea/**,**/test/**,**/androidTest/**"
+#          reviewdog_reporter: github-pr-review
 
       - name: ktlint
         uses: ScaCap/action-ktlint@master
         with:
+          reviewdog_level: error
           github_token: ${{ secrets.github_token }}
-          reporter: github-pr-review # Change reporter
+          reviewdog_reporter: github-pr-review
 
   test_job:
     name: Unit Test
