@@ -11,11 +11,10 @@ object DependencyVersions {
     const val androidxEspresso = "3.4.0"
     const val androidxComposeJunit = "1.0.5"
     const val kotlinCompilerExtension = "1.0.1"
+    const val daggerHilt = "2.37"
 
     const val buildGradle = "7.0.3"
     const val kotlinGradlePlugin = "1.5.21"
-    const val daggerHilt = "2.28-alpha"
-    const val kapt = "2.28-alpha"
 }
 
 sealed class Dependencies {
@@ -23,12 +22,9 @@ sealed class Dependencies {
         const val androidxCore = "androidx.core:core-ktx:${DependencyVersions.androidxCore}"
     }
 
-    object CodeGeneration {
-        const val kapt = "com.google.dagger:hilt-android-compiler:${DependencyVersions.kapt}}"
-    }
-
     object DependencyInjection {
         const val daggerHilt = "com.google.dagger:hilt-android:${DependencyVersions.daggerHilt}"
+        const val daggerHiltCompiler = "com.google.dagger:hilt-android-compiler:${DependencyVersions.daggerHilt}"
     }
 
     object Compose {
