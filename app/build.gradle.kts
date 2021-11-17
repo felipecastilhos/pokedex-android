@@ -67,7 +67,7 @@ dependencies {
     implementation(Dependencies.AndroidLifecycle.runtimeKtx)
     implementation(Dependencies.AndroidLifecycle.runtimeKtx)
     implementation(Dependencies.DependencyInjection.daggerHilt)
-    implementation(Dependencies.CodeGeneration.kapt)
+    kapt(Dependencies.DependencyInjection.daggerHiltCompiler)
     testImplementation(Dependencies.Tests.jUnit)
     androidTestImplementation(Dependencies.Tests.androidxExtjUnit)
     androidTestImplementation(Dependencies.Tests.espresso)
