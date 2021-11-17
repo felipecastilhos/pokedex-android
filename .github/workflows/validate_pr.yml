@@ -32,8 +32,9 @@ jobs:
       - name: ktlint
         uses: ScaCap/action-ktlint@master
         with:
-          reviewdog_level: error
+          reviewdog_level: warning
           github_token: ${{ secrets.github_token }}
+          reviewdog_filter: file
           reviewdog_reporter: github-pr-review
 
   test_job:
