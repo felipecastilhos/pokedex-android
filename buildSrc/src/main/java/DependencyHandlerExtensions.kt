@@ -51,6 +51,14 @@ fun DependencyHandlerScope.daggerHiltLibraries() {
 }
 
 /**
+ * Add Apollo Android client dependencies to manage both local and remote data with GraphQL.
+ */
+fun DependencyHandlerScope.apolloClientLibraries() {
+    "implementation"(Dependencies.Network.apolloRuntime)
+    "implementation"(Dependencies.Network.apolloCoroutines)
+}
+
+/**
  * Add unit tests dependencies.
  */
 fun DependencyHandlerScope.unitTestsLibraries() {
