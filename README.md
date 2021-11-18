@@ -32,6 +32,7 @@ Libraries Used
 * [Coil](https://github.com/coil-kt/coil) - An image loading library for Android backed by Kotlin Coroutines
 * [Gson](https://github.com/google/gson) - JSON Parser
 * [Apollo](https://www.apollographql.com/docs/android/)- GraphQL client for the JVM, Android and Kotlin multiplatform
+* [OkHttp](https://square.github.io/okhttp/) - A network application
 * [Dagger Hilt](https://dagger.dev/hilt/) - dependency injector
 * [Room](https://developer.android.com/training/data-storage/room) - Save data in a local database
 * [Espresso](https://developer.android.com/training/testing/espresso/) - UI test
@@ -40,3 +41,4 @@ Libraries Used
 * [Detekt](https://github.com/detekt/detekt) - a static code analysis tool for the Kotlin programming language
 * [KTLint](https://github.com/pinterest/ktlint) - Kotlin linter in spirit of feross/standard (JavaScript) and gofmt (Go).
 * [Gradle Kotlin Plugin](https://kotlinlang.org/docs/gradle.html) - Gradle scripts in Kotlin
+* [Timber](https://github.com/JakeWharton/timber) - Small log library based on Android SDK log
