@@ -7,9 +7,9 @@ import timber.log.Timber
  * An wrapper to handle logs in the project
  */
 object LogHandler {
-    fun init() {
+    fun init(tree: Timber.Tree = Timber.DebugTree()) {
         if (BuildConfig.DEBUG) {
-            Timber.plant(Timber.DebugTree())
+            Timber.plant(tree)
         }
     }
 
