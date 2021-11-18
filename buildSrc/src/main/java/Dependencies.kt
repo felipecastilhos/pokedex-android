@@ -26,7 +26,8 @@ sealed class Dependencies {
 
     object DependencyInjection {
         const val daggerHilt = "com.google.dagger:hilt-android:${DependencyVersions.daggerHilt}"
-        const val daggerHiltCompiler = "com.google.dagger:hilt-android-compiler:${DependencyVersions.daggerHilt}"
+        const val daggerHiltCompiler =
+            "com.google.dagger:hilt-android-compiler:${DependencyVersions.daggerHilt}"
     }
 
     object AndroidLifecycle {
@@ -64,8 +65,10 @@ sealed class Dependencies {
     }
 
     object Network {
-        const val apolloRuntime = "com.apollographql.apollo:apollo-runtime:${DependencyVersions.apolloVersion}"
-        const val apolloCoroutines = "com.apollographql.apollo:apollo-coroutines-support:${DependencyVersions.apolloVersion}"
+        const val apolloRuntime =
+            "com.apollographql.apollo:apollo-runtime:${DependencyVersions.apolloVersion}"
+        const val apolloCoroutines =
+            "com.apollographql.apollo:apollo-coroutines-support:${DependencyVersions.apolloVersion}"
     }
 
     object Log {
@@ -84,6 +87,8 @@ object ModulePlugins {
 
 object GradlePlugins {
     const val buildGradle = "com.android.tools.build:gradle:${DependencyVersions.buildGradle}"
-    const val kotlinGradlePlugin = "org.jetbrains.kotlin:kotlin-gradle-plugin:${DependencyVersions.kotlinGradlePlugin}"
-    const val hiltGradlePlugin = "com.google.dagger:hilt-android-gradle-plugin:${DependencyVersions.daggerHilt}"
+    const val kotlinGradlePlugin =
+        "org.jetbrains.kotlin:kotlin-gradle-plugin:${DependencyVersions.kotlinGradlePlugin}"
+    const val hiltGradlePlugin =
+        "com.google.dagger:hilt-android-gradle-plugin:${DependencyVersions.daggerHilt}"
 }
