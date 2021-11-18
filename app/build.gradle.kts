@@ -76,6 +76,9 @@ dependencies {
     // Add networking libraries
     apolloClientLibraries()
 
+    // Add log libraries
+    logLibraries()
+
     // Add Tests
     unitTestsLibraries()
     instrumentationTestsLibraries()

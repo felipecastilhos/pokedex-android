@@ -16,6 +16,7 @@ object DependencyVersions {
     const val buildGradle = "7.0.3"
     const val kotlinGradlePlugin = "1.5.21"
     const val apolloVersion = "2.5.11"
+    const val timber = "5.0.1"
 }
 
 sealed class Dependencies {
@@ -65,6 +66,10 @@ sealed class Dependencies {
     object Network {
         const val apolloRuntime = "com.apollographql.apollo:apollo-runtime:${DependencyVersions.apolloVersion}"
         const val apolloCoroutines = "com.apollographql.apollo:apollo-coroutines-support:${DependencyVersions.apolloVersion}"
+    }
+
+    object Log {
+        const val timber = "com.jakewharton.timber:timber:${DependencyVersions.timber}"
     }
 }
 
