@@ -59,6 +59,13 @@ fun DependencyHandlerScope.apolloClientLibraries() {
 }
 
 /**
+ * Add log dependencies.
+ */
+fun DependencyHandlerScope.logLibraries() {
+    implementation(Dependencies.Log.timber)
+}
+
+/**
  * Add unit tests dependencies.
  */
 fun DependencyHandlerScope.unitTestsLibraries() {

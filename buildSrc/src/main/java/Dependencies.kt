@@ -16,6 +16,7 @@ object DependencyVersions {
     const val buildGradle = "7.0.3"
     const val kotlinGradlePlugin = "1.5.21"
     const val apolloVersion = "2.5.11"
+    const val timber = "5.0.1"
 }
 
 sealed class Dependencies {
@@ -25,7 +26,8 @@ sealed class Dependencies {
 
     object DependencyInjection {
         const val daggerHilt = "com.google.dagger:hilt-android:${DependencyVersions.daggerHilt}"
-        const val daggerHiltCompiler = "com.google.dagger:hilt-android-compiler:${DependencyVersions.daggerHilt}"
+        const val daggerHiltCompiler =
+            "com.google.dagger:hilt-android-compiler:${DependencyVersions.daggerHilt}"
     }
 
     object AndroidLifecycle {
@@ -63,8 +65,14 @@ sealed class Dependencies {
     }
 
     object Network {
-        const val apolloRuntime = "com.apollographql.apollo:apollo-runtime:${DependencyVersions.apolloVersion}"
-        const val apolloCoroutines = "com.apollographql.apollo:apollo-coroutines-support:${DependencyVersions.apolloVersion}"
+        const val apolloRuntime =
+            "com.apollographql.apollo:apollo-runtime:${DependencyVersions.apolloVersion}"
+        const val apolloCoroutines =
+            "com.apollographql.apollo:apollo-coroutines-support:${DependencyVersions.apolloVersion}"
+    }
+
+    object Log {
+        const val timber = "com.jakewharton.timber:timber:${DependencyVersions.timber}"
     }
 }
 
@@ -79,6 +87,8 @@ object ModulePlugins {
 
 object GradlePlugins {
     const val buildGradle = "com.android.tools.build:gradle:${DependencyVersions.buildGradle}"
-    const val kotlinGradlePlugin = "org.jetbrains.kotlin:kotlin-gradle-plugin:${DependencyVersions.kotlinGradlePlugin}"
-    const val hiltGradlePlugin = "com.google.dagger:hilt-android-gradle-plugin:${DependencyVersions.daggerHilt}"
+    const val kotlinGradlePlugin =
+        "org.jetbrains.kotlin:kotlin-gradle-plugin:${DependencyVersions.kotlinGradlePlugin}"
+    const val hiltGradlePlugin =
+        "com.google.dagger:hilt-android-gradle-plugin:${DependencyVersions.daggerHilt}"
 }
