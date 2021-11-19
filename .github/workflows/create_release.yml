@@ -2,7 +2,7 @@ name: Release
 
 on:
   # Triggers the workflow on pull request events to the main branch
-  pull_request:
+  push:
     branches: [ main ]
 
 jobs:
