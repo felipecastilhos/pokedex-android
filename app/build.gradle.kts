@@ -71,7 +71,7 @@ dependencies {
     jetpackComposeLibraries()
 
     // Add dependency injection dependencies
-    daggerHiltLibraries()
+    hiltLibraries()
 
     // Add networking libraries
     apolloClientLibraries()

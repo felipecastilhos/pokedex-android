@@ -12,6 +12,7 @@ object DependencyVersions {
     const val androidxComposeJunit = "1.0.5"
     const val kotlinCompilerExtension = "1.0.1"
     const val daggerHilt = "2.37"
+    const val jetpackHilt = "1.0.0-alpha01"
 
     const val buildGradle = "7.0.3"
     const val kotlinGradlePlugin = "1.5.21"
@@ -29,6 +30,8 @@ sealed class Dependencies {
         const val daggerHilt = "com.google.dagger:hilt-android:${DependencyVersions.daggerHilt}"
         const val daggerHiltCompiler =
             "com.google.dagger:hilt-android-compiler:${DependencyVersions.daggerHilt}"
+        const val jetpackHiltLifecycleViewModel = "androidx.hilt:hilt-lifecycle-viewmodel:${DependencyVersions.jetpackHilt}"
+        const val jetpackHiltCompiler = "androidx.hilt:hilt-compiler:${DependencyVersions.jetpackHilt}"
     }
 
     object AndroidLifecycle {

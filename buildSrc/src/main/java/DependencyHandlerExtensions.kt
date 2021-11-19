@@ -43,11 +43,13 @@ fun DependencyHandlerScope.jetpackAndroidLifecycleLibraries() {
 }
 
 /**
- * Add Dagger-Hilt dependencies for dependency injection
+ * Add hilt dependencies for dependency injection
  */
-fun DependencyHandlerScope.daggerHiltLibraries() {
+fun DependencyHandlerScope.hiltLibraries() {
     implementation(Dependencies.DependencyInjection.daggerHilt)
     kapt(Dependencies.DependencyInjection.daggerHiltCompiler)
+    implementation(Dependencies.DependencyInjection.jetpackHiltLifecycleViewModel)
+    kapt(Dependencies.DependencyInjection.jetpackHiltCompiler)
 }
 
 /**

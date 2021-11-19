@@ -3,6 +3,7 @@ package com.github.felipecastilhos.pokedexandroid
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.activity.viewModels
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
@@ -10,19 +11,23 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
 import com.github.felipecastilhos.pokedexandroid.logs.LogHandler
 import com.github.felipecastilhos.pokedexandroid.ui.theme.PokedexandroidTheme
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
-    private val pokedexHomeViewModel = PokedexHomeViewModel(PokemonUseCase())
+    private val pokedexHomeViewModel: PokedexHomeViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
+        pokedexHomeViewModel
         CoroutineScope(Dispatchers.IO).launch {
             val e = pokedexHomeViewModel.searchPokemon()
-            LogHandler.d("This is a Dragonite. Pokemon Nbr.: ${e?.getPokemon?.num}")
+            e?.let {
+                LogHandler.d("This is a Dragonite. Pokemon Nbr.: ${e.getPokemon.num}")
+            }
         }
 
         setContent {
