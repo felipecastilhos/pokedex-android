@@ -6,6 +6,8 @@
 
 **An android application architecture exploration in compose**
 
+If this project helps you in anyway, show your love :heart: by putting a :star: on this project
+
 ![Project License](https://img.shields.io/github/license/felipecastilhos/pokedex-android)
 ![WCAG WAI](https://img.shields.io/badge/WCAG_WAI-A-orange)
 ![Code Style](https://img.shields.io/badge/code%20style-%E2%9D%A4-FF4081.svg)
