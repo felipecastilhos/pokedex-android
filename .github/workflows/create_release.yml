@@ -1,0 +1,31 @@
+name: Release
+
+on:
+  # Triggers the workflow on pull request events to the main branch
+  pull_request:
+    branches: [ main ]
+
+jobs:
+
+  release:
+    name: Create Release
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set release name
+        run: echo "release_name=v$(cat buildSrc/src/main/java/BuildConfigVersions.kt | grep versionName | awk '{print substr($5, 2, length($5)-2) }')" >> $GITHUB_ENV
+
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ env.release_name }}
+
+          release_name: ${{ env.release_name }}
+          draft: false
+          prerelease: false

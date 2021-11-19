@@ -1,8 +1,7 @@
-# Controls when the workflow will run
 name: Validate PR
 
 on:
-  # Triggers the workflow on pull request events to the develop branch
+  # Triggers the workflow on pull request events to the main branch
   pull_request:
     branches: [ main ]
 
