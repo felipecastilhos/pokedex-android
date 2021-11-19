@@ -16,7 +16,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Set release name
-        run: echo ::set-env name=RELEASE_NAME::$(echo ${GITHUB_REF:11})
+        run: echo v$(cat buildSrc/src/main/java/BuildConfigVersions.kt | grep versionName | awk '{print substr($5, 2, length($5)-2) }') >> $RELEASE_NAME
 
       - name: Create Release
         id: create_release
@@ -24,8 +24,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: |
-            echo v$(cat buildSrc/src/main/java/BuildConfigVersions.kt | grep versionName | awk '{print substr($5, 2, length($5)-2) }')
-          release_name: echo v$(cat buildSrc/src/main/java/BuildConfigVersions.kt | grep versionName | awk '{print substr($5, 2, length($5)-2) }')
+          tag_name: ${{ $RELEASE_NAME }}
+
+          release_name: ${{ $RELEASE_NAME }}
           draft: false
           prerelease: false
