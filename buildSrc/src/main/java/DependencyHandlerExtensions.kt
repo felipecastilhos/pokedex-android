@@ -58,6 +58,11 @@ fun DependencyHandlerScope.apolloClientLibraries() {
     implementation(Dependencies.Network.apolloCoroutines)
 }
 
+fun DependencyHandlerScope.okHttpLibraries() {
+    implementation(Dependencies.Network.okHttpLoggingInterceptor)
+    implementation("com.squareup.okhttp3:logging-interceptor:4.9.2")
+}
+
 /**
  * Add log dependencies.
  */

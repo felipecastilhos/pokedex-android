@@ -1,0 +1,26 @@
+query GetPokemon{
+    getPokemon(pokemon: dragonite reverseFlavorTexts: true takeFlavorTexts: 1) {
+        num
+        species
+        types
+        abilities { first second hidden }
+        baseStats { hp attack defense specialattack specialdefense speed }
+        gender { male female }
+        height
+        weight
+        flavorTexts { game flavor }
+        evYields { hp attack defense specialattack specialdefense speed }
+        isEggObtainable
+        minimumHatchTime
+        maximumHatchTime
+        levellingRate
+        sprite
+        shinySprite
+        backSprite
+        shinyBackSprite
+        smogonTier
+        smogonPage
+        serebiiPage
+        bulbapediaPage
+    }
+}

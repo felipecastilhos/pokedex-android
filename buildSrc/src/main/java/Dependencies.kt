@@ -16,6 +16,7 @@ object DependencyVersions {
     const val buildGradle = "7.0.3"
     const val kotlinGradlePlugin = "1.5.21"
     const val apolloVersion = "2.5.11"
+    const val okHttpVersion = "4.9.2"
     const val timber = "5.0.1"
 }
 
@@ -69,6 +70,8 @@ sealed class Dependencies {
             "com.apollographql.apollo:apollo-runtime:${DependencyVersions.apolloVersion}"
         const val apolloCoroutines =
             "com.apollographql.apollo:apollo-coroutines-support:${DependencyVersions.apolloVersion}"
+        const val okHttpLoggingInterceptor =
+            "com.squareup.okhttp3:logging-interceptor:${DependencyVersions.okHttpVersion}"
     }
 
     object Log {
