@@ -66,9 +66,12 @@ sealed class Dependencies {
     }
 
     object Network {
-        const val apolloRuntime = "com.apollographql.apollo:apollo-runtime:${DependencyVersions.apolloVersion}"
-        const val apolloCoroutines = "com.apollographql.apollo:apollo-coroutines-support:${DependencyVersions.apolloVersion}"
-        const val okHttpLoggingInterceptor = "com.squareup.okhttp3:logging-interceptor:${DependencyVersions.okHttpVersion}"
+        const val apolloRuntime =
+            "com.apollographql.apollo:apollo-runtime:${DependencyVersions.apolloVersion}"
+        const val apolloCoroutines =
+            "com.apollographql.apollo:apollo-coroutines-support:${DependencyVersions.apolloVersion}"
+        const val okHttpLoggingInterceptor =
+            "com.squareup.okhttp3:logging-interceptor:${DependencyVersions.okHttpVersion}"
     }
 
     object Log {
