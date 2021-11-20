@@ -8,13 +8,13 @@ import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.tooling.preview.Preview
+import com.github.felipecastilhos.pokedexandroid.features.home.PokedexHomeViewModel
 import com.github.felipecastilhos.pokedexandroid.logs.LogHandler
 import com.github.felipecastilhos.pokedexandroid.ui.theme.PokedexandroidTheme
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
@@ -23,14 +23,12 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         pokedexHomeViewModel
-        CoroutineScope(Dispatchers.IO).launch {
-            val e = pokedexHomeViewModel.searchPokemon()
-            e?.let {
-                LogHandler.d("This is a Dragonite. Pokemon Nbr.: ${e.getPokemon.num}")
-            }
-        }
-
         setContent {
+            val e by pokedexHomeViewModel.stateFlow.collectAsState()
+            e?.let {
+                LogHandler.d("This is a Dragonite. Pokemon Nbr.: ${it.getPokemon.num}")
+            }
+
             PokedexandroidTheme {
                 // A surface container using the 'background' color from the theme
                 Surface(color = MaterialTheme.colors.background) {
