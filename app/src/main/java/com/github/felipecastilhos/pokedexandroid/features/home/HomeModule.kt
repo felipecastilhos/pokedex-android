@@ -1,4 +1,4 @@
-package com.github.felipecastilhos.pokedexandroid
+package com.github.felipecastilhos.pokedexandroid.features.home
 
 import com.apollographql.apollo.ApolloClient
 import dagger.Module
@@ -13,11 +13,11 @@ import dagger.hilt.components.SingletonComponent
 @InstallIn(SingletonComponent::class)
 class HomeModule {
     /**
-     * Provides the [PokemonUseCase] component
+     * Provides the [PokemonRepository] component
      * @param apolloClient to performs the query into pokemon-graphql api
      */
     @Provides
-    fun providesPokemonUseCase(apolloClient: ApolloClient?): PokemonUseCase {
-        return PokemonUseCase(apolloClient)
+    fun providesPokemonUseCase(apolloClient: ApolloClient?): PokemonRepository {
+        return PokemonRepository(apolloClient)
     }
 }
