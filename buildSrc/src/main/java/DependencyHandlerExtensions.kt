@@ -3,8 +3,8 @@ import org.gradle.kotlin.dsl.DependencyHandlerScope
 /**
  * Add AndroidX dependencies
  */
-fun DependencyHandlerScope.jetpackUtilLibraries() {
-    implementation(Dependencies.Core.androidxCore)
+fun DependencyHandlerScope.jetpackCoreLibraries() {
+    implementation(Dependencies.JetpackCompose.androidxCore)
 }
 
 /**
@@ -79,6 +79,10 @@ fun DependencyHandlerScope.unitTestsLibraries() {
     testImplementation(Dependencies.Tests.jUnit)
 }
 
+fun DependencyHandlerScope.mockLibraries() {
+    testImplementation(Dependencies.Tests.mockk)
+}
+
 /**
  * Add unit tests dependencies.
  */
@@ -88,22 +92,37 @@ fun DependencyHandlerScope.instrumentationTestsLibraries() {
     androidTestImplementation(Dependencies.Tests.composejUnit)
 }
 
+/**
+ * Extension add library operator in Kotlin Gradle SDL
+ */
 fun DependencyHandlerScope.implementation(dependencyNotation: String) {
     "implementation"(dependencyNotation)
 }
 
+/**
+ * Extension to add library for instrumented tests only in Kotlin Gradle SDL
+ */
 fun DependencyHandlerScope.testImplementation(dependencyNotation: String) {
     "testImplementation"(dependencyNotation)
 }
 
+/**
+ * Extension to add library for testing only in Kotlin Gradle SDL
+ */
 fun DependencyHandlerScope.androidTestImplementation(dependencyNotation: String) {
     "androidTestImplementation"(dependencyNotation)
 }
 
+/**
+ * Extension to add library to the build in Kotlin Gradle SDL
+ */
 fun DependencyHandlerScope.kapt(dependencyNotation: String) {
     "kapt"(dependencyNotation)
 }
 
+/**
+ * Extension to call debugImplementation operator in Kotlin Gradle SDL
+ */
 fun DependencyHandlerScope.debugImplementation(dependencyNotation: String) {
     "debugImplementation"(dependencyNotation)
 }
