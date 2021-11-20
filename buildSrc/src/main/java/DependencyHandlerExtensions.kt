@@ -46,9 +46,9 @@ fun DependencyHandlerScope.jetpackAndroidLifecycleLibraries() {
  * Add hilt dependencies for dependency injection
  */
 fun DependencyHandlerScope.hiltLibraries() {
-    implementation(Dependencies.DependencyInjection.daggerHilt)
+    api(Dependencies.DependencyInjection.daggerHilt)
     kapt(Dependencies.DependencyInjection.daggerHiltCompiler)
-    implementation(Dependencies.DependencyInjection.jetpackHiltLifecycleViewModel)
+    api(Dependencies.DependencyInjection.jetpackHiltLifecycleViewModel)
     kapt(Dependencies.DependencyInjection.jetpackHiltCompiler)
 }
 
@@ -56,12 +56,12 @@ fun DependencyHandlerScope.hiltLibraries() {
  * Add Apollo Android client dependencies to manage both local and remote data with GraphQL.
  */
 fun DependencyHandlerScope.apolloClientLibraries() {
-    implementation(Dependencies.Network.apolloRuntime)
-    implementation(Dependencies.Network.apolloCoroutines)
+    api(Dependencies.Network.apolloRuntime)
+    api(Dependencies.Network.apolloCoroutines)
 }
 
 fun DependencyHandlerScope.okHttpLibraries() {
-    implementation(Dependencies.Network.okHttpLoggingInterceptor)
+    api(Dependencies.Network.okHttpLoggingInterceptor)
     implementation("com.squareup.okhttp3:logging-interceptor:4.9.2")
 }
 
@@ -97,6 +97,13 @@ fun DependencyHandlerScope.instrumentationTestsLibraries() {
  */
 fun DependencyHandlerScope.implementation(dependencyNotation: String) {
     "implementation"(dependencyNotation)
+}
+
+/**
+ * Extension to share library operator in Kotlin Gradle SDL
+ */
+fun DependencyHandlerScope.api(dependencyNotation: String) {
+    "api"(dependencyNotation)
 }
 
 /**

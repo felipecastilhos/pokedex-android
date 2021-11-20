@@ -1,4 +1,4 @@
-package com.github.felipecastilhos.pokedexandroid.ui.theme
+package com.github.felipecastilhos.pokedexandroid.commun.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
