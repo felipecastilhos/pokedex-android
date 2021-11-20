@@ -83,4 +83,5 @@ dependencies {
     // Add Tests
     unitTestsLibraries()
     instrumentationTestsLibraries()
+    mockLibraries()
 }
