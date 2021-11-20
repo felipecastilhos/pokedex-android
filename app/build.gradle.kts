@@ -62,7 +62,7 @@ android {
 
 dependencies {
     // Common libraries
-    jetpackUtilLibraries()
+    jetpackCoreLibraries()
     jetpackKotlinExtensionsLibraries()
     jetpackAndroidLifecycleLibraries()
 
