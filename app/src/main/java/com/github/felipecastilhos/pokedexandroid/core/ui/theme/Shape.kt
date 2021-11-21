@@ -1,4 +1,4 @@
-package com.github.felipecastilhos.pokedexandroid.commun.ui.theme
+package com.github.felipecastilhos.pokedexandroid.core.ui.theme
 
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Shapes

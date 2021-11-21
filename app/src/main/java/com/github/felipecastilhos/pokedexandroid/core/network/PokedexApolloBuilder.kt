@@ -1,4 +1,4 @@
-package com.github.felipecastilhos.pokedexandroid.commun.network
+package com.github.felipecastilhos.pokedexandroid.core.network
 
 import com.apollographql.apollo.ApolloClient
 import okhttp3.OkHttpClient

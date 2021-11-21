@@ -1,4 +1,4 @@
-package com.github.felipecastilhos.pokedexandroid.datasource.remote
+package com.github.felipecastilhos.pokedexandroid.core.datasource.remote
 
 /**
  * Configurations of enviroments of the data sources

@@ -1,6 +1,6 @@
-package com.github.felipecastilhos.pokedexandroid.commun.network
+package com.github.felipecastilhos.pokedexandroid.core.network
 
-import com.github.felipecastilhos.pokedexandroid.commun.logs.LogHandler
+import com.github.felipecastilhos.pokedexandroid.core.logs.LogHandler
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 

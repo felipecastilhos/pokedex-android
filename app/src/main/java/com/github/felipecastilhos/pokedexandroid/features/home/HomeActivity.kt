@@ -11,7 +11,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.tooling.preview.Preview
-import com.github.felipecastilhos.pokedexandroid.commun.ui.theme.PokedexandroidTheme
+import com.github.felipecastilhos.pokedexandroid.core.ui.theme.PokedexandroidTheme
 import com.github.felipecastilhos.pokedexandroid.features.home.domain.viewmodel.PokedexHomeViewModel
 import dagger.hilt.android.AndroidEntryPoint
 

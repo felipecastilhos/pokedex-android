@@ -1,4 +1,4 @@
-package com.github.felipecastilhos.pokedexandroid.datasource.remote
+package com.github.felipecastilhos.pokedexandroid.core.datasource.remote
 
 import com.apollographql.apollo.api.Error
 

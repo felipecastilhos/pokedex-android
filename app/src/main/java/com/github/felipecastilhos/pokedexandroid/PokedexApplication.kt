@@ -1,7 +1,7 @@
 package com.github.felipecastilhos.pokedexandroid
 
 import android.app.Application
-import com.github.felipecastilhos.pokedexandroid.commun.logs.LogHandler
+import com.github.felipecastilhos.pokedexandroid.core.logs.LogHandler
 import dagger.hilt.android.HiltAndroidApp
 
 /**

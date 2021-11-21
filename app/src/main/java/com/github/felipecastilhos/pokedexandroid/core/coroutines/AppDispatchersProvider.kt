@@ -1,4 +1,4 @@
-package com.github.felipecastilhos.pokedexandroid.commun.coroutines
+package com.github.felipecastilhos.pokedexandroid.core.coroutines
 
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers

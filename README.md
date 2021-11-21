@@ -23,6 +23,26 @@ This app is based on the [Guide to app architecture](https://developer.android.c
 
 You can check my short term backlog in my Github Projects [here](https://github.com/felipecastilhos/pokedex-android/projects/1)
 
+## Project structure
+```
+project
+    | buildSrc //Project gradle dependencies configurations - Ex.: versions and libs - and gradle dsl extensions
+        | datasource //Feature remote and local data source
+        | di //feature independency injection modules
+        | domain //feature business classes
+            | repository //data access abstractions
+            | usecase //Business rules abstractions
+            | viewmodel //state of the ui data
+    | app //Main application module
+        | features //project features
+        | core //architecture and utility classes
+            | coroutines //abstraction classes, helper classes and extensions to work with coroutines
+            | datasource //abstraction classes, helper classes and extensions to work with datasources
+            | di //architectural dependency injection modules and utility classes
+            | logs //helper classes and extensions to work with logs
+```
+
+
 Libraries Used
 ---------------
 * [ViewModel](https://developer.android.com/topic/libraries/architecture/viewmodel) - store and manage UI-related data in a lifecycle conscious way

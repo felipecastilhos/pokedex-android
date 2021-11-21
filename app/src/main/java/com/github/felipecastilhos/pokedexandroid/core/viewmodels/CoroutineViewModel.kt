@@ -1,9 +1,9 @@
-package com.github.felipecastilhos.pokedexandroid.domain.viewmodels
+package com.github.felipecastilhos.pokedexandroid.core.viewmodels
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.github.felipecastilhos.pokedexandroid.commun.coroutines.DispatcherProvider
-import com.github.felipecastilhos.pokedexandroid.commun.coroutines.ScopedContextDispatcher
+import com.github.felipecastilhos.pokedexandroid.core.coroutines.DispatcherProvider
+import com.github.felipecastilhos.pokedexandroid.core.coroutines.ScopedContextDispatcher
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.CoroutineStart
 import kotlinx.coroutines.launch
