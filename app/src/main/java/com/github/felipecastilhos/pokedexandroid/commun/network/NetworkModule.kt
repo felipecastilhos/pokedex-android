@@ -1,14 +1,12 @@
-package com.github.felipecastilhos.pokedexandroid.network
+package com.github.felipecastilhos.pokedexandroid.commun.network
 
 import com.apollographql.apollo.ApolloClient
-import com.github.felipecastilhos.pokedexandroid.Enviroment
-import com.github.felipecastilhos.pokedexandroid.PokedexApolloClient
+import com.github.felipecastilhos.pokedexandroid.datasource.remote.Enviroment
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import okhttp3.OkHttpClient
-import okhttp3.logging.HttpLoggingInterceptor
 import javax.inject.Singleton
 
 /**
@@ -28,9 +26,7 @@ class NetworkModule {
      */
     @Provides
     @Singleton
-    fun provideOkHttpClient(): OkHttpClient = OkHttpClient.Builder()
-        .addInterceptor(PokedexApolloClient.buildLogInterceptor(HttpLoggingInterceptor.Level.BODY))
-        .build()
+    fun provideOkHttpClient(): OkHttpClient = PokedexOkHttpBuilder.buildOkHttp()
 
     /**
      * Provides an ApolloClient setup
@@ -40,8 +36,5 @@ class NetworkModule {
     @Provides
     @Singleton
     fun provideApolloClient(okHttpClient: OkHttpClient, apiUrl: String): ApolloClient =
-        ApolloClient.builder()
-            .serverUrl(apiUrl)
-            .okHttpClient(okHttpClient)
-            .build()
+        PokedexApolloBuilder.buildApollo(okHttpClient = okHttpClient, apiUrl = apiUrl)
 }

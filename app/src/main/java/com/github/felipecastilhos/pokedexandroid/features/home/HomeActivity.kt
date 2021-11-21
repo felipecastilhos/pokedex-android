@@ -1,4 +1,4 @@
-package com.github.felipecastilhos.pokedexandroid
+package com.github.felipecastilhos.pokedexandroid.features.home
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -11,13 +11,12 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.tooling.preview.Preview
-import com.github.felipecastilhos.pokedexandroid.features.home.PokedexHomeViewModel
-import com.github.felipecastilhos.pokedexandroid.logs.LogHandler
-import com.github.felipecastilhos.pokedexandroid.ui.theme.PokedexandroidTheme
+import com.github.felipecastilhos.pokedexandroid.commun.ui.theme.PokedexandroidTheme
+import com.github.felipecastilhos.pokedexandroid.features.home.domain.viewmodel.PokedexHomeViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class MainActivity : ComponentActivity() {
+class HomeActivity : ComponentActivity() {
     private val pokedexHomeViewModel: PokedexHomeViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -25,18 +24,22 @@ class MainActivity : ComponentActivity() {
         pokedexHomeViewModel
         setContent {
             val e by pokedexHomeViewModel.stateFlow.collectAsState()
-            e?.let {
-                LogHandler.d("This is a Dragonite. Pokemon Nbr.: ${it.getPokemon.num}")
-            }
-
             PokedexandroidTheme {
                 // A surface container using the 'background' color from the theme
                 Surface(color = MaterialTheme.colors.background) {
-                    Greeting("Android")
+                    SearchPokemonResult(pokemonName = "Dragonite", pokemonNumber = e?.num)
                 }
             }
         }
     }
+}
+
+@Composable
+fun SearchPokemonResult(
+    pokemonName: String,
+    pokemonNumber: Int?
+) {
+    Text(text = "This is a $pokemonName. Pokemon Nbr.: ${pokemonNumber ?: "not found"}")
 }
 
 @Composable

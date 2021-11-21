@@ -40,6 +40,7 @@ Libraries Used
 * [Espresso](https://developer.android.com/training/testing/espresso/) - UI test
 * [Junit](https://junit.org/junit4/) - unit tests
 * [Truth](https://github.com/google/truth) - Makes your test assertions and failure messages more readable
+* [Mockk](https://mockk.io/) - Mocking library for kotlin
 * [Detekt](https://github.com/detekt/detekt) - a static code analysis tool for the Kotlin programming language
 * [KTLint](https://github.com/pinterest/ktlint) - Kotlin linter in spirit of feross/standard (JavaScript) and gofmt (Go).
 * [Gradle Kotlin Plugin](https://kotlinlang.org/docs/gradle.html) - Gradle scripts in Kotlin

@@ -3,8 +3,8 @@ import org.gradle.kotlin.dsl.DependencyHandlerScope
 /**
  * Add AndroidX dependencies
  */
-fun DependencyHandlerScope.jetpackUtilLibraries() {
-    implementation(Dependencies.Core.androidxCore)
+fun DependencyHandlerScope.jetpackCoreLibraries() {
+    implementation(Dependencies.JetpackCompose.androidxCore)
 }
 
 /**
@@ -46,9 +46,9 @@ fun DependencyHandlerScope.jetpackAndroidLifecycleLibraries() {
  * Add hilt dependencies for dependency injection
  */
 fun DependencyHandlerScope.hiltLibraries() {
-    implementation(Dependencies.DependencyInjection.daggerHilt)
+    api(Dependencies.DependencyInjection.daggerHilt)
     kapt(Dependencies.DependencyInjection.daggerHiltCompiler)
-    implementation(Dependencies.DependencyInjection.jetpackHiltLifecycleViewModel)
+    api(Dependencies.DependencyInjection.jetpackHiltLifecycleViewModel)
     kapt(Dependencies.DependencyInjection.jetpackHiltCompiler)
 }
 
@@ -56,12 +56,12 @@ fun DependencyHandlerScope.hiltLibraries() {
  * Add Apollo Android client dependencies to manage both local and remote data with GraphQL.
  */
 fun DependencyHandlerScope.apolloClientLibraries() {
-    implementation(Dependencies.Network.apolloRuntime)
-    implementation(Dependencies.Network.apolloCoroutines)
+    api(Dependencies.Network.apolloRuntime)
+    api(Dependencies.Network.apolloCoroutines)
 }
 
 fun DependencyHandlerScope.okHttpLibraries() {
-    implementation(Dependencies.Network.okHttpLoggingInterceptor)
+    api(Dependencies.Network.okHttpLoggingInterceptor)
     implementation("com.squareup.okhttp3:logging-interceptor:4.9.2")
 }
 
@@ -79,6 +79,10 @@ fun DependencyHandlerScope.unitTestsLibraries() {
     testImplementation(Dependencies.Tests.jUnit)
 }
 
+fun DependencyHandlerScope.mockLibraries() {
+    testImplementation(Dependencies.Tests.mockk)
+}
+
 /**
  * Add unit tests dependencies.
  */
@@ -88,22 +92,44 @@ fun DependencyHandlerScope.instrumentationTestsLibraries() {
     androidTestImplementation(Dependencies.Tests.composejUnit)
 }
 
+/**
+ * Extension add library operator in Kotlin Gradle SDL
+ */
 fun DependencyHandlerScope.implementation(dependencyNotation: String) {
     "implementation"(dependencyNotation)
 }
 
+/**
+ * Extension to share library operator in Kotlin Gradle SDL
+ */
+fun DependencyHandlerScope.api(dependencyNotation: String) {
+    "api"(dependencyNotation)
+}
+
+/**
+ * Extension to add library for instrumented tests only in Kotlin Gradle SDL
+ */
 fun DependencyHandlerScope.testImplementation(dependencyNotation: String) {
     "testImplementation"(dependencyNotation)
 }
 
+/**
+ * Extension to add library for testing only in Kotlin Gradle SDL
+ */
 fun DependencyHandlerScope.androidTestImplementation(dependencyNotation: String) {
     "androidTestImplementation"(dependencyNotation)
 }
 
+/**
+ * Extension to add library to the build in Kotlin Gradle SDL
+ */
 fun DependencyHandlerScope.kapt(dependencyNotation: String) {
     "kapt"(dependencyNotation)
 }
 
+/**
+ * Extension to call debugImplementation operator in Kotlin Gradle SDL
+ */
 fun DependencyHandlerScope.debugImplementation(dependencyNotation: String) {
     "debugImplementation"(dependencyNotation)
 }

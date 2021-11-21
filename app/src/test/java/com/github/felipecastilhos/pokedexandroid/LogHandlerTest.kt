@@ -1,6 +1,6 @@
 package com.github.felipecastilhos.pokedexandroid
 
-import com.github.felipecastilhos.pokedexandroid.logs.LogHandler
+import com.github.felipecastilhos.pokedexandroid.commun.logs.LogHandler
 import org.junit.Assert
 import org.junit.Test
 import timber.log.Timber

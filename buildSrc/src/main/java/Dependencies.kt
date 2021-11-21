@@ -1,7 +1,9 @@
+/**
+ * All dependency versions used
+ */
 object DependencyVersions {
     const val androidxCore = "1.7.0"
     const val androidxAppCompat = "1.3.1"
-
     const val composeVersion = "1.0.5"
     const val androidxLifecycle = "2.4.0"
     const val androidMaterial = "1.4.0"
@@ -13,19 +15,18 @@ object DependencyVersions {
     const val kotlinCompilerExtension = "1.0.1"
     const val daggerHilt = "2.37"
     const val jetpackHilt = "1.0.0-alpha01"
-
     const val buildGradle = "7.0.3"
     const val kotlinGradlePlugin = "1.5.21"
     const val apolloVersion = "2.5.11"
     const val okHttpVersion = "4.9.2"
     const val timber = "5.0.1"
+    const val mockk = "1.12.1"
 }
 
+/**
+ * List of dependencies added in the project by context
+ */
 sealed class Dependencies {
-    object Core {
-        const val androidxCore = "androidx.core:core-ktx:${DependencyVersions.androidxCore}"
-    }
-
     object DependencyInjection {
         const val daggerHilt = "com.google.dagger:hilt-android:${DependencyVersions.daggerHilt}"
         const val daggerHiltCompiler =
@@ -48,6 +49,7 @@ sealed class Dependencies {
     }
 
     object JetpackCompose {
+        const val androidxCore = "androidx.core:core-ktx:${DependencyVersions.androidxCore}"
         const val ui = "androidx.compose.ui:ui:${DependencyVersions.composeVersion}"
         const val material =
             "androidx.compose.material:material:${DependencyVersions.composeVersion}"
@@ -66,6 +68,7 @@ sealed class Dependencies {
             "androidx.test.espresso:espresso-core:${DependencyVersions.androidxEspresso}"
         const val composejUnit =
             "androidx.compose.ui:ui-test-junit4:${DependencyVersions.androidxComposeJunit}"
+        const val mockk: String = "io.mockk:mockk:${DependencyVersions.mockk}"
     }
 
     object Network {
