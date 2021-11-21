@@ -32,7 +32,9 @@ class HomeModule {
      * @param homeRemoteGraphQlDataSourceExecutor logic how home pokedex repository fetch its pokemon's data
      */
     @Provides
-    fun providesPokemonRepository(homeRemoteGraphQlDataSourceExecutor: HomeRemoteGraphQlDataSourceExecutor): PokemonRepository {
+    fun providesPokemonRepository(
+        homeRemoteGraphQlDataSourceExecutor: HomeRemoteGraphQlDataSourceExecutor
+    ): PokemonRepository {
         return PokemonRemoteDataRepositoryExecutor(homeRemoteGraphQlDataSourceExecutor)
     }
 

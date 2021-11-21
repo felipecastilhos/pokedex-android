@@ -13,7 +13,6 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.tooling.preview.Preview
 import com.github.felipecastilhos.pokedexandroid.GetPokemonQuery
 import com.github.felipecastilhos.pokedexandroid.core.datasource.Resource
-import com.github.felipecastilhos.pokedexandroid.core.datasource.onError
 import com.github.felipecastilhos.pokedexandroid.core.ui.theme.PokedexandroidTheme
 import com.github.felipecastilhos.pokedexandroid.features.home.domain.models.Pokemon
 import com.github.felipecastilhos.pokedexandroid.features.home.domain.viewmodel.PokedexHomeViewModel
