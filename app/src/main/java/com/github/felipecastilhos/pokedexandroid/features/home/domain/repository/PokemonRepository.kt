@@ -1,9 +1,9 @@
 package com.github.felipecastilhos.pokedexandroid.features.home.domain.repository
 
 import com.github.felipecastilhos.pokedexandroid.GetPokemonQuery
-import com.github.felipecastilhos.pokedexandroid.features.home.datasource.HomeRemoteDataSource
+import com.github.felipecastilhos.pokedexandroid.core.datasource.Resource
+import com.github.felipecastilhos.pokedexandroid.features.home.data.datasource.HomeRemoteDataSource
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.flow
 import javax.inject.Inject
 
 /**
@@ -13,7 +13,7 @@ interface PokemonRepository {
     /**
      * Query for all data of a single pokemon
      */
-    suspend fun search(): Flow<GetPokemonQuery.GetPokemon?>
+    suspend fun search(): Flow<Resource<GetPokemonQuery.GetPokemon?>>
 }
 
 /**
@@ -27,7 +27,6 @@ class PokemonRemoteDataRepositoryImpl @Inject constructor(
     /**
      * Query for all data of a single pokemon
      */
-    override suspend fun search(): Flow<GetPokemonQuery.GetPokemon?> = flow {
-        emit(homeRemoteDataSource.search()?.getPokemon)
-    }
+    override suspend fun search(): Flow<Resource<GetPokemonQuery.GetPokemon?>> =
+        homeRemoteDataSource.search()
 }
