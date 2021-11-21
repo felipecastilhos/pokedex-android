@@ -1,18 +1,14 @@
 package com.github.felipecastilhos.pokedexandroid.features.home.domain.viewmodel
 
 import androidx.lifecycle.viewModelScope
-import com.github.felipecastilhos.pokedexandroid.GetPokemonQuery
 import com.github.felipecastilhos.pokedexandroid.core.coroutines.DispatcherProvider
 import com.github.felipecastilhos.pokedexandroid.core.datasource.Resource
 import com.github.felipecastilhos.pokedexandroid.core.logs.LogHandler
 import com.github.felipecastilhos.pokedexandroid.core.viewmodels.CoroutineViewModel
+import com.github.felipecastilhos.pokedexandroid.features.home.domain.models.Pokemon
 import com.github.felipecastilhos.pokedexandroid.features.home.domain.usecase.PokemonUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.flow.asStateFlow
-import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -27,19 +23,19 @@ class PokedexHomeViewModel @Inject constructor(
     dispatcherProvider: DispatcherProvider
 ) :
     CoroutineViewModel(dispatcherProvider) {
-    protected val _stateFlow: MutableStateFlow<Resource<GetPokemonQuery.GetPokemon?>> by lazy {
-        MutableStateFlow<Resource<GetPokemonQuery.GetPokemon?>>(Resource.Loading).apply {
+    protected val _stateFlow: MutableStateFlow<Resource<Pokemon?>> by lazy {
+        MutableStateFlow<Resource<Pokemon?>>(Resource.Loading).apply {
             launchInIoScope {
                 searchPokemon()
             }
         }
     }
-    val stateFlow: StateFlow<Resource<GetPokemonQuery.GetPokemon?>> by lazy { _stateFlow.asStateFlow() }
+    val stateFlow: StateFlow<Resource<Pokemon?>> by lazy { _stateFlow.asStateFlow() }
 
     /**
      * Query pokemon data
      */
-    suspend fun searchPokemon(): Flow<Resource<GetPokemonQuery.GetPokemon?>> {
+    suspend fun searchPokemon(): Flow<Resource<Pokemon?>> {
         viewModelScope.launch {
             LogHandler.d("Searching Dragonite")
             pokemonUseCase.search().collect {

@@ -15,6 +15,7 @@ import com.github.felipecastilhos.pokedexandroid.GetPokemonQuery
 import com.github.felipecastilhos.pokedexandroid.core.datasource.Resource
 import com.github.felipecastilhos.pokedexandroid.core.datasource.onError
 import com.github.felipecastilhos.pokedexandroid.core.ui.theme.PokedexandroidTheme
+import com.github.felipecastilhos.pokedexandroid.features.home.domain.models.Pokemon
 import com.github.felipecastilhos.pokedexandroid.features.home.domain.viewmodel.PokedexHomeViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -40,7 +41,7 @@ class HomeActivity : ComponentActivity() {
                         is Resource.Success -> {
                             SearchPokemonResult(
                                 pokemonName = "Dragonite",
-                                pokemonNumber = (e as Resource.Success<GetPokemonQuery.GetPokemon?>).data?.num
+                                pokemonNumber = (e as Resource.Success<Pokemon?>).data?.pokedexNumber
                             )
                         }
                     }
