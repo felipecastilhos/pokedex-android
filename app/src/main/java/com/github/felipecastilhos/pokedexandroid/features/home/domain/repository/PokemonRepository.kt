@@ -20,7 +20,7 @@ interface PokemonRepository {
  * Remote pokemon data repository
  * @param homeRemoteDataSource for query pokemon data
  */
-class PokemonRemoteDataRepositoryImpl @Inject constructor(
+class PokemonRemoteDataRepositoryExecutor @Inject constructor(
     private val homeRemoteDataSource: HomeRemoteDataSource
 ) :
     PokemonRepository {

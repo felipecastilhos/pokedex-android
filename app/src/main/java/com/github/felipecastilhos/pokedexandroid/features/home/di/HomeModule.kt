@@ -3,7 +3,7 @@ package com.github.felipecastilhos.pokedexandroid.features.home.di
 import com.apollographql.apollo.ApolloClient
 import com.github.felipecastilhos.pokedexandroid.features.home.data.datasource.HomeRemoteDataSource
 import com.github.felipecastilhos.pokedexandroid.features.home.data.datasource.HomeRemoteGraphQlDataSourceExecutor
-import com.github.felipecastilhos.pokedexandroid.features.home.domain.repository.PokemonRemoteDataRepositoryImpl
+import com.github.felipecastilhos.pokedexandroid.features.home.domain.repository.PokemonRemoteDataRepositoryExecutor
 import com.github.felipecastilhos.pokedexandroid.features.home.domain.repository.PokemonRepository
 import com.github.felipecastilhos.pokedexandroid.features.home.domain.usecase.PokemonUseCase
 import dagger.Module
@@ -33,7 +33,7 @@ class HomeModule {
      */
     @Provides
     fun providesPokemonRepository(homeRemoteGraphQlDataSourceExecutor: HomeRemoteGraphQlDataSourceExecutor): PokemonRepository {
-        return PokemonRemoteDataRepositoryImpl(homeRemoteGraphQlDataSourceExecutor)
+        return PokemonRemoteDataRepositoryExecutor(homeRemoteGraphQlDataSourceExecutor)
     }
 
     /**
@@ -41,7 +41,7 @@ class HomeModule {
      * @param pokemonRemoteDataRepository contains all pokemon related data
      */
     @Provides
-    fun providesPokemonUseCase(pokemonRemoteDataRepository: PokemonRemoteDataRepositoryImpl): PokemonUseCase {
+    fun providesPokemonUseCase(pokemonRemoteDataRepository: PokemonRemoteDataRepositoryExecutor): PokemonUseCase {
         return PokemonUseCase(pokemonRemoteDataRepository)
     }
 }
