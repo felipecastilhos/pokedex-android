@@ -16,7 +16,8 @@ interface HomeRemoteDataSource : RemoteDataSource {
 /**
  * Implementation of [HomeRemoteDataSource] searching in a GraphQl API
  */
-class HomeRemoteGraphQlDataSourceImpl @Inject constructor(private val apolloClient: ApolloClient) : HomeRemoteDataSource {
+class HomeRemoteGraphQlDataSourceImpl @Inject constructor(private val apolloClient: ApolloClient) :
+    HomeRemoteDataSource {
     override suspend fun search(): GetPokemonQuery.Data? {
         return apolloClient.query(GetPokemonQuery())?.await()?.data
     }
