@@ -33,6 +33,9 @@ class PokemonRemoteDataRepositoryExecutor @Inject constructor(
         homeRemoteDataSource.search().mapToDomainFlow()
 }
 
+/**
+ * Map Apollo Client GraphQl Result to domain abstraction flow
+ */
 fun Flow<Resource<GetPokemonQuery.GetPokemon?>>.mapToDomainFlow(): Flow<Resource<Pokemon?>> {
     return map {
         when (it) {
