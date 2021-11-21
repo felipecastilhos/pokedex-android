@@ -2,9 +2,9 @@ package com.github.felipecastilhos.pokedexandroid.features.home.domain.viewmodel
 
 import androidx.lifecycle.viewModelScope
 import com.github.felipecastilhos.pokedexandroid.GetPokemonQuery
-import com.github.felipecastilhos.pokedexandroid.commun.coroutines.DispatcherProvider
-import com.github.felipecastilhos.pokedexandroid.commun.logs.LogHandler
-import com.github.felipecastilhos.pokedexandroid.domain.viewmodels.CoroutineViewModel
+import com.github.felipecastilhos.pokedexandroid.core.coroutines.DispatcherProvider
+import com.github.felipecastilhos.pokedexandroid.core.logs.LogHandler
+import com.github.felipecastilhos.pokedexandroid.core.viewmodels.CoroutineViewModel
 import com.github.felipecastilhos.pokedexandroid.features.home.domain.usecase.PokemonUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.Flow

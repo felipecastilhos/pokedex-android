@@ -1,4 +1,4 @@
-package com.github.felipecastilhos.pokedexandroid.commun.ui.theme
+package com.github.felipecastilhos.pokedexandroid.core.ui.theme
 
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material.MaterialTheme

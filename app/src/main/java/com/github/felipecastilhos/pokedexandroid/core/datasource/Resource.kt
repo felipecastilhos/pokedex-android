@@ -1,6 +1,6 @@
-package com.github.felipecastilhos.pokedexandroid.datasource
+package com.github.felipecastilhos.pokedexandroid.core.datasource
 
-import com.github.felipecastilhos.pokedexandroid.datasource.remote.DataSourceException
+import com.github.felipecastilhos.pokedexandroid.core.datasource.remote.DataSourceException
 
 /**
  * Resource is an abstraction for data fetch

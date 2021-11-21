@@ -1,4 +1,4 @@
-package com.github.felipecastilhos.pokedexandroid.commun.logs
+package com.github.felipecastilhos.pokedexandroid.core.logs
 
 import com.github.felipecastilhos.pokedexandroid.BuildConfig
 import timber.log.Timber

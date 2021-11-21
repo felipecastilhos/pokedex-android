@@ -1,7 +1,7 @@
-package com.github.felipecastilhos.pokedexandroid.commun.network
+package com.github.felipecastilhos.pokedexandroid.core.network
 
 import com.apollographql.apollo.ApolloClient
-import com.github.felipecastilhos.pokedexandroid.datasource.remote.Enviroment
+import com.github.felipecastilhos.pokedexandroid.core.datasource.remote.Enviroment
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

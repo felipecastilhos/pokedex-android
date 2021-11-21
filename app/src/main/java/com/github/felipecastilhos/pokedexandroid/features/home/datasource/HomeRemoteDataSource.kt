@@ -3,7 +3,7 @@ package com.github.felipecastilhos.pokedexandroid.features.home.datasource
 import com.apollographql.apollo.ApolloClient
 import com.apollographql.apollo.coroutines.await
 import com.github.felipecastilhos.pokedexandroid.GetPokemonQuery
-import com.github.felipecastilhos.pokedexandroid.datasource.remote.RemoteDataSource
+import com.github.felipecastilhos.pokedexandroid.core.datasource.remote.RemoteDataSource
 import javax.inject.Inject
 
 /**

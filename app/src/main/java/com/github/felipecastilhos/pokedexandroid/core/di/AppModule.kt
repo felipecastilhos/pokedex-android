@@ -1,7 +1,7 @@
-package com.github.felipecastilhos.pokedexandroid.di
+package com.github.felipecastilhos.pokedexandroid.core.di
 
-import com.github.felipecastilhos.pokedexandroid.commun.coroutines.AppDispatchersProvider
-import com.github.felipecastilhos.pokedexandroid.commun.coroutines.DispatcherProvider
+import com.github.felipecastilhos.pokedexandroid.core.coroutines.AppDispatchersProvider
+import com.github.felipecastilhos.pokedexandroid.core.coroutines.DispatcherProvider
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
