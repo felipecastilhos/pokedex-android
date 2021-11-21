@@ -21,7 +21,7 @@ class HomeModule {
      * Provides a remote data source for home data
      */
     @Provides
-    fun providesHomeRemoteDataSource(
+    fun providesHomeRemoteDataSourceExecutor(
         apolloClient: ApolloClient
     ): HomeRemoteDataSource {
         return HomeRemoteGraphQlDataSourceExecutor(apolloClient)
