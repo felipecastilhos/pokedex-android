@@ -11,6 +11,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.tooling.preview.Preview
+import com.github.felipecastilhos.pokedexandroid.GetPokemonQuery
+import com.github.felipecastilhos.pokedexandroid.core.datasource.Resource
 import com.github.felipecastilhos.pokedexandroid.core.ui.theme.PokedexandroidTheme
 import com.github.felipecastilhos.pokedexandroid.features.home.domain.viewmodel.PokedexHomeViewModel
 import dagger.hilt.android.AndroidEntryPoint
@@ -27,7 +29,20 @@ class HomeActivity : ComponentActivity() {
             PokedexandroidTheme {
                 // A surface container using the 'background' color from the theme
                 Surface(color = MaterialTheme.colors.background) {
-                    SearchPokemonResult(pokemonName = "Dragonite", pokemonNumber = e?.num)
+                    when (e) {
+                        Resource.Loading -> {
+                            Text("Carregando...")
+                        }
+                        is Resource.Error -> {
+                            Text("Ops, algo deu errado :(")
+                        }
+                        is Resource.Success -> {
+                            SearchPokemonResult(
+                                pokemonName = "Dragonite",
+                                pokemonNumber = (e as Resource.Success<GetPokemonQuery.GetPokemon?>).data?.num
+                            )
+                        }
+                    }
                 }
             }
         }

@@ -1,8 +1,8 @@
 package com.github.felipecastilhos.pokedexandroid.features.home.di
 
 import com.apollographql.apollo.ApolloClient
-import com.github.felipecastilhos.pokedexandroid.features.home.datasource.HomeRemoteDataSource
-import com.github.felipecastilhos.pokedexandroid.features.home.datasource.HomeRemoteGraphQlDataSourceImpl
+import com.github.felipecastilhos.pokedexandroid.features.home.data.datasource.HomeRemoteDataSource
+import com.github.felipecastilhos.pokedexandroid.features.home.data.datasource.HomeRemoteGraphQlDataSourceExecutor
 import com.github.felipecastilhos.pokedexandroid.features.home.domain.repository.PokemonRemoteDataRepositoryImpl
 import com.github.felipecastilhos.pokedexandroid.features.home.domain.repository.PokemonRepository
 import com.github.felipecastilhos.pokedexandroid.features.home.domain.usecase.PokemonUseCase
@@ -24,16 +24,18 @@ class HomeModule {
     fun providesHomeRemoteDataSource(
         apolloClient: ApolloClient
     ): HomeRemoteDataSource {
-        return HomeRemoteGraphQlDataSourceImpl(apolloClient)
+        return HomeRemoteGraphQlDataSourceExecutor(apolloClient)
     }
 
     /**
      * Provides the [PokemonRepository] logic how to fetch pokemon data
-     * @param homeRemoteGraphQlDataSourceImpl logic how home pokedex repository fetch its pokemon's data
+     * @param homeRemoteGraphQlDataSourceExecutor logic how home pokedex repository fetch its pokemon's data
      */
     @Provides
-    fun providesPokemonRepository(homeRemoteGraphQlDataSourceImpl: HomeRemoteGraphQlDataSourceImpl): PokemonRepository {
-        return PokemonRemoteDataRepositoryImpl(homeRemoteGraphQlDataSourceImpl)
+    fun providesPokemonRepository(
+        homeRemoteGraphQlDataSourceExecutor: HomeRemoteGraphQlDataSourceExecutor
+    ): PokemonRepository {
+        return PokemonRemoteDataRepositoryImpl(homeRemoteGraphQlDataSourceExecutor)
     }
 
     /**

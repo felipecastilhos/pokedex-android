@@ -3,6 +3,7 @@ package com.github.felipecastilhos.pokedexandroid.features.home.domain.viewmodel
 import androidx.lifecycle.viewModelScope
 import com.github.felipecastilhos.pokedexandroid.GetPokemonQuery
 import com.github.felipecastilhos.pokedexandroid.core.coroutines.DispatcherProvider
+import com.github.felipecastilhos.pokedexandroid.core.datasource.Resource
 import com.github.felipecastilhos.pokedexandroid.core.logs.LogHandler
 import com.github.felipecastilhos.pokedexandroid.core.viewmodels.CoroutineViewModel
 import com.github.felipecastilhos.pokedexandroid.features.home.domain.usecase.PokemonUseCase
@@ -26,19 +27,19 @@ class PokedexHomeViewModel @Inject constructor(
     dispatcherProvider: DispatcherProvider
 ) :
     CoroutineViewModel(dispatcherProvider) {
-    protected val _stateFlow: MutableStateFlow<GetPokemonQuery.GetPokemon?> by lazy {
-        MutableStateFlow<GetPokemonQuery.GetPokemon?>(null).apply {
+    protected val _stateFlow: MutableStateFlow<Resource<GetPokemonQuery.GetPokemon?>> by lazy {
+        MutableStateFlow<Resource<GetPokemonQuery.GetPokemon?>>(Resource.Loading).apply {
             launchInIoScope {
                 searchPokemon()
             }
         }
     }
-    val stateFlow: StateFlow<GetPokemonQuery.GetPokemon?> by lazy { _stateFlow.asStateFlow() }
+    val stateFlow: StateFlow<Resource<GetPokemonQuery.GetPokemon?>> by lazy { _stateFlow.asStateFlow() }
 
     /**
      * Query pokemon data
      */
-    suspend fun searchPokemon(): Flow<GetPokemonQuery.GetPokemon?> {
+    suspend fun searchPokemon(): Flow<Resource<GetPokemonQuery.GetPokemon?>> {
         viewModelScope.launch {
             LogHandler.d("Searching Dragonite")
             pokemonUseCase.search().collect {
