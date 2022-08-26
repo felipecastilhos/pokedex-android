@@ -77,6 +77,8 @@ fun DependencyHandlerScope.logLibraries() {
  */
 fun DependencyHandlerScope.unitTestsLibraries() {
     testImplementation(Dependencies.Tests.jUnit)
+    testImplementation(Dependencies.Tests.coroutineAndroid)
+    testImplementation(Dependencies.Tests.coroutineTest)
 }
 
 fun DependencyHandlerScope.mockLibraries() {
