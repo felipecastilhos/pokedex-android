@@ -33,7 +33,7 @@ class HomeModule {
      */
     @Provides
     fun providesPokemonRepository(
-            homeRemoteGraphQlDataSourceExecutor: PokemonGraphQlDataSource
+        homeRemoteGraphQlDataSourceExecutor: PokemonGraphQlDataSource
     ): PokemonRepository {
         return DefaultPokemonRemoteDataRepository(homeRemoteGraphQlDataSourceExecutor)
     }

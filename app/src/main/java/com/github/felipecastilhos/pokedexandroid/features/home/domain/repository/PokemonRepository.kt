@@ -1,11 +1,8 @@
 package com.github.felipecastilhos.pokedexandroid.features.home.domain.repository
 
-import com.github.felipecastilhos.pokedexandroid.GetPokemonQuery
 import com.github.felipecastilhos.pokedexandroid.core.datasource.Resource
 import com.github.felipecastilhos.pokedexandroid.features.home.data.datasource.PokemonDataSource
 import com.github.felipecastilhos.pokedexandroid.features.home.domain.models.Pokemon
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.map
 import javax.inject.Inject
 
 /**

@@ -1,7 +1,6 @@
 package com.github.felipecastilhos.pokedexandroid
 
 import com.github.felipecastilhos.pokedexandroid.core.datasource.Resource
-import com.github.felipecastilhos.pokedexandroid.features.home.SearchPokemonResult
 import com.github.felipecastilhos.pokedexandroid.features.home.domain.models.FlavorText
 import com.github.felipecastilhos.pokedexandroid.features.home.domain.models.Pokemon
 import com.github.felipecastilhos.pokedexandroid.features.home.domain.models.PokemonTypes
