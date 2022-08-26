@@ -6,18 +6,18 @@ import com.apollographql.apollo.api.Error
  * Data source exception
  * @param messageResource message for the error
  */
-sealed class DataSourceException(
+sealed class DataSourceError(
     val messageResource: Any?
-) : RuntimeException() {
+) {
     /**
      * Unexpected error
      * @param messageResource resource for the message
      */
-    class Unexpected(messageResource: Int) : DataSourceException(messageResource)
+    class Unexpected(messageResource: Int) : DataSourceError(messageResource)
 
     /**
      * Server error
      * @param error that occurred
      */
-    class Server(error: Error?) : DataSourceException(error)
+    class Server(error: Error?) : DataSourceError(error)
 }
