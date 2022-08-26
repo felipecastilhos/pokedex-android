@@ -1,5 +1,6 @@
 package com.github.felipecastilhos.pokedexandroid.features.home.domain.viewmodel
 
+import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.github.felipecastilhos.pokedexandroid.core.coroutines.DispatcherProvider
 import com.github.felipecastilhos.pokedexandroid.core.datasource.Resource
@@ -21,11 +22,10 @@ import javax.inject.Inject
 class PokedexHomeViewModel @Inject constructor(
     private val pokemonUseCase: PokemonUseCase,
     dispatcherProvider: DispatcherProvider
-) :
-    CoroutineViewModel(dispatcherProvider) {
-    protected val _stateFlow: MutableStateFlow<Resource<Pokemon?>> by lazy {
+) : ViewModel() {
+    private val _stateFlow: MutableStateFlow<Resource<Pokemon?>> by lazy {
         MutableStateFlow<Resource<Pokemon?>>(Resource.Loading).apply {
-            launchInIoScope {
+            viewModelScope.launch(dispatcherProvider.io) {
                 searchPokemon()
             }
         }
@@ -35,15 +35,8 @@ class PokedexHomeViewModel @Inject constructor(
     /**
      * Query pokemon data
      */
-    suspend fun searchPokemon(): Flow<Resource<Pokemon?>> {
-        viewModelScope.launch {
-            LogHandler.d("Searching Dragonite")
-            pokemonUseCase.search().collect {
-                LogHandler.d("Dragonite located")
-                _stateFlow.emit(it)
-            }
-        }
-
-        return pokemonUseCase.search()
+    suspend fun searchPokemon() {
+        LogHandler.d("Searching Dragonite")
+        _stateFlow.emit(pokemonUseCase.search())
     }
 }
