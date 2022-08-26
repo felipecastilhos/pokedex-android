@@ -5,7 +5,6 @@ import androidx.lifecycle.viewModelScope
 import com.github.felipecastilhos.pokedexandroid.core.coroutines.DispatcherProvider
 import com.github.felipecastilhos.pokedexandroid.core.datasource.Resource
 import com.github.felipecastilhos.pokedexandroid.core.logs.LogHandler
-import com.github.felipecastilhos.pokedexandroid.core.viewmodels.CoroutineViewModel
 import com.github.felipecastilhos.pokedexandroid.features.home.domain.models.Pokemon
 import com.github.felipecastilhos.pokedexandroid.features.home.domain.usecase.PokemonUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -21,11 +20,11 @@ import javax.inject.Inject
 @HiltViewModel
 class PokedexHomeViewModel @Inject constructor(
     private val pokemonUseCase: PokemonUseCase,
-    dispatcherProvider: DispatcherProvider
+    private val dispatcherProvider: DispatcherProvider
 ) : ViewModel() {
     private val _stateFlow: MutableStateFlow<Resource<Pokemon?>> by lazy {
         MutableStateFlow<Resource<Pokemon?>>(Resource.Loading).apply {
-            viewModelScope.launch(dispatcherProvider.io) {
+            viewModelScope.launch(dispatcherProvider.main) {
                 searchPokemon()
             }
         }

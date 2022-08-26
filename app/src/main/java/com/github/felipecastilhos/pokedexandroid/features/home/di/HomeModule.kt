@@ -1,6 +1,7 @@
 package com.github.felipecastilhos.pokedexandroid.features.home.di
 
 import com.apollographql.apollo.ApolloClient
+import com.github.felipecastilhos.pokedexandroid.core.coroutines.DispatcherProvider
 import com.github.felipecastilhos.pokedexandroid.features.home.data.datasource.PokemonDataSource
 import com.github.felipecastilhos.pokedexandroid.features.home.data.datasource.PokemonGraphQlDataSource
 import com.github.felipecastilhos.pokedexandroid.features.home.domain.repository.DefaultPokemonRemoteDataRepository
@@ -22,9 +23,10 @@ class HomeModule {
      */
     @Provides
     fun providesHomeRemoteDataSourceExecutor(
-        apolloClient: ApolloClient
+        apolloClient: ApolloClient,
+        dispatcherProvider: DispatcherProvider
     ): PokemonDataSource {
-        return PokemonGraphQlDataSource(apolloClient)
+        return PokemonGraphQlDataSource(apolloClient, dispatcherProvider)
     }
 
     /**
