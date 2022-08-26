@@ -2,7 +2,7 @@ package com.github.felipecastilhos.pokedexandroid.features.home.domain.repositor
 
 import com.github.felipecastilhos.pokedexandroid.GetPokemonQuery
 import com.github.felipecastilhos.pokedexandroid.core.datasource.Resource
-import com.github.felipecastilhos.pokedexandroid.features.home.data.datasource.HomeRemoteDataSource
+import com.github.felipecastilhos.pokedexandroid.features.home.data.datasource.PokemonDataSource
 import com.github.felipecastilhos.pokedexandroid.features.home.domain.models.Pokemon
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
@@ -15,33 +15,20 @@ interface PokemonRepository {
     /**
      * Query for all data of a single pokemon
      */
-    suspend fun search(): Flow<Resource<Pokemon?>>
+    suspend fun search(): Resource<Pokemon?>
 }
 
 /**
  * Remote pokemon data repository
- * @param homeRemoteDataSource for query pokemon data
+ * @param pokemonDataSource for query pokemon data
  */
-class PokemonRemoteDataRepositoryExecutor @Inject constructor(
-    private val homeRemoteDataSource: HomeRemoteDataSource
+class DefaultPokemonRemoteDataRepository @Inject constructor(
+    private val pokemonDataSource: PokemonDataSource
 ) :
     PokemonRepository {
     /**
      * Query for all data of a single pokemon
      */
-    override suspend fun search(): Flow<Resource<Pokemon?>> =
-        homeRemoteDataSource.search().mapToDomainFlow()
+    override suspend fun search() = pokemonDataSource.search()
 }
 
-/**
- * Map Apollo Client GraphQl Result to domain abstraction flow
- */
-fun Flow<Resource<GetPokemonQuery.GetPokemon?>>.mapToDomainFlow(): Flow<Resource<Pokemon?>> {
-    return map {
-        when (it) {
-            is Resource.Error -> it
-            Resource.Loading -> Resource.Loading
-            is Resource.Success -> Resource.Success(it.data?.mapToDomainModel())
-        }
-    }
-}
