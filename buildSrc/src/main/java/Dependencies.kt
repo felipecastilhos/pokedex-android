@@ -21,6 +21,7 @@ object DependencyVersions {
     const val okHttpVersion = "4.9.2"
     const val timber = "5.0.1"
     const val mockk = "1.12.1"
+    const val coroutine = "1.6.1"
 }
 
 /**
@@ -69,6 +70,8 @@ sealed class Dependencies {
         const val composejUnit =
             "androidx.compose.ui:ui-test-junit4:${DependencyVersions.androidxComposeJunit}"
         const val mockk: String = "io.mockk:mockk:${DependencyVersions.mockk}"
+        const val coroutineAndroid = "org.jetbrains.kotlinx:kotlinx-coroutines-android:${DependencyVersions.coroutine}"
+        const val coroutineTest = "org.jetbrains.kotlinx:kotlinx-coroutines-test:${DependencyVersions.coroutine}"
     }
 
     object Network {

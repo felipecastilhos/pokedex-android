@@ -1,4 +1,4 @@
-package com.github.felipecastilhos.pokedexandroid.features.home.domain.repository
+package com.github.felipecastilhos.pokedexandroid.features.home.data.datasource
 
 import com.github.felipecastilhos.pokedexandroid.GetPokemonQuery
 import com.github.felipecastilhos.pokedexandroid.core.logs.LogHandler

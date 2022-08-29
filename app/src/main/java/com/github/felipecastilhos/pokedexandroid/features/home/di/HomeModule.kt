@@ -1,9 +1,10 @@
 package com.github.felipecastilhos.pokedexandroid.features.home.di
 
 import com.apollographql.apollo.ApolloClient
-import com.github.felipecastilhos.pokedexandroid.features.home.data.datasource.HomeRemoteDataSource
-import com.github.felipecastilhos.pokedexandroid.features.home.data.datasource.HomeRemoteGraphQlDataSourceExecutor
-import com.github.felipecastilhos.pokedexandroid.features.home.domain.repository.PokemonRemoteDataRepositoryExecutor
+import com.github.felipecastilhos.pokedexandroid.core.coroutines.DispatcherProvider
+import com.github.felipecastilhos.pokedexandroid.features.home.data.datasource.PokemonDataSource
+import com.github.felipecastilhos.pokedexandroid.features.home.data.datasource.PokemonGraphQlDataSource
+import com.github.felipecastilhos.pokedexandroid.features.home.domain.repository.DefaultPokemonRemoteDataRepository
 import com.github.felipecastilhos.pokedexandroid.features.home.domain.repository.PokemonRepository
 import com.github.felipecastilhos.pokedexandroid.features.home.domain.usecase.PokemonUseCase
 import dagger.Module
@@ -22,9 +23,10 @@ class HomeModule {
      */
     @Provides
     fun providesHomeRemoteDataSourceExecutor(
-        apolloClient: ApolloClient
-    ): HomeRemoteDataSource {
-        return HomeRemoteGraphQlDataSourceExecutor(apolloClient)
+        apolloClient: ApolloClient,
+        dispatcherProvider: DispatcherProvider
+    ): PokemonDataSource {
+        return PokemonGraphQlDataSource(apolloClient, dispatcherProvider)
     }
 
     /**
@@ -33,9 +35,9 @@ class HomeModule {
      */
     @Provides
     fun providesPokemonRepository(
-        homeRemoteGraphQlDataSourceExecutor: HomeRemoteGraphQlDataSourceExecutor
+        homeRemoteGraphQlDataSourceExecutor: PokemonGraphQlDataSource
     ): PokemonRepository {
-        return PokemonRemoteDataRepositoryExecutor(homeRemoteGraphQlDataSourceExecutor)
+        return DefaultPokemonRemoteDataRepository(homeRemoteGraphQlDataSourceExecutor)
     }
 
     /**
@@ -43,7 +45,7 @@ class HomeModule {
      * @param pokemonRemoteDataRepository contains all pokemon related data
      */
     @Provides
-    fun providesPokemonUseCase(pokemonRemoteDataRepository: PokemonRemoteDataRepositoryExecutor): PokemonUseCase {
+    fun providesPokemonUseCase(pokemonRemoteDataRepository: DefaultPokemonRemoteDataRepository): PokemonUseCase {
         return PokemonUseCase(pokemonRemoteDataRepository)
     }
 }

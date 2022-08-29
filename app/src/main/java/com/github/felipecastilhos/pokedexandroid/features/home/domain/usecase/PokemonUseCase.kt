@@ -15,7 +15,7 @@ class PokemonUseCase @Inject constructor(
     /**
      * Retrieve all pokemon data
      */
-    suspend fun search(): Flow<Resource<Pokemon?>> {
+    suspend fun search(): Resource<Pokemon?> {
         return pokemonRepository.search()
     }
 }

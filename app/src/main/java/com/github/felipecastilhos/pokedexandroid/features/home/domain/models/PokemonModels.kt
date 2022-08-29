@@ -24,7 +24,7 @@ enum class PokemonTypes {
     Fire,
     Water,
     Glass,
-    Eletric,
+    Electric,
     Psychic,
     Ice,
     Dragon,

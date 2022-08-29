@@ -1,6 +1,6 @@
 package com.github.felipecastilhos.pokedexandroid.core.datasource
 
-import com.github.felipecastilhos.pokedexandroid.core.datasource.remote.DataSourceException
+import com.github.felipecastilhos.pokedexandroid.core.datasource.remote.DataSourceError
 
 /**
  * Resource is an abstraction for data fetch
@@ -16,7 +16,7 @@ sealed class Resource<out T> {
      * Resource data fetch didn't work
      * @param exception was the error that occurred fetching data
      */
-    data class Error(val exception: DataSourceException) : Resource<Nothing>()
+    data class Error(val exception: DataSourceError) : Resource<Nothing>()
 
     /**
      * Resource is loading, none result was returned yet.
@@ -35,7 +35,7 @@ inline fun <T : Any> Resource<T>.onSuccess(action: (T) -> Unit): Resource<T> {
 /**
  * Extension to handle resouce on error data fetch
  */
-inline fun <T : Any> Resource<T>.onError(action: (DataSourceException) -> Unit): Resource<T> {
+inline fun <T : Any> Resource<T>.onError(action: (DataSourceError) -> Unit): Resource<T> {
     if (this is Resource.Error) action(exception)
     return this
 }
