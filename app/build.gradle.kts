@@ -76,6 +76,7 @@ dependencies {
     // Add networking libraries
     apolloClientLibraries()
     okHttpLibraries()
+    retrofitLibraries()
 
     // Add log libraries
     logLibraries()
