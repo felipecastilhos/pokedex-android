@@ -27,14 +27,14 @@ You can check my short term backlog in my Github Projects [here](https://github.
 ```
 project
     | buildSrc //Project gradle dependencies configurations - Ex.: versions and libs - and gradle dsl extensions
-        | datasource //Feature remote and local data source
-        | di //feature independency injection modules
-        | domain //feature business classes
+
+    | app //Main application module
+        | features //project features
+            | data //Feature remote and local data source
+            | di //feature independency injection modules
             | repository //data access abstractions
             | usecase //Business rules abstractions
             | viewmodel //state of the ui data
-    | app //Main application module
-        | features //project features
         | core //architecture and utility classes
             | coroutines //abstraction classes, helper classes and extensions to work with coroutines
             | datasource //abstraction classes, helper classes and extensions to work with datasources
