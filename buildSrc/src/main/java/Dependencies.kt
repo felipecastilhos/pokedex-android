@@ -17,11 +17,12 @@ object DependencyVersions {
     const val jetpackHilt = "1.0.0-alpha01"
     const val buildGradle = "7.0.3"
     const val kotlinGradlePlugin = "1.5.21"
-    const val apolloVersion = "2.5.11"
     const val okHttpVersion = "4.9.2"
     const val timber = "5.0.1"
     const val mockk = "1.12.1"
     const val coroutine = "1.6.1"
+    const val retrofit = "2.9.0"
+    const val retrofitMoshiConverter = "2.4.0"
 }
 
 /**
@@ -32,8 +33,10 @@ sealed class Dependencies {
         const val daggerHilt = "com.google.dagger:hilt-android:${DependencyVersions.daggerHilt}"
         const val daggerHiltCompiler =
             "com.google.dagger:hilt-android-compiler:${DependencyVersions.daggerHilt}"
-        const val jetpackHiltLifecycleViewModel = "androidx.hilt:hilt-lifecycle-viewmodel:${DependencyVersions.jetpackHilt}"
-        const val jetpackHiltCompiler = "androidx.hilt:hilt-compiler:${DependencyVersions.jetpackHilt}"
+        const val jetpackHiltLifecycleViewModel =
+            "androidx.hilt:hilt-lifecycle-viewmodel:${DependencyVersions.jetpackHilt}"
+        const val jetpackHiltCompiler =
+            "androidx.hilt:hilt-compiler:${DependencyVersions.jetpackHilt}"
     }
 
     object AndroidLifecycle {
@@ -70,17 +73,18 @@ sealed class Dependencies {
         const val composejUnit =
             "androidx.compose.ui:ui-test-junit4:${DependencyVersions.androidxComposeJunit}"
         const val mockk: String = "io.mockk:mockk:${DependencyVersions.mockk}"
-        const val coroutineAndroid = "org.jetbrains.kotlinx:kotlinx-coroutines-android:${DependencyVersions.coroutine}"
-        const val coroutineTest = "org.jetbrains.kotlinx:kotlinx-coroutines-test:${DependencyVersions.coroutine}"
+        const val coroutineAndroid =
+            "org.jetbrains.kotlinx:kotlinx-coroutines-android:${DependencyVersions.coroutine}"
+        const val coroutineTest =
+            "org.jetbrains.kotlinx:kotlinx-coroutines-test:${DependencyVersions.coroutine}"
     }
 
     object Network {
-        const val apolloRuntime =
-            "com.apollographql.apollo:apollo-runtime:${DependencyVersions.apolloVersion}"
-        const val apolloCoroutines =
-            "com.apollographql.apollo:apollo-coroutines-support:${DependencyVersions.apolloVersion}"
         const val okHttpLoggingInterceptor =
             "com.squareup.okhttp3:logging-interceptor:${DependencyVersions.okHttpVersion}"
+        const val retrofit = "com.squareup.retrofit2:retrofit:${DependencyVersions.retrofit}"
+        const val retrofitMoshiConverter =
+            "com.squareup.retrofit2:converter-moshi:${DependencyVersions.retrofitMoshiConverter}"
     }
 
     object Log {
@@ -94,7 +98,6 @@ object ModulePlugins {
     const val kotlinAndroidExtensions = "kotlin-android-extensions"
     const val kotlinKapt = "kotlin-kapt"
     const val daggerHilt = "dagger.hilt.android.plugin"
-    const val apolloGraphql = "com.apollographql.apollo"
 }
 
 object GradlePlugins {

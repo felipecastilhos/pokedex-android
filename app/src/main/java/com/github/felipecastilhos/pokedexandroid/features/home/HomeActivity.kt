@@ -11,9 +11,8 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
-import com.github.felipecastilhos.pokedexandroid.core.datasource.Resource
 import com.github.felipecastilhos.pokedexandroid.core.ui.theme.PokedexandroidTheme
-import com.github.felipecastilhos.pokedexandroid.features.home.domain.models.Pokemon
+import com.github.felipecastilhos.pokedexandroid.features.home.data.datasource.Pokemon
 import com.github.felipecastilhos.pokedexandroid.features.home.domain.viewmodel.PokedexHomeViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -29,16 +28,15 @@ class HomeActivity : ComponentActivity() {
             PokedexandroidTheme {
                 // A surface container using the 'background' color from the theme
                 Surface(color = MaterialTheme.colors.background) {
-                    when (e) {
-                        Resource.Loading -> {
+                    if (e.isSuccess) {
+                        val pokemon = e.getOrNull()
+                        if (pokemon == null) {
                             Text("Carregando...")
+                        } else {
+                            SearchPokemonResult(pokemon)
                         }
-                        is Resource.Error -> {
-                            Text("Ops, algo deu errado :(")
-                        }
-                        is Resource.Success -> {
-                            (e as Resource.Success<Pokemon?>).data?.let { SearchPokemonResult(it) }
-                        }
+                    } else {
+                        Text("${e.exceptionOrNull()?.localizedMessage}")
                     }
                 }
             }
@@ -46,15 +44,16 @@ class HomeActivity : ComponentActivity() {
     }
 }
 
+
 @Composable
 fun SearchPokemonResult(
     pokemon: Pokemon
 ) {
     Column {
-        Text("Pokemon Specie: ${pokemon.species}.")
+        Text("Pokemon Specie: ${pokemon.species.name}.")
         Text("Number: ${pokemon.pokedexNumber}")
         Text("Height: ${pokemon.height} ft")
         Text("Weight: ${pokemon.weight} lbs")
-        Text("Info: ${pokemon.flavorText.first().flavor}")
+//        Text("Info: ${pokemon.flavorText.first().flavor}")
     }
 }

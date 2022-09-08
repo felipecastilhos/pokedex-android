@@ -52,12 +52,9 @@ fun DependencyHandlerScope.hiltLibraries() {
     kapt(Dependencies.DependencyInjection.jetpackHiltCompiler)
 }
 
-/**
- * Add Apollo Android client dependencies to manage both local and remote data with GraphQL.
- */
-fun DependencyHandlerScope.apolloClientLibraries() {
-    api(Dependencies.Network.apolloRuntime)
-    api(Dependencies.Network.apolloCoroutines)
+fun DependencyHandlerScope.retrofitLibraries() {
+    implementation(Dependencies.Network.retrofit)
+    implementation(Dependencies.Network.retrofitMoshiConverter)
 }
 
 fun DependencyHandlerScope.okHttpLibraries() {

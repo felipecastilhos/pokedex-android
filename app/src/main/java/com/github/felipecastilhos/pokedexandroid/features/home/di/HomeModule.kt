@@ -1,9 +1,9 @@
 package com.github.felipecastilhos.pokedexandroid.features.home.di
 
-import com.apollographql.apollo.ApolloClient
 import com.github.felipecastilhos.pokedexandroid.core.coroutines.DispatcherProvider
 import com.github.felipecastilhos.pokedexandroid.features.home.data.datasource.PokemonDataSource
-import com.github.felipecastilhos.pokedexandroid.features.home.data.datasource.PokemonGraphQlDataSource
+import com.github.felipecastilhos.pokedexandroid.features.home.data.datasource.PokemonRemoteDataSource
+import com.github.felipecastilhos.pokedexandroid.features.home.data.datasource.PokemonRestService
 import com.github.felipecastilhos.pokedexandroid.features.home.domain.repository.DefaultPokemonRemoteDataRepository
 import com.github.felipecastilhos.pokedexandroid.features.home.domain.repository.PokemonRepository
 import com.github.felipecastilhos.pokedexandroid.features.home.domain.usecase.PokemonUseCase
@@ -11,6 +11,8 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
+import retrofit2.Retrofit
+import javax.inject.Singleton
 
 /**
  * This module creates all components used in the Home feature
@@ -18,26 +20,31 @@ import dagger.hilt.components.SingletonComponent
 @Module
 @InstallIn(SingletonComponent::class)
 class HomeModule {
+    @Provides
+    @Singleton
+    fun providePokemonApiService(retrofit: Retrofit): PokemonRestService =
+        retrofit.create(PokemonRestService::class.java)
+
     /**
      * Provides a remote data source for home data
      */
     @Provides
-    fun providesHomeRemoteDataSourceExecutor(
-        apolloClient: ApolloClient,
+    fun providesHomeRemoteDataSource(
+        pokemonRestService: PokemonRestService,
         dispatcherProvider: DispatcherProvider
     ): PokemonDataSource {
-        return PokemonGraphQlDataSource(apolloClient, dispatcherProvider)
+        return PokemonRemoteDataSource(pokemonRestService, dispatcherProvider)
     }
 
     /**
      * Provides the [PokemonRepository] logic how to fetch pokemon data
-     * @param homeRemoteGraphQlDataSourceExecutor logic how home pokedex repository fetch its pokemon's data
+     * @param pokemonRemoteDataSource logic how home pokedex repository fetch its pokemon's data
      */
     @Provides
     fun providesPokemonRepository(
-        homeRemoteGraphQlDataSourceExecutor: PokemonGraphQlDataSource
+        pokemonRemoteDataSource: PokemonRemoteDataSource
     ): PokemonRepository {
-        return DefaultPokemonRemoteDataRepository(homeRemoteGraphQlDataSourceExecutor)
+        return DefaultPokemonRemoteDataRepository(pokemonRemoteDataSource)
     }
 
     /**

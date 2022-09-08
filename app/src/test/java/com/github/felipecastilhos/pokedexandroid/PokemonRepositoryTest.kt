@@ -1,9 +1,6 @@
 package com.github.felipecastilhos.pokedexandroid
 
-import com.github.felipecastilhos.pokedexandroid.core.datasource.Resource
-import com.github.felipecastilhos.pokedexandroid.features.home.domain.models.FlavorText
-import com.github.felipecastilhos.pokedexandroid.features.home.domain.models.Pokemon
-import com.github.felipecastilhos.pokedexandroid.features.home.domain.models.PokemonTypes
+import com.github.felipecastilhos.pokedexandroid.features.home.data.datasource.*
 import com.github.felipecastilhos.pokedexandroid.features.home.domain.repository.DefaultPokemonRemoteDataRepository
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runTest
@@ -19,32 +16,41 @@ class PokemonRepositoryTest {
 
     private val pokemonSquirtle = Pokemon(
         pokedexNumber = 7,
-        species = "Tiny turtle",
-        types = listOf(PokemonTypes.Water),
+        species = Specie("Squirtle", ""),
+        types = listOf(PokemonTypes(1, PokemonType(typeName = TypeName.Water, url = ""))),
         height = 0.5,
-        weight = 9.0,
-        listOf(
-            FlavorText(
-                game = "Black",
-                flavor = "It shelters itself in its shell, then strikes back with spouts of water at every opportunity."
-            )
-        )
+        weight = 9.0
     )
 
     private lateinit var fakePokemonDataSource: FakePokemonDataSource
     private lateinit var pokemonRepository: DefaultPokemonRemoteDataRepository
-
+    
     @Before
     fun createRepository() {
+        mockSuccessRepository()
+    }
+
+    private fun mockSuccessRepository() {
         fakePokemonDataSource = FakePokemonDataSource(pokemonSquirtle)
         pokemonRepository = DefaultPokemonRemoteDataRepository(fakePokemonDataSource)
+    }
+
+    private fun mockFailingRepository() {
+        pokemonRepository = DefaultPokemonRemoteDataRepository(FakeFailingPokemonDataSource())
     }
 
     @ExperimentalCoroutinesApi
     @Test
     fun searchPokemon_GetSquirtle() = runTest {
         val result = pokemonRepository.search()
-        result as Resource.Success<Pokemon?>
-        assert(result.data?.pokedexNumber == 7)
+        assert(result.getOrNull()?.pokedexNumber == 7)
+    }
+
+    @ExperimentalCoroutinesApi
+    @Test
+    fun searchPokemonInFailingRepository_GetResultIsFailure() = runTest {
+        mockFailingRepository()
+        val result = pokemonRepository.search()
+        assert(result.isFailure)
     }
 }

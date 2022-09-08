@@ -1,34 +1,28 @@
 package com.github.felipecastilhos.pokedexandroid.features.home.data.datasource
 
-import com.apollographql.apollo.ApolloClient
-import com.apollographql.apollo.coroutines.await
-import com.github.felipecastilhos.pokedexandroid.GetPokemonQuery
 import com.github.felipecastilhos.pokedexandroid.core.coroutines.DispatcherProvider
-import com.github.felipecastilhos.pokedexandroid.core.datasource.Resource
-import com.github.felipecastilhos.pokedexandroid.core.datasource.remote.RemoteDataSource
-import com.github.felipecastilhos.pokedexandroid.core.network.toResource
-import com.github.felipecastilhos.pokedexandroid.features.home.domain.models.Pokemon
 import kotlinx.coroutines.withContext
+import retrofit2.http.GET
+import retrofit2.http.Path
 import javax.inject.Inject
 
 /**
  * [PokemonDataSource] is an interface for all remote data source queries
  */
-abstract class PokemonDataSource : RemoteDataSource {
-    abstract suspend fun search(): Resource<Pokemon?>
+interface PokemonDataSource {
+    suspend fun search(): Result<Pokemon>
 }
 
-/**
- * Implementation of [PokemonDataSource] searching in a GraphQl API
- */
-class PokemonGraphQlDataSource @Inject constructor(
-    private val apolloClient: ApolloClient,
+class PokemonRemoteDataSource @Inject constructor(
+    private val pokemonRestService: PokemonRestService,
     private val dispatcherProvider: DispatcherProvider
-) :
-    PokemonDataSource() {
-
-    override suspend fun search(): Resource<Pokemon?> = withContext(dispatcherProvider.io) {
-        return@withContext apolloClient.query(GetPokemonQuery())?.await()
-            .toResource { it?.getPokemon?.mapToDomainModel() }
+) : PokemonDataSource {
+    override suspend fun search(): Result<Pokemon> = withContext(dispatcherProvider.io) {
+        return@withContext pokemonRestService.pokemonData("dragonite")
     }
+}
+
+interface PokemonRestService {
+    @GET("pokemon/{pokemonName}")
+    suspend fun pokemonData(@Path("pokemonName") pokemonName: String): Result<Pokemon>
 }
