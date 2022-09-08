@@ -12,7 +12,12 @@ object PokedexRetrofitBuilder {
      * @param okHttpClient to be used on [Retrofit] for making network requests
      * @param apiUrl is the server url to be used on [Retrofit]
      */
-    fun buildRetrofit(apiUrl: String, okHttpClient: OkHttpClient, moshiConverterFactory: MoshiConverterFactory, callAdapterFactory: ResultCallAdapterFactory): Retrofit {
+    fun buildRetrofit(
+        apiUrl: String,
+        okHttpClient: OkHttpClient,
+        moshiConverterFactory: MoshiConverterFactory,
+        callAdapterFactory: ResultCallAdapterFactory
+    ): Retrofit {
         return Retrofit.Builder()
             .baseUrl(apiUrl)
             .client(okHttpClient)

@@ -9,19 +9,18 @@ import javax.inject.Inject
 /**
  * [PokemonDataSource] is an interface for all remote data source queries
  */
-abstract class PokemonDataSource {
-    abstract suspend fun search(): Result<Pokemon>
+interface PokemonDataSource {
+    suspend fun search(): Result<Pokemon>
 }
 
 class PokemonRemoteDataSource @Inject constructor(
     private val pokemonRestService: PokemonRestService,
     private val dispatcherProvider: DispatcherProvider
-) : PokemonDataSource() {
+) : PokemonDataSource {
     override suspend fun search(): Result<Pokemon> = withContext(dispatcherProvider.io) {
         return@withContext pokemonRestService.pokemonData("dragonite")
     }
 }
-
 
 interface PokemonRestService {
     @GET("pokemon/{pokemonName}")

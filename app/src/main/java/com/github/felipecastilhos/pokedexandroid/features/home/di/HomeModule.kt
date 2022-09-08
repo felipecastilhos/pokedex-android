@@ -55,6 +55,4 @@ class HomeModule {
     fun providesPokemonUseCase(pokemonRemoteDataRepository: DefaultPokemonRemoteDataRepository): PokemonUseCase {
         return PokemonUseCase(pokemonRemoteDataRepository)
     }
-
-
 }

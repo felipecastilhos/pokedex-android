@@ -24,8 +24,7 @@ class PokemonRepositoryTest {
 
     private lateinit var fakePokemonDataSource: FakePokemonDataSource
     private lateinit var pokemonRepository: DefaultPokemonRemoteDataRepository
-
-
+    
     @Before
     fun createRepository() {
         mockSuccessRepository()
