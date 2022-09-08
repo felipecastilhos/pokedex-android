@@ -1,8 +1,7 @@
 package com.github.felipecastilhos.pokedexandroid.features.home.domain.repository
 
-import com.github.felipecastilhos.pokedexandroid.core.datasource.Resource
+import com.github.felipecastilhos.pokedexandroid.features.home.data.datasource.Pokemon
 import com.github.felipecastilhos.pokedexandroid.features.home.data.datasource.PokemonDataSource
-import com.github.felipecastilhos.pokedexandroid.features.home.domain.models.Pokemon
 import javax.inject.Inject
 
 /**
@@ -12,7 +11,7 @@ interface PokemonRepository {
     /**
      * Query for all data of a single pokemon
      */
-    suspend fun search(): Resource<Pokemon?>
+    suspend fun search(): Result<Pokemon?>
 }
 
 /**
