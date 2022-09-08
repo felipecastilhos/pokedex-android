@@ -17,7 +17,6 @@ object DependencyVersions {
     const val jetpackHilt = "1.0.0-alpha01"
     const val buildGradle = "7.0.3"
     const val kotlinGradlePlugin = "1.5.21"
-    const val apolloVersion = "2.5.11"
     const val okHttpVersion = "4.9.2"
     const val timber = "5.0.1"
     const val mockk = "1.12.1"
@@ -81,10 +80,6 @@ sealed class Dependencies {
     }
 
     object Network {
-        const val apolloRuntime =
-            "com.apollographql.apollo:apollo-runtime:${DependencyVersions.apolloVersion}"
-        const val apolloCoroutines =
-            "com.apollographql.apollo:apollo-coroutines-support:${DependencyVersions.apolloVersion}"
         const val okHttpLoggingInterceptor =
             "com.squareup.okhttp3:logging-interceptor:${DependencyVersions.okHttpVersion}"
         const val retrofit = "com.squareup.retrofit2:retrofit:${DependencyVersions.retrofit}"
@@ -103,7 +98,6 @@ object ModulePlugins {
     const val kotlinAndroidExtensions = "kotlin-android-extensions"
     const val kotlinKapt = "kotlin-kapt"
     const val daggerHilt = "dagger.hilt.android.plugin"
-    const val apolloGraphql = "com.apollographql.apollo"
 }
 
 object GradlePlugins {

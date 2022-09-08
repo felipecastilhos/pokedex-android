@@ -1,7 +1,5 @@
 package com.github.felipecastilhos.pokedexandroid.core.data.remote
 
-import com.apollographql.apollo.api.Error
-
 /**
  * Data source exception
  * @param messageResource message for the error

@@ -41,7 +41,7 @@ class NetworkModule {
     fun providesCallAdapterFactory(): ResultCallAdapterFactory = ResultCallAdapterFactory()
 
     /**
-     * Provides an ApolloClient setup
+     * Provides a Retrofit setup
      * @param apiUrl to query
      * @param okHttpClient to create the network communication
      * @param moshiConverterFactory to convert json as object

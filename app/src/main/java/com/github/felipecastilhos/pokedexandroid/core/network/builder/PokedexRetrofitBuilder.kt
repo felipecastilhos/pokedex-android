@@ -1,6 +1,5 @@
 package com.github.felipecastilhos.pokedexandroid.core.network.builder
 
-import com.apollographql.apollo.ApolloClient
 import com.github.felipecastilhos.pokedexandroid.core.network.resultcall.ResultCallAdapterFactory
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
@@ -10,8 +9,8 @@ object PokedexRetrofitBuilder {
 
     /**
      * Builds a [Retrofit] client
-     * @param okHttpClient to be used on [ApolloClient] for making network requests
-     * @param apiUrl is the server url to be used on [ApolloClient]
+     * @param okHttpClient to be used on [Retrofit] for making network requests
+     * @param apiUrl is the server url to be used on [Retrofit]
      */
     fun buildRetrofit(apiUrl: String, okHttpClient: OkHttpClient, moshiConverterFactory: MoshiConverterFactory, callAdapterFactory: ResultCallAdapterFactory): Retrofit {
         return Retrofit.Builder()

@@ -57,14 +57,6 @@ fun DependencyHandlerScope.retrofitLibraries() {
     implementation(Dependencies.Network.retrofitMoshiConverter)
 }
 
-/**
- * Add Apollo Android client dependencies to manage both local and remote data with GraphQL.
- */
-fun DependencyHandlerScope.apolloClientLibraries() {
-    api(Dependencies.Network.apolloRuntime)
-    api(Dependencies.Network.apolloCoroutines)
-}
-
 fun DependencyHandlerScope.okHttpLibraries() {
     api(Dependencies.Network.okHttpLoggingInterceptor)
     implementation("com.squareup.okhttp3:logging-interceptor:4.9.2")
