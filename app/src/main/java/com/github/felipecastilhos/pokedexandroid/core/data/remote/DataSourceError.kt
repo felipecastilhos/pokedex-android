@@ -1,4 +1,4 @@
-package com.github.felipecastilhos.pokedexandroid.core.datasource.remote
+package com.github.felipecastilhos.pokedexandroid.core.data.remote
 
 import com.apollographql.apollo.api.Error
 
@@ -7,8 +7,8 @@ import com.apollographql.apollo.api.Error
  * @param messageResource message for the error
  */
 sealed class DataSourceError(
-    val messageResource: Any?
-) {
+    private val messageResource: Any?
+) : Exception() {
     /**
      * Unexpected error
      * @param messageResource resource for the message
