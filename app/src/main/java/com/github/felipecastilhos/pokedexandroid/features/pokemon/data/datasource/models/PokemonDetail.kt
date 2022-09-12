@@ -1,4 +1,4 @@
-package com.github.felipecastilhos.pokedexandroid.features.home.data.datasource
+package com.github.felipecastilhos.pokedexandroid.features.pokemon.data.datasource.models
 
 import com.squareup.moshi.Json
 
@@ -9,8 +9,6 @@ data class Pokemon(
     @field:Json(name = "height") val height: Double,
     @field:Json(name = "weight") val weight: Double,
 )
-
-data class FlavorText(val game: String, val flavor: String)
 
 data class Specie(val name: String, val url: String)
 

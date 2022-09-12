@@ -1,7 +1,7 @@
 package com.github.felipecastilhos.pokedexandroid
 
-import com.github.felipecastilhos.pokedexandroid.features.home.data.datasource.*
-import com.github.felipecastilhos.pokedexandroid.features.home.domain.repository.DefaultPokemonRemoteDataRepository
+import com.github.felipecastilhos.pokedexandroid.features.pokemon.data.datasource.models.*
+import com.github.felipecastilhos.pokedexandroid.features.pokemon.domain.repository.DefaultPokemonRemoteDataRepository
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runTest
 import org.junit.Before
@@ -42,7 +42,7 @@ class PokemonRepositoryTest {
     @ExperimentalCoroutinesApi
     @Test
     fun searchPokemon_GetSquirtle() = runTest {
-        val result = pokemonRepository.search()
+        val result = pokemonRepository.pokemonData()
         assert(result.getOrNull()?.pokedexNumber == 7)
     }
 
@@ -50,7 +50,7 @@ class PokemonRepositoryTest {
     @Test
     fun searchPokemonInFailingRepository_GetResultIsFailure() = runTest {
         mockFailingRepository()
-        val result = pokemonRepository.search()
+        val result = pokemonRepository.pokemonData()
         assert(result.isFailure)
     }
 }
