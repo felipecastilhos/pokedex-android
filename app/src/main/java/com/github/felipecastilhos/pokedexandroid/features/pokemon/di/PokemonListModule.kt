@@ -1,12 +1,12 @@
-package com.github.felipecastilhos.pokedexandroid.features.home.di
+package com.github.felipecastilhos.pokedexandroid.features.pokemon.di
 
 import com.github.felipecastilhos.pokedexandroid.core.coroutines.DispatcherProvider
-import com.github.felipecastilhos.pokedexandroid.features.home.data.datasource.PokemonDataSource
-import com.github.felipecastilhos.pokedexandroid.features.home.data.datasource.PokemonRemoteDataSource
-import com.github.felipecastilhos.pokedexandroid.features.home.data.datasource.PokemonRestService
-import com.github.felipecastilhos.pokedexandroid.features.home.domain.repository.DefaultPokemonRemoteDataRepository
-import com.github.felipecastilhos.pokedexandroid.features.home.domain.repository.PokemonRepository
-import com.github.felipecastilhos.pokedexandroid.features.home.domain.usecase.PokemonUseCase
+import com.github.felipecastilhos.pokedexandroid.features.pokemon.data.datasource.PokemonDataSource
+import com.github.felipecastilhos.pokedexandroid.features.pokemon.data.datasource.PokemonRemoteDataSource
+import com.github.felipecastilhos.pokedexandroid.features.pokemon.data.datasource.remote.PokemonRestService
+import com.github.felipecastilhos.pokedexandroid.features.pokemon.domain.repository.DefaultPokemonRemoteDataRepository
+import com.github.felipecastilhos.pokedexandroid.features.pokemon.domain.repository.PokemonRepository
+import com.github.felipecastilhos.pokedexandroid.features.pokemon.domain.usecase.PokemonUseCase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -19,7 +19,7 @@ import javax.inject.Singleton
  */
 @Module
 @InstallIn(SingletonComponent::class)
-class HomeModule {
+class PokemonListModule {
     @Provides
     @Singleton
     fun providePokemonApiService(retrofit: Retrofit): PokemonRestService =

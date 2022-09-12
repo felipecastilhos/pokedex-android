@@ -1,4 +1,4 @@
-package com.github.felipecastilhos.pokedexandroid.features.home
+package com.github.felipecastilhos.pokedexandroid.features.pokemon
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -12,19 +12,19 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import com.github.felipecastilhos.pokedexandroid.core.ui.theme.PokedexandroidTheme
-import com.github.felipecastilhos.pokedexandroid.features.home.data.datasource.Pokemon
-import com.github.felipecastilhos.pokedexandroid.features.home.domain.viewmodel.PokedexHomeViewModel
+import com.github.felipecastilhos.pokedexandroid.features.pokemon.data.datasource.models.Pokemon
+import com.github.felipecastilhos.pokedexandroid.features.pokemon.domain.viewmodel.PokemonListViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class HomeActivity : ComponentActivity() {
-    private val pokedexHomeViewModel: PokedexHomeViewModel by viewModels()
+    private val pokemonListViewModel: PokemonListViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        pokedexHomeViewModel
+        pokemonListViewModel
         setContent {
-            val e by pokedexHomeViewModel.stateFlow.collectAsState()
+            val e by pokemonListViewModel.stateFlow.collectAsState()
             PokedexandroidTheme {
                 // A surface container using the 'background' color from the theme
                 Surface(color = MaterialTheme.colors.background) {

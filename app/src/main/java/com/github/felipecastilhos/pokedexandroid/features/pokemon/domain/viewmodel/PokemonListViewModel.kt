@@ -1,11 +1,11 @@
-package com.github.felipecastilhos.pokedexandroid.features.home.domain.viewmodel
+package com.github.felipecastilhos.pokedexandroid.features.pokemon.domain.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.github.felipecastilhos.pokedexandroid.core.coroutines.DispatcherProvider
 import com.github.felipecastilhos.pokedexandroid.core.logs.LogHandler
-import com.github.felipecastilhos.pokedexandroid.features.home.data.datasource.Pokemon
-import com.github.felipecastilhos.pokedexandroid.features.home.domain.usecase.PokemonUseCase
+import com.github.felipecastilhos.pokedexandroid.features.pokemon.data.datasource.models.Pokemon
+import com.github.felipecastilhos.pokedexandroid.features.pokemon.domain.usecase.PokemonUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -19,7 +19,7 @@ import javax.inject.Inject
  * @param dispatcherProvider abstraction of coroutines dispatchers
  */
 @HiltViewModel
-class PokedexHomeViewModel @Inject constructor(
+class PokemonListViewModel @Inject constructor(
     private val pokemonUseCase: PokemonUseCase,
     private val dispatcherProvider: DispatcherProvider
 ) : ViewModel() {
