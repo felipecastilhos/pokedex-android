@@ -1,5 +1,6 @@
 package com.github.felipecastilhos.pokedexandroid.features.pokemon.domain.usecase
 
+import com.github.felipecastilhos.pokedexandroid.core.logs.LogHandler
 import com.github.felipecastilhos.pokedexandroid.features.pokemon.data.datasource.models.Pokemon
 import com.github.felipecastilhos.pokedexandroid.features.pokemon.data.datasource.models.PokemonList
 import com.github.felipecastilhos.pokedexandroid.features.pokemon.domain.repository.PokemonRepository
