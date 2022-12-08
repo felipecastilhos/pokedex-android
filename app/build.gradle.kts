@@ -11,7 +11,8 @@ android {
 
     defaultConfig {
         applicationId = "com.github.felipecastilhos.pokedexandroid"
-        minSdk = BuildConfigVersions.minSdk
+        minSdk = BuildConfigVersions
+            .minSdk
         targetSdk = BuildConfigVersions.targetSdk
         versionCode = BuildConfigVersions.versionCode
         versionName = BuildConfigVersions.versionName
@@ -56,6 +57,8 @@ android {
 }
 
 dependencies {
+    implementation("androidx.test.ext:junit-ktx:1.1.3")
+
     // Common libraries
     jetpackCoreLibraries()
     jetpackKotlinExtensionsLibraries()
@@ -74,6 +77,9 @@ dependencies {
 
     // Add log libraries
     logLibraries()
+
+    // Add async image libraries
+    asyncImageLibraries()
 
     // Add Tests
     unitTestsLibraries()
