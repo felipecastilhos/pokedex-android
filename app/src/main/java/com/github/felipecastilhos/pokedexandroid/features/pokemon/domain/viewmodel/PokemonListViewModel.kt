@@ -4,7 +4,6 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.github.felipecastilhos.pokedexandroid.core.coroutines.DispatcherProvider
 import com.github.felipecastilhos.pokedexandroid.core.logs.LogHandler
-import com.github.felipecastilhos.pokedexandroid.core.ui.uistate.LoadingUiState
 import com.github.felipecastilhos.pokedexandroid.features.pokemon.data.datasource.models.PokemonList
 import com.github.felipecastilhos.pokedexandroid.features.pokemon.data.datasource.models.PokemonListEntry
 import com.github.felipecastilhos.pokedexandroid.features.pokemon.domain.usecase.PokemonUseCase
@@ -65,7 +64,7 @@ fun List<PokemonListEntry>.toUiData(): List<PokemonListEntryUiData> {
 }
 
 fun thumbUrl(index: Int) =
-    "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/${index}.png"
+    "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/${index + 1}.png"
 
 data class PokemonListUiState(
     val isLoading: Boolean = true,
