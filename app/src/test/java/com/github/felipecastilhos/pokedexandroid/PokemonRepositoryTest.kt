@@ -22,6 +22,9 @@ class PokemonRepositoryTest {
         weight = 9.0
     )
 
+    private val pokemonEntries = listOf<PokemonListEntry>(PokemonListEntry("Bulbassauro", "http://pokeapi/bulba"))
+    private val pokemonList = PokemonList(0L, "21", "20", pokemonEntries)
+
     private lateinit var fakePokemonDataSource: FakePokemonDataSource
     private lateinit var pokemonRepository: DefaultPokemonRemoteDataRepository
     
@@ -31,7 +34,7 @@ class PokemonRepositoryTest {
     }
 
     private fun mockSuccessRepository() {
-        fakePokemonDataSource = FakePokemonDataSource(pokemonSquirtle)
+        fakePokemonDataSource = FakePokemonDataSource(pokemonSquirtle, pokemonList)
         pokemonRepository = DefaultPokemonRemoteDataRepository(fakePokemonDataSource)
     }
 
@@ -44,6 +47,12 @@ class PokemonRepositoryTest {
     fun searchPokemon_GetSquirtle() = runTest {
         val result = pokemonRepository.pokemonData()
         assert(result.getOrNull()?.pokedexNumber == 7)
+    }
+
+    @Test
+    fun search_GetBulbassauroInPokemonList() = runTest {
+        val result = pokemonRepository.list(0, 10)
+        assert(result.getOrNull()?.results?.first()?.name == "Bulbassauro")
     }
 
     @ExperimentalCoroutinesApi
