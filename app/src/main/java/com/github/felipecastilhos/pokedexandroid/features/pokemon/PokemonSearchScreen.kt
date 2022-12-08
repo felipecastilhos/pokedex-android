@@ -64,12 +64,10 @@ fun PokenonSearchList(
     }
 }
 
-
 @Composable
 fun LoadingScreen() {
     Text("Carregando...")
 }
-
 
 @Composable
 fun DetailScren() {

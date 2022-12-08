@@ -24,7 +24,7 @@ object PokemonDestinations {
 
 class PokemonNavigationActions(private val navController: NavController) {
     fun navigateToSearch() {
-        navController.navigate(PokemonDestinations .SEARCH_ROUTE) {
+        navController.navigate(PokemonDestinations.SEARCH_ROUTE) {
             launchSingleTop = true
         }
     }

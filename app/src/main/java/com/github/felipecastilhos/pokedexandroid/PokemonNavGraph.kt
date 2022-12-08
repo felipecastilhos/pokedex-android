@@ -12,7 +12,7 @@ fun PokemonNavGraph(
     modifier: Modifier = Modifier,
     navController: NavHostController = rememberNavController(),
     startDestination: String = PokemonDestinations.SEARCH_ROUTE,
-    navActions:PokemonNavigationActions = remember(navController) {
+    navActions: PokemonNavigationActions = remember(navController) {
         PokemonNavigationActions(navController)
     }
 ) {
