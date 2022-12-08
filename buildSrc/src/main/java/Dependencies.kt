@@ -2,27 +2,30 @@
  * All dependency versions used
  */
 object DependencyVersions {
-    const val androidxCore = "1.7.0"
+    const val androidxCore = "1.8.0"
     const val androidxAppCompat = "1.3.1"
     const val composeVersion = "1.0.5"
-    const val androidxLifecycle = "2.4.0"
+    const val androidxLifecycle = "2.5.1"
     const val androidMaterial = "1.4.0"
     const val activityCompose = "1.4.0"
     const val jUnitVersion = "4.13.2"
     const val androidxJunit = "1.1.3"
     const val androidxEspresso = "3.4.0"
     const val androidxComposeJunit = "1.0.5"
-    const val kotlinCompilerExtension = "1.0.1"
-    const val daggerHilt = "2.37"
-    const val jetpackHilt = "1.0.0-alpha01"
-    const val buildGradle = "7.0.3"
-    const val kotlinGradlePlugin = "1.5.21"
+    const val kotlinCompilerExtension = "1.3.2"
+    const val daggerHilt = "2.44.2"
+    const val hiltCompiler = "1.0.0"
+    const val buildGradle = "7.3.0"
+    const val kotlinGradlePlugin = "1.7.20"
     const val okHttpVersion = "4.9.2"
     const val timber = "5.0.1"
     const val mockk = "1.12.1"
     const val coroutine = "1.6.1"
     const val retrofit = "2.9.0"
     const val retrofitMoshiConverter = "2.4.0"
+    const val coil = "2.2.2"
+    const val navigatioNCompose = "2.5.0"
+    const val hiltNavigationCompose = "1.0.0"
 }
 
 /**
@@ -33,10 +36,8 @@ sealed class Dependencies {
         const val daggerHilt = "com.google.dagger:hilt-android:${DependencyVersions.daggerHilt}"
         const val daggerHiltCompiler =
             "com.google.dagger:hilt-android-compiler:${DependencyVersions.daggerHilt}"
-        const val jetpackHiltLifecycleViewModel =
-            "androidx.hilt:hilt-lifecycle-viewmodel:${DependencyVersions.jetpackHilt}"
         const val jetpackHiltCompiler =
-            "androidx.hilt:hilt-compiler:${DependencyVersions.jetpackHilt}"
+            "androidx.hilt:hilt-compiler:${DependencyVersions.hiltCompiler}"
     }
 
     object AndroidLifecycle {
@@ -63,6 +64,8 @@ sealed class Dependencies {
             "androidx.compose.ui:ui-tooling:${DependencyVersions.composeVersion}"
         const val activityCompose =
             "androidx.activity:activity-compose:${DependencyVersions.activityCompose}"
+        const val navigationCompose = "androidx.navigation:navigation-compose:${DependencyVersions.navigatioNCompose}"
+        const val hiltNavigationCompose = "androidx.hilt:hilt-navigation-compose:${DependencyVersions.hiltNavigationCompose}"
     }
 
     object Tests {
@@ -89,6 +92,10 @@ sealed class Dependencies {
 
     object Log {
         const val timber = "com.jakewharton.timber:timber:${DependencyVersions.timber}"
+    }
+
+    object AsyncImages {
+        const val coil = "io.coil-kt:coil-compose:${DependencyVersions.coil}"
     }
 }
 

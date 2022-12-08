@@ -30,6 +30,8 @@ fun DependencyHandlerScope.jetpackComposeLibraries() {
     implementation(Dependencies.JetpackCompose.material)
     implementation(Dependencies.JetpackCompose.uiToolingPreview)
     implementation(Dependencies.JetpackCompose.activityCompose)
+    implementation(Dependencies.JetpackCompose.navigationCompose)
+    implementation(Dependencies.JetpackCompose.hiltNavigationCompose)
     implementation(Dependencies.AndroidLifecycle.viewModelCompose)
     debugImplementation(Dependencies.JetpackCompose.composeUiTooling)
 }
@@ -48,7 +50,6 @@ fun DependencyHandlerScope.jetpackAndroidLifecycleLibraries() {
 fun DependencyHandlerScope.hiltLibraries() {
     api(Dependencies.DependencyInjection.daggerHilt)
     kapt(Dependencies.DependencyInjection.daggerHiltCompiler)
-    api(Dependencies.DependencyInjection.jetpackHiltLifecycleViewModel)
     kapt(Dependencies.DependencyInjection.jetpackHiltCompiler)
 }
 
@@ -67,6 +68,10 @@ fun DependencyHandlerScope.okHttpLibraries() {
  */
 fun DependencyHandlerScope.logLibraries() {
     implementation(Dependencies.Log.timber)
+}
+
+fun DependencyHandlerScope.asyncImageLibraries() {
+    implementation(Dependencies.AsyncImages.coil)
 }
 
 /**
