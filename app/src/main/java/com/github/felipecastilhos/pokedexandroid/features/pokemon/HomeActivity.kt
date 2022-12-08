@@ -28,6 +28,3 @@ fun PokemonDetailScreen() {
         Text("Some details here")
     }
 }
-
-
-
