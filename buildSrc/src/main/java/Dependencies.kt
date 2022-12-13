@@ -4,17 +4,15 @@
 object DependencyVersions {
     const val androidxCore = "1.8.0"
     const val androidxAppCompat = "1.3.1"
-    const val composeVersion = "1.0.5"
+    const val composeVersion = "1.2.0"
     const val androidxLifecycle = "2.5.1"
     const val androidMaterial = "1.4.0"
     const val activityCompose = "1.4.0"
     const val jUnitVersion = "4.13.2"
     const val androidxJunit = "1.1.3"
-    const val androidxEspresso = "3.4.0"
-    const val androidxComposeJunit = "1.0.5"
+    const val androidxEspresso = "3.3.0"
     const val kotlinCompilerExtension = "1.3.2"
     const val daggerHilt = "2.44.2"
-    const val hiltCompiler = "1.0.0"
     const val buildGradle = "7.3.0"
     const val kotlinGradlePlugin = "1.7.20"
     const val okHttpVersion = "4.9.2"
@@ -37,7 +35,7 @@ sealed class Dependencies {
         const val daggerHiltCompiler =
             "com.google.dagger:hilt-android-compiler:${DependencyVersions.daggerHilt}"
         const val jetpackHiltCompiler =
-            "androidx.hilt:hilt-compiler:${DependencyVersions.hiltCompiler}"
+            "com.google.dagger:hilt-compiler:${DependencyVersions.daggerHilt}"
     }
 
     object AndroidLifecycle {
@@ -64,8 +62,10 @@ sealed class Dependencies {
             "androidx.compose.ui:ui-tooling:${DependencyVersions.composeVersion}"
         const val activityCompose =
             "androidx.activity:activity-compose:${DependencyVersions.activityCompose}"
-        const val navigationCompose = "androidx.navigation:navigation-compose:${DependencyVersions.navigatioNCompose}"
-        const val hiltNavigationCompose = "androidx.hilt:hilt-navigation-compose:${DependencyVersions.hiltNavigationCompose}"
+        const val navigationCompose =
+            "androidx.navigation:navigation-compose:${DependencyVersions.navigatioNCompose}"
+        const val hiltNavigationCompose =
+            "androidx.hilt:hilt-navigation-compose:${DependencyVersions.hiltNavigationCompose}"
     }
 
     object Tests {
@@ -74,12 +74,14 @@ sealed class Dependencies {
         const val espresso =
             "androidx.test.espresso:espresso-core:${DependencyVersions.androidxEspresso}"
         const val composejUnit =
-            "androidx.compose.ui:ui-test-junit4:${DependencyVersions.androidxComposeJunit}"
+            "androidx.compose.ui:ui-test-junit4:${DependencyVersions.composeVersion}"
         const val mockk: String = "io.mockk:mockk:${DependencyVersions.mockk}"
         const val coroutineAndroid =
             "org.jetbrains.kotlinx:kotlinx-coroutines-android:${DependencyVersions.coroutine}"
         const val coroutineTest =
             "org.jetbrains.kotlinx:kotlinx-coroutines-test:${DependencyVersions.coroutine}"
+        const val hiltTests =
+            "com.google.dagger:hilt-android-testing:${DependencyVersions.daggerHilt}"
     }
 
     object Network {

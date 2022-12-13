@@ -48,9 +48,10 @@ fun DependencyHandlerScope.jetpackAndroidLifecycleLibraries() {
  * Add hilt dependencies for dependency injection
  */
 fun DependencyHandlerScope.hiltLibraries() {
-    api(Dependencies.DependencyInjection.daggerHilt)
-    kapt(Dependencies.DependencyInjection.daggerHiltCompiler)
+    implementation(Dependencies.DependencyInjection.daggerHilt)
+    kaptAndroidTest(Dependencies.DependencyInjection.daggerHiltCompiler)
     kapt(Dependencies.DependencyInjection.jetpackHiltCompiler)
+    testImplementation(Dependencies.Tests.coroutineTest)
 }
 
 fun DependencyHandlerScope.retrofitLibraries() {
@@ -80,7 +81,7 @@ fun DependencyHandlerScope.asyncImageLibraries() {
 fun DependencyHandlerScope.unitTestsLibraries() {
     testImplementation(Dependencies.Tests.jUnit)
     testImplementation(Dependencies.Tests.coroutineAndroid)
-    testImplementation(Dependencies.Tests.coroutineTest)
+
 }
 
 fun DependencyHandlerScope.mockLibraries() {
@@ -94,6 +95,10 @@ fun DependencyHandlerScope.instrumentationTestsLibraries() {
     androidTestImplementation(Dependencies.Tests.androidxExtjUnit)
     androidTestImplementation(Dependencies.Tests.espresso)
     androidTestImplementation(Dependencies.Tests.composejUnit)
+    androidTestImplementation(Dependencies.Tests.hiltTests)
+    androidTestImplementation(Dependencies.Tests.jUnit)
+    kaptAndroidTest(Dependencies.DependencyInjection.jetpackHiltCompiler)
+
 }
 
 /**
@@ -129,6 +134,13 @@ fun DependencyHandlerScope.androidTestImplementation(dependencyNotation: String)
  */
 fun DependencyHandlerScope.kapt(dependencyNotation: String) {
     "kapt"(dependencyNotation)
+}
+
+/**
+ * Extension to add library to the build in Kotlin Gradle SDL
+ */
+fun DependencyHandlerScope.kaptAndroidTest(dependencyNotation: String) {
+    "kaptAndroidTest"(dependencyNotation)
 }
 
 /**
