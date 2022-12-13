@@ -17,7 +17,7 @@ android {
         versionCode = BuildConfigVersions.versionCode
         versionName = BuildConfigVersions.versionName
 
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner = "com.github.felipecastilhos.pokedexandroid.CustomTestRunner"
 
         defaultConfig {
             vectorDrawables.useSupportLibrary = true
@@ -33,6 +33,7 @@ android {
             )
         }
     }
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
@@ -57,7 +58,7 @@ android {
 }
 
 dependencies {
-    implementation("androidx.test.ext:junit-ktx:1.1.3")
+    testImplementation("androidx.test.ext:junit-ktx:1.1.3")
 
     // Common libraries
     jetpackCoreLibraries()
@@ -85,4 +86,8 @@ dependencies {
     unitTestsLibraries()
     instrumentationTestsLibraries()
     mockLibraries()
+}
+
+kapt {
+    correctErrorTypes = true
 }
