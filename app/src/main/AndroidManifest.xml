@@ -15,7 +15,6 @@
         <activity
             android:name=".features.pokemon.HomeActivity"
             android:exported="true"
-            android:label="@string/app_name"
             android:theme="@style/Theme.Pokedexandroid.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
