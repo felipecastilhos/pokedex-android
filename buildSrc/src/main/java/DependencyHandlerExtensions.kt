@@ -81,7 +81,6 @@ fun DependencyHandlerScope.asyncImageLibraries() {
 fun DependencyHandlerScope.unitTestsLibraries() {
     testImplementation(Dependencies.Tests.jUnit)
     testImplementation(Dependencies.Tests.coroutineAndroid)
-
 }
 
 fun DependencyHandlerScope.mockLibraries() {
@@ -98,7 +97,6 @@ fun DependencyHandlerScope.instrumentationTestsLibraries() {
     androidTestImplementation(Dependencies.Tests.hiltTests)
     androidTestImplementation(Dependencies.Tests.jUnit)
     kaptAndroidTest(Dependencies.DependencyInjection.jetpackHiltCompiler)
-
 }
 
 /**

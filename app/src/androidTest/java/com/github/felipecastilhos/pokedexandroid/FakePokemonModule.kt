@@ -3,20 +3,21 @@ package com.github.felipecastilhos.pokedexandroid
 import com.github.felipecastilhos.pokedexandroid.core.data.remote.DataSourceError
 import com.github.felipecastilhos.pokedexandroid.features.pokemon.data.datasource.PokemonDataSource
 import com.github.felipecastilhos.pokedexandroid.features.pokemon.data.datasource.PokemonRemoteDataSource
-import com.github.felipecastilhos.pokedexandroid.features.pokemon.data.datasource.models.*
-import com.github.felipecastilhos.pokedexandroid.features.pokemon.data.datasource.remote.PokemonRestService
+import com.github.felipecastilhos.pokedexandroid.features.pokemon.data.datasource.models.Pokemon
+import com.github.felipecastilhos.pokedexandroid.features.pokemon.data.datasource.models.PokemonList
+import com.github.felipecastilhos.pokedexandroid.features.pokemon.data.datasource.models.PokemonListEntry
+import com.github.felipecastilhos.pokedexandroid.features.pokemon.data.datasource.models.PokemonType
+import com.github.felipecastilhos.pokedexandroid.features.pokemon.data.datasource.models.PokemonTypes
+import com.github.felipecastilhos.pokedexandroid.features.pokemon.data.datasource.models.Specie
+import com.github.felipecastilhos.pokedexandroid.features.pokemon.data.datasource.models.TypeName
 import com.github.felipecastilhos.pokedexandroid.features.pokemon.di.PokemonListModule
 import com.github.felipecastilhos.pokedexandroid.features.pokemon.domain.repository.DefaultPokemonRemoteDataRepository
 import com.github.felipecastilhos.pokedexandroid.features.pokemon.domain.repository.PokemonRepository
 import com.github.felipecastilhos.pokedexandroid.features.pokemon.domain.usecase.PokemonUseCase
-import dagger.Binds
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.components.SingletonComponent
 import dagger.hilt.testing.TestInstallIn
-import retrofit2.Retrofit
-import javax.inject.Singleton
-
 
 @Module
 @TestInstallIn(
@@ -64,7 +65,6 @@ class FakePokemonModule {
         return PokemonUseCase(pokemonRemoteDataRepository)
     }
 }
-
 
 class FakePokemonDataSource(private val pokemon: Pokemon, private val pokemonList: PokemonList) :
     PokemonDataSource {
