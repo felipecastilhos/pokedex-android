@@ -6,7 +6,7 @@ import androidx.compose.ui.test.onNodeWithText
 import androidx.compose.ui.test.performClick
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.filters.LargeTest
-import com.github.felipecastilhos.pokedexandroid.core.ui.theme.PokedexandroidTheme
+import com.github.felipecastilhos.pokedexandroid.core.ui.theme.PokedexAndroidTheme
 import dagger.hilt.android.testing.HiltAndroidRule
 import dagger.hilt.android.testing.HiltAndroidTest
 import org.junit.Before
@@ -44,7 +44,7 @@ class AppNavigationTest {
 
     private fun setContent() {
         composeTestRule.setContent {
-            PokedexandroidTheme {
+            PokedexAndroidTheme {
                 PokemonNavGraph()
             }
         }
