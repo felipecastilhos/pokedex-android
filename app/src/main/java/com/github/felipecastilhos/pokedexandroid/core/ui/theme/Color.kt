@@ -5,16 +5,12 @@ import androidx.compose.material.darkColors
 import androidx.compose.material.lightColors
 import androidx.compose.ui.graphics.Color
 
-class ColorTheme(val colors: ColorScheme) {
-    internal companion object : ColorGroup<ColorTheme> {
-        override val regular: ColorMode<ColorTheme> = object : ColorMode<ColorTheme> {
-            override val lightMode: ColorTheme = ColorTheme(ColorScheme(PokemonTypeColorGroup.regular.lightMode))
-            override val darkMode: ColorTheme = ColorTheme(ColorScheme(PokemonTypeColorGroup.regular.darkMode))
-        }
+class ColorScheme(var pokemonType: PokemonTypeColorGroup) {
+    internal companion object {
+        fun regularLightModeColorSchema()  = ColorScheme(PokemonTypeColorGroup.regular.lightMode)
+        fun regularDarkModeColorSchema() = ColorScheme(PokemonTypeColorGroup.regular.darkMode)
     }
 }
-
-class ColorScheme(var pokemonType: PokemonTypeColorGroup)
 
 interface ColorGroup<T> {
     val regular: ColorMode<T>

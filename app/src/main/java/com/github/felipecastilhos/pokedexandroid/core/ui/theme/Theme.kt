@@ -4,34 +4,27 @@ import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material.*
 import androidx.compose.runtime.*
 
-@Composable
-fun PokedexAndroidTheme(
-    darkTheme: Boolean = isSystemInDarkTheme(),
-    colors: ColorScheme = LocalColorTheme.current.colors,
-    content: @Composable () -> Unit
-) {
-    val currentTheme = LocalColorTheme.current
+object PokedexTheme {
+    inline val colors: ColorScheme
+    @Composable get() =  LocalColors.current
 
-
-    MaterialTheme(
-        colors = colors.toColors(darkTheme),
-        typography = Typography,
-        shapes = Shapes,
-        content = content
-    )
-}
-
-var LocalColorTheme = compositionLocalOf {
-    ColorTheme.regular.lightMode
-}
-
-
-@Composable
-fun changeTheme(isDarkTheme: Boolean): ColorTheme {
-    return if (isDarkTheme) {
-        ColorTheme.regular.darkMode
-    } else {
-        ColorTheme.regular.lightMode
+    val LocalColors = compositionLocalOf {
+        ColorScheme.regularLightModeColorSchema()
     }
 }
 
+@Composable
+fun PokedexAndroidTheme(
+    darkTheme: Boolean = isSystemInDarkTheme(),
+    colors: ColorScheme = PokedexTheme.colors,
+    content: @Composable () -> Unit
+) {
+        CompositionLocalProvider( PokedexTheme.LocalColors provides colors) {
+            MaterialTheme(
+                colors = colors.toColors(darkTheme),
+                typography = Typography,
+                shapes = Shapes,
+                content = content
+            )
+        }
+}
