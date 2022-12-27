@@ -1,7 +1,12 @@
 package com.github.felipecastilhos.pokedexandroid
 
 import com.github.felipecastilhos.pokedexandroid.features.pokemon.data.datasource.models.*
-import com.github.felipecastilhos.pokedexandroid.features.pokemon.domain.repository.DefaultPokemonRemoteDataRepository
+import com.github.felipecastilhos.pokedexandroid.features.pokemon.data.datasource.remote.PokemonRemoteData
+import com.github.felipecastilhos.pokedexandroid.features.pokemon.data.datasource.remote.PokemonTypeRemoteData
+import com.github.felipecastilhos.pokedexandroid.features.pokemon.data.datasource.remote.PokemonTypesRemoteData
+import com.github.felipecastilhos.pokedexandroid.features.pokemon.data.datasource.remote.SpecieRemoteData
+import com.github.felipecastilhos.pokedexandroid.features.pokemon.data.datasource.remote.TypeNameRemoteData
+import com.github.felipecastilhos.pokedexandroid.features.pokemon.data.repository.DefaultPokemonRemoteDataRepository
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runTest
 import org.junit.Before
@@ -14,16 +19,16 @@ class PokemonRepositoryTest {
     @get:Rule
     val mainCoroutineRule = MainCoroutineRule()
 
-    private val pokemonSquirtle = Pokemon(
+    private val pokemonSquirtle = PokemonRemoteData(
         pokedexNumber = 7,
-        species = Specie("Squirtle", ""),
-        types = listOf(PokemonTypes(1, PokemonType(typeName = TypeName.Water, url = ""))),
+        species = SpecieRemoteData("Squirtle", ""),
+        types = listOf(PokemonTypesRemoteData(1, PokemonTypeRemoteData(typeName = TypeNameRemoteData.Water, url = ""))),
         height = 0.5,
         weight = 9.0
     )
 
-    private val pokemonEntries = listOf<PokemonListEntry>(PokemonListEntry("Bulbassauro", "http://pokeapi/bulba"))
-    private val pokemonList = PokemonList(0L, "21", "20", pokemonEntries)
+    private val pokemonEntries = listOf<PokemonListEntryRemote>(PokemonListEntryRemote("Bulbassauro", "http://pokeapi/bulba"))
+    private val pokemonList = PokemonListRemote(0L, "21", "20", pokemonEntries)
 
     private lateinit var fakePokemonDataSource: FakePokemonDataSource
     private lateinit var pokemonRepository: DefaultPokemonRemoteDataRepository

@@ -4,8 +4,8 @@ import com.github.felipecastilhos.pokedexandroid.core.coroutines.DispatcherProvi
 import com.github.felipecastilhos.pokedexandroid.features.pokemon.data.datasource.PokemonDataSource
 import com.github.felipecastilhos.pokedexandroid.features.pokemon.data.datasource.PokemonRemoteDataSource
 import com.github.felipecastilhos.pokedexandroid.features.pokemon.data.datasource.remote.PokemonRestService
-import com.github.felipecastilhos.pokedexandroid.features.pokemon.domain.repository.DefaultPokemonRemoteDataRepository
-import com.github.felipecastilhos.pokedexandroid.features.pokemon.domain.repository.PokemonRepository
+import com.github.felipecastilhos.pokedexandroid.features.pokemon.data.repository.DefaultPokemonRemoteDataRepository
+import com.github.felipecastilhos.pokedexandroid.features.pokemon.data.repository.PokemonRepository
 import com.github.felipecastilhos.pokedexandroid.features.pokemon.domain.usecase.PokemonUseCase
 import dagger.Module
 import dagger.Provides

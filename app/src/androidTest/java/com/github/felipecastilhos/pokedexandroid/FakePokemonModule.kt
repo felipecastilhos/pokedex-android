@@ -3,16 +3,16 @@ package com.github.felipecastilhos.pokedexandroid
 import com.github.felipecastilhos.pokedexandroid.core.data.remote.DataSourceError
 import com.github.felipecastilhos.pokedexandroid.features.pokemon.data.datasource.PokemonDataSource
 import com.github.felipecastilhos.pokedexandroid.features.pokemon.data.datasource.PokemonRemoteDataSource
-import com.github.felipecastilhos.pokedexandroid.features.pokemon.data.datasource.models.Pokemon
-import com.github.felipecastilhos.pokedexandroid.features.pokemon.data.datasource.models.PokemonList
-import com.github.felipecastilhos.pokedexandroid.features.pokemon.data.datasource.models.PokemonListEntry
-import com.github.felipecastilhos.pokedexandroid.features.pokemon.data.datasource.models.PokemonType
-import com.github.felipecastilhos.pokedexandroid.features.pokemon.data.datasource.models.PokemonTypes
-import com.github.felipecastilhos.pokedexandroid.features.pokemon.data.datasource.models.Specie
-import com.github.felipecastilhos.pokedexandroid.features.pokemon.data.datasource.models.TypeName
+import com.github.felipecastilhos.pokedexandroid.features.pokemon.data.datasource.remote.PokemonRemoteData
+import com.github.felipecastilhos.pokedexandroid.features.pokemon.data.datasource.models.PokemonListRemote
+import com.github.felipecastilhos.pokedexandroid.features.pokemon.data.datasource.models.PokemonListEntryRemote
+import com.github.felipecastilhos.pokedexandroid.features.pokemon.data.datasource.remote.PokemonTypeRemoteData
+import com.github.felipecastilhos.pokedexandroid.features.pokemon.data.datasource.remote.PokemonTypesRemoteData
+import com.github.felipecastilhos.pokedexandroid.features.pokemon.data.datasource.remote.SpecieRemoteData
+import com.github.felipecastilhos.pokedexandroid.features.pokemon.data.datasource.remote.TypeNameRemoteData
 import com.github.felipecastilhos.pokedexandroid.features.pokemon.di.PokemonListModule
-import com.github.felipecastilhos.pokedexandroid.features.pokemon.domain.repository.DefaultPokemonRemoteDataRepository
-import com.github.felipecastilhos.pokedexandroid.features.pokemon.domain.repository.PokemonRepository
+import com.github.felipecastilhos.pokedexandroid.features.pokemon.data.repository.DefaultPokemonRemoteDataRepository
+import com.github.felipecastilhos.pokedexandroid.features.pokemon.data.repository.PokemonRepository
 import com.github.felipecastilhos.pokedexandroid.features.pokemon.domain.usecase.PokemonUseCase
 import dagger.Module
 import dagger.Provides
@@ -30,17 +30,17 @@ class FakePokemonModule {
      */
     @Provides
     fun providesHomeRemoteDataSource(): PokemonDataSource {
-        val pokemonSquirtle = Pokemon(
+        val pokemonSquirtle = PokemonRemoteData(
             pokedexNumber = 7,
-            species = Specie("Squirtle", ""),
-            types = listOf(PokemonTypes(1, PokemonType(typeName = TypeName.Water, url = ""))),
+            species = SpecieRemoteData("Squirtle", ""),
+            types = listOf(PokemonTypesRemoteData(1, PokemonTypeRemoteData(typeName = TypeNameRemoteData.Water, url = ""))),
             height = 0.5,
             weight = 9.0
         )
 
         val pokemonEntries =
-            listOf(PokemonListEntry("Bulbassauro", "http://pokeapi/bulba"))
-        val pokemonList = PokemonList(0L, "21", "20", pokemonEntries)
+            listOf(PokemonListEntryRemote("Bulbassauro", "http://pokeapi/bulba"))
+        val pokemonList = PokemonListRemote(0L, "21", "20", pokemonEntries)
 
         return FakePokemonDataSource(pokemon = pokemonSquirtle, pokemonList = pokemonList)
     }
@@ -66,23 +66,23 @@ class FakePokemonModule {
     }
 }
 
-class FakePokemonDataSource(private val pokemon: Pokemon, private val pokemonList: PokemonList) :
+class FakePokemonDataSource(private val pokemon: PokemonRemoteData, private val pokemonList: PokemonListRemote) :
     PokemonDataSource {
-    override suspend fun pokemonData(): Result<Pokemon> {
+    override suspend fun pokemonData(): Result<PokemonRemoteData> {
         return Result.success(pokemon)
     }
 
-    override suspend fun list(offset: Long, limit: Int): Result<PokemonList> {
+    override suspend fun list(offset: Long, limit: Int): Result<PokemonListRemote> {
         return Result.success(pokemonList)
     }
 }
 
 class FakeFailingPokemonDataSource : PokemonDataSource {
-    override suspend fun pokemonData(): Result<Pokemon> {
+    override suspend fun pokemonData(): Result<PokemonRemoteData> {
         return Result.failure(exception = DataSourceError.Unexpected(R.string.server_unexpected_error))
     }
 
-    override suspend fun list(offset: Long, limit: Int): Result<PokemonList> {
+    override suspend fun list(offset: Long, limit: Int): Result<PokemonListRemote> {
         return Result.failure(exception = DataSourceError.Unexpected(R.string.server_unexpected_error))
     }
 }

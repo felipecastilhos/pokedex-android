@@ -1,8 +1,8 @@
-package com.github.felipecastilhos.pokedexandroid.features.pokemon.domain.repository
+package com.github.felipecastilhos.pokedexandroid.features.pokemon.data.repository
 
-import com.github.felipecastilhos.pokedexandroid.features.pokemon.data.datasource.models.Pokemon
 import com.github.felipecastilhos.pokedexandroid.features.pokemon.data.datasource.PokemonDataSource
-import com.github.felipecastilhos.pokedexandroid.features.pokemon.data.datasource.models.PokemonList
+import com.github.felipecastilhos.pokedexandroid.features.pokemon.data.datasource.models.PokemonListRemote
+import com.github.felipecastilhos.pokedexandroid.features.pokemon.data.datasource.remote.PokemonRemoteData
 import javax.inject.Inject
 
 /**
@@ -12,14 +12,14 @@ interface PokemonRepository {
     /**
      * Query for all data of a single pokemon
      */
-    suspend fun pokemonData(): Result<Pokemon?>
+    suspend fun pokemonData(): Result<PokemonRemoteData?>
 
     /**
      * Paginated list of pokemons
      * @param offset move to another page
      * @param limit of pokemons per page
      */
-    suspend fun list(offset: Long, limit: Int): Result<PokemonList>
+    suspend fun list(offset: Long, limit: Int): Result<PokemonListRemote>
 }
 
 /**

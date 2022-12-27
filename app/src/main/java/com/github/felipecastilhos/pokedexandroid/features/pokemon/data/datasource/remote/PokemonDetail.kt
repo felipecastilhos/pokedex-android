@@ -1,21 +1,27 @@
-package com.github.felipecastilhos.pokedexandroid.features.pokemon.data.datasource.models
+package com.github.felipecastilhos.pokedexandroid.features.pokemon.data.datasource.remote
 
 import com.squareup.moshi.Json
 
-data class Pokemon(
+/**
+ * Represents remote data abaut a Pokemon
+ */
+data class PokemonRemoteData(
     @field:Json(name = "id") val pokedexNumber: Int,
-    @field:Json(name = "species") val species: Specie,
-    @field:Json(name = "types") val types: List<PokemonTypes?>,
+    @field:Json(name = "species") val species: SpecieRemoteData,
+    @field:Json(name = "types") val types: List<PokemonTypesRemoteData?>,
     @field:Json(name = "height") val height: Double,
     @field:Json(name = "weight") val weight: Double,
 )
 
-data class Specie(val name: String, val url: String)
+/**
+ * Reepresents remote data about a Pokemonb
+ */
+data class SpecieRemoteData(val name: String, val url: String)
 
-data class PokemonTypes(val slot: Int, val type: PokemonType)
-data class PokemonType(@field:Json(name = "name") val typeName: TypeName, val url: String)
+data class PokemonTypesRemoteData(val slot: Int, val type: PokemonTypeRemoteData)
+data class PokemonTypeRemoteData(@field:Json(name = "name") val typeName: TypeNameRemoteData, val url: String)
 
-enum class TypeName {
+enum class TypeNameRemoteData {
     @field:Json(name = "normal")
     Normal,
 

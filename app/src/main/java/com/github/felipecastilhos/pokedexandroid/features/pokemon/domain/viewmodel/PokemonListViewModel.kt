@@ -4,8 +4,8 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.github.felipecastilhos.pokedexandroid.core.coroutines.DispatcherProvider
 import com.github.felipecastilhos.pokedexandroid.core.logs.LogHandler
-import com.github.felipecastilhos.pokedexandroid.features.pokemon.data.datasource.models.PokemonList
-import com.github.felipecastilhos.pokedexandroid.features.pokemon.data.datasource.models.PokemonListEntry
+import com.github.felipecastilhos.pokedexandroid.features.pokemon.data.datasource.models.PokemonListRemote
+import com.github.felipecastilhos.pokedexandroid.features.pokemon.data.datasource.models.PokemonListEntryRemote
 import com.github.felipecastilhos.pokedexandroid.features.pokemon.domain.usecase.PokemonUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -43,7 +43,7 @@ class PokemonListViewModel @Inject constructor(
     }
 }
 
-fun Result<PokemonList>.toView(): PokemonListUiState {
+fun Result<PokemonListRemote>.toView(): PokemonListUiState {
     return if (isSuccess) {
         val pokemonList = getOrNull()
         if (pokemonList == null) {
@@ -56,7 +56,7 @@ fun Result<PokemonList>.toView(): PokemonListUiState {
     }
 }
 
-fun List<PokemonListEntry>.toUiData(): List<PokemonListEntryUiData> {
+fun List<PokemonListEntryRemote>.toUiData(): List<PokemonListEntryUiData> {
     return this.mapIndexed { index, pokemonListEntry ->
         PokemonListEntryUiData(index, pokemonListEntry.name, thumbUrl(index))
 

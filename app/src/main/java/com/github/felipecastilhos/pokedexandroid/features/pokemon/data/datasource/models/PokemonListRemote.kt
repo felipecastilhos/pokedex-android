@@ -3,14 +3,14 @@ package com.github.felipecastilhos.pokedexandroid.features.pokemon.data.datasour
 /**
  * Pokemon list model from the remote data source
  */
-data class PokemonList(
+data class PokemonListRemote(
     val count: Long,
     val next: String?,
     val previous: String?,
-    val results: List<PokemonListEntry>
+    val results: List<PokemonListEntryRemote>
 )
 
 /**
  * Pokemon entry for listing
  */
-data class PokemonListEntry(val name: String, val url: String)
+data class PokemonListEntryRemote(val name: String, val url: String)

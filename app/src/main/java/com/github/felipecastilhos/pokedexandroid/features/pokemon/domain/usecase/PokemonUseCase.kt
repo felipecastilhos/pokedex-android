@@ -1,9 +1,8 @@
 package com.github.felipecastilhos.pokedexandroid.features.pokemon.domain.usecase
 
-import com.github.felipecastilhos.pokedexandroid.core.logs.LogHandler
-import com.github.felipecastilhos.pokedexandroid.features.pokemon.data.datasource.models.Pokemon
-import com.github.felipecastilhos.pokedexandroid.features.pokemon.data.datasource.models.PokemonList
-import com.github.felipecastilhos.pokedexandroid.features.pokemon.domain.repository.PokemonRepository
+import com.github.felipecastilhos.pokedexandroid.features.pokemon.data.datasource.models.PokemonListRemote
+import com.github.felipecastilhos.pokedexandroid.features.pokemon.data.datasource.remote.PokemonRemoteData
+import com.github.felipecastilhos.pokedexandroid.features.pokemon.data.repository.PokemonRepository
 import javax.inject.Inject
 
 /**
@@ -15,11 +14,11 @@ class PokemonUseCase @Inject constructor(
     /**
      * Retrieve all pokemon data
      */
-    suspend fun search(): Result<Pokemon?> {
+    suspend fun search(): Result<PokemonRemoteData?> {
         return pokemonRepository.pokemonData()
     }
 
-    suspend fun list(offset: Long, limit: Int): Result<PokemonList> {
+    suspend fun list(offset: Long, limit: Int): Result<PokemonListRemote> {
         return pokemonRepository.list(offset, limit)
     }
 }
