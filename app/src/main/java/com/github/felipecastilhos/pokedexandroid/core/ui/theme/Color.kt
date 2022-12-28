@@ -40,13 +40,13 @@ data class ContentColorGroup(val primary: Color, val overSurface: Color) {
             get() = object : ColorMode<ContentColorGroup> {
                 override val lightMode: ContentColorGroup
                     get() = ContentColorGroup(
-                        primary = Color(0xFF212121),
-                        overSurface = Color(0xFFFFFFFF)
+                        primary = GrayscalePalette.defaultPalette().darkGray,
+                        overSurface = GrayscalePalette.defaultPalette().white
                     )
                 override val darkMode: ContentColorGroup
                     get() = ContentColorGroup(
-                        primary = Color(0xFFFFFFFF),
-                        overSurface = Color(0xFFFFFFFF)
+                        primary = GrayscalePalette.defaultPalette().white,
+                        overSurface = GrayscalePalette.defaultPalette().white
                     )
             }
     }
@@ -58,13 +58,13 @@ data class BackgroundColorGroup(val primary: Color, val surface: Color) {
             get() = object : ColorMode<BackgroundColorGroup> {
                 override val lightMode: BackgroundColorGroup
                     get() = BackgroundColorGroup(
-                        primary = Color(0xFFF7F7F7),
-                        surface = Color(0xFFFFFFFF)
+                        primary = GrayscalePalette.defaultPalette().background,
+                        surface = GrayscalePalette.defaultPalette().white
                     )
                 override val darkMode: BackgroundColorGroup
                     get() = BackgroundColorGroup(
-                        primary = Color(0xFF2F2F33),
-                        surface = Color(0xFF757680)
+                        primary = GrayscalePalette.defaultPalette().darkGray,
+                        surface = GrayscalePalette.defaultPalette().lightGray
                     )
             }
     }
@@ -154,6 +154,24 @@ fun ColorScheme.toColors(isDarkMode: Boolean): Colors {
             primaryVariant = pokemonType.ghost,
             secondary = pokemonType.dragon,
             background = background.primary
+        )
+    }
+}
+
+open class GrayscalePalette(
+    val darkGray: Color,
+    val mediumGray: Color,
+    val lightGray: Color,
+    val white: Color,
+    val background: Color
+) {
+    companion object {
+        fun defaultPalette() = GrayscalePalette(
+            darkGray = Color(0xFF212121),
+            mediumGray = Color(0xFF666666),
+            lightGray = Color(0xFFE0E0E0),
+            white = Color(0xFFFFFFFF),
+            background = Color(0xFFF7F7F7)
         )
     }
 }
