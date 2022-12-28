@@ -8,10 +8,13 @@ import kotlin.text.Typography
 
 object PokedexTheme {
     inline val colors: ColorScheme
-    @Composable get() =  LocalColors.current
+        @Composable get() = LocalColors.current
 
     inline val typography: PokedexTypographyScheme
-    @Composable get() = LocalTypography.current
+        @Composable get() = LocalTypography.current
+
+    inline val icons: IconScheme
+        @Composable get() = LocalIcons.current
 
     val LocalColors = compositionLocalOf {
         ColorScheme.regularLightModeColorSchema()
@@ -20,21 +23,27 @@ object PokedexTheme {
     val LocalTypography = compositionLocalOf {
         PokedexTypographyScheme
     }
+
+    val LocalIcons = compositionLocalOf {
+        IconScheme()
+    }
 }
 
 @Composable
 fun PokedexAndroidTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
     colors: ColorScheme = PokedexTheme.colors,
+    typographyScheme: PokedexTypographyScheme = PokedexTheme.typography,
+    iconScheme: IconScheme = PokedexTheme.icons,
     content: @Composable () -> Unit
 ) {
     val schema = changeColorSchema(isDarkTheme = darkTheme)
-    CompositionLocalProvider( PokedexTheme.LocalColors provides schema) {
-            MaterialTheme(
-                colors = colors.toColors(darkTheme),
-                typography = MaterialTypography,
-                shapes = Shapes,
-                content = content
-            )
-        }
+    CompositionLocalProvider(PokedexTheme.LocalColors provides schema) {
+        MaterialTheme(
+            colors = colors.toColors(darkTheme),
+            typography = MaterialTypography,
+            shapes = Shapes,
+            content = content
+        )
+    }
 }

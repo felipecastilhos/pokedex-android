@@ -13,7 +13,6 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import com.github.felipecastilhos.pokedexandroid.core.ui.theme.GrayscalePalette
 import com.github.felipecastilhos.pokedexandroid.core.ui.theme.PokedexAndroidTheme
 import com.github.felipecastilhos.pokedexandroid.core.ui.theme.PokedexTheme
