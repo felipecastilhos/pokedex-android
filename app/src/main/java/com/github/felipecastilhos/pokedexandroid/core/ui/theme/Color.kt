@@ -5,10 +5,23 @@ import androidx.compose.material.darkColors
 import androidx.compose.material.lightColors
 import androidx.compose.ui.graphics.Color
 
-class ColorScheme(var pokemonType: PokemonTypeColorGroup) {
+class ColorScheme(
+    var background: BackgroundColorGroup,
+    var content: ContentColorGroup,
+    var pokemonType: PokemonTypeColorGroup
+) {
     internal companion object {
-        fun regularLightModeColorSchema()  = ColorScheme(PokemonTypeColorGroup.regular.lightMode)
-        fun regularDarkModeColorSchema() = ColorScheme(PokemonTypeColorGroup.regular.darkMode)
+        fun regularLightModeColorSchema() = ColorScheme(
+            background = BackgroundColorGroup.regular.lightMode,
+            content = ContentColorGroup.regular.lightMode,
+            pokemonType = PokemonTypeColorGroup.regular.lightMode
+        )
+
+        fun regularDarkModeColorSchema() = ColorScheme(
+            background = BackgroundColorGroup.regular.darkMode,
+            content = ContentColorGroup.regular.darkMode,
+            pokemonType = PokemonTypeColorGroup.regular.darkMode
+        )
     }
 }
 
@@ -19,6 +32,42 @@ interface ColorGroup<T> {
 interface ColorMode<T> {
     val lightMode: T
     val darkMode: T
+}
+
+data class ContentColorGroup(val primary: Color, val overSurface: Color) {
+    internal companion object : ColorGroup<ContentColorGroup> {
+        override val regular: ColorMode<ContentColorGroup>
+            get() = object : ColorMode<ContentColorGroup> {
+                override val lightMode: ContentColorGroup
+                    get() = ContentColorGroup(
+                        primary = Color(0xFF212121),
+                        overSurface = Color(0xFFFFFFFF)
+                    )
+                override val darkMode: ContentColorGroup
+                    get() = ContentColorGroup(
+                        primary = Color(0xFFFFFFFF),
+                        overSurface = Color(0xFFFFFFFF)
+                    )
+            }
+    }
+}
+
+data class BackgroundColorGroup(val primary: Color, val surface: Color) {
+    internal companion object : ColorGroup<BackgroundColorGroup> {
+        override val regular: ColorMode<BackgroundColorGroup>
+            get() = object : ColorMode<BackgroundColorGroup> {
+                override val lightMode: BackgroundColorGroup
+                    get() = BackgroundColorGroup(
+                        primary = Color(0xFFF7F7F7),
+                        surface = Color(0xFFFFFFFF)
+                    )
+                override val darkMode: BackgroundColorGroup
+                    get() = BackgroundColorGroup(
+                        primary = Color(0xFF2F2F33),
+                        surface = Color(0xFF757680)
+                    )
+            }
+    }
 }
 
 data class PokemonTypeColorGroup(
@@ -42,50 +91,51 @@ data class PokemonTypeColorGroup(
     val dragon: Color
 ) {
     internal companion object : ColorGroup<PokemonTypeColorGroup> {
-        override val regular: ColorMode<PokemonTypeColorGroup> = object : ColorMode<PokemonTypeColorGroup> {
-            override val lightMode: PokemonTypeColorGroup = PokemonTypeColorGroup(
-                rock = Color(0xFFB69E31),
-                ghost = Color(0xFF70559B),
-                steel = Color(0xFFB7B9D0),
-                water = Color(0xFF6493EB),
-                grass = Color(0xFF74CB48),
-                psychic = Color(0xFFFB5584),
-                ice = Color(0xFF9AD6DF),
-                dark = Color(0xFF75574C),
-                fairy = Color(0xFFE69EAC),
-                normal = Color(0xFFAAA67F),
-                fighting = Color(0xFFC12239),
-                flying = Color(0xFFA891EC),
-                poison = Color(0xFFA43E9E),
-                ground = Color(0xFFDEC16b),
-                bug = Color(0xFFA7B723),
-                fire = Color(0xFFF57D31),
-                eletric = Color(0xFFF9CF30),
-                dragon = Color(0xFF7037FF)
-            )
+        override val regular: ColorMode<PokemonTypeColorGroup> =
+            object : ColorMode<PokemonTypeColorGroup> {
+                override val lightMode: PokemonTypeColorGroup = PokemonTypeColorGroup(
+                    rock = Color(0xFFB69E31),
+                    ghost = Color(0xFF70559B),
+                    steel = Color(0xFFB7B9D0),
+                    water = Color(0xFF6493EB),
+                    grass = Color(0xFF74CB48),
+                    psychic = Color(0xFFFB5584),
+                    ice = Color(0xFF9AD6DF),
+                    dark = Color(0xFF75574C),
+                    fairy = Color(0xFFE69EAC),
+                    normal = Color(0xFFAAA67F),
+                    fighting = Color(0xFFC12239),
+                    flying = Color(0xFFA891EC),
+                    poison = Color(0xFFA43E9E),
+                    ground = Color(0xFFDEC16b),
+                    bug = Color(0xFFA7B723),
+                    fire = Color(0xFFF57D31),
+                    eletric = Color(0xFFF9CF30),
+                    dragon = Color(0xFF7037FF)
+                )
 
-            //TODO: Create dark colors
-            override val darkMode: PokemonTypeColorGroup = PokemonTypeColorGroup(
-                rock = Color(0xFFB69E31),
-                ghost = Color(0xFF70559B),
-                steel = Color(0xFFB7B9D0),
-                water = Color(0xFF6493EB),
-                grass = Color(0xFF74CB48),
-                psychic = Color(0xFFFB5584),
-                ice = Color(0xFF70559B),
-                dark = Color(0xFF75574C),
-                fairy = Color(0xFFE69EAC),
-                normal = Color(0xFFAAA67F),
-                fighting = Color(0xFFC12239),
-                flying = Color(0xFFA891EC),
-                poison = Color(0xFFA43E9E),
-                ground = Color(0xFFDEC16b),
-                bug = Color(0xFFA7B723),
-                fire = Color(0xFFF57D31),
-                eletric = Color(0xFFF9CF30),
-                dragon = Color(0xFF7037FF)
-            )
-        }
+                //TODO: Create dark colors
+                override val darkMode: PokemonTypeColorGroup = PokemonTypeColorGroup(
+                    rock = Color(0xFFB69E31),
+                    ghost = Color(0xFF70559B),
+                    steel = Color(0xFFB7B9D0),
+                    water = Color(0xFF6493EB),
+                    grass = Color(0xFF74CB48),
+                    psychic = Color(0xFFFB5584),
+                    ice = Color(0xFF70559B),
+                    dark = Color(0xFF75574C),
+                    fairy = Color(0xFFE69EAC),
+                    normal = Color(0xFFAAA67F),
+                    fighting = Color(0xFFC12239),
+                    flying = Color(0xFFA891EC),
+                    poison = Color(0xFFA43E9E),
+                    ground = Color(0xFFDEC16b),
+                    bug = Color(0xFFA7B723),
+                    fire = Color(0xFFF57D31),
+                    eletric = Color(0xFFF9CF30),
+                    dragon = Color(0xFF7037FF)
+                )
+            }
     }
 }
 
@@ -94,13 +144,16 @@ fun ColorScheme.toColors(isDarkMode: Boolean): Colors {
         darkColors(
             primary = pokemonType.ice,
             primaryVariant = pokemonType.rock,
-            secondary = pokemonType.dragon
+            secondary = pokemonType.dragon,
+            surface = background.surface,
+            background = background.primary
         )
     } else {
         lightColors(
             primary = pokemonType.ice,
             primaryVariant = pokemonType.ghost,
-            secondary = pokemonType.dragon
+            secondary = pokemonType.dragon,
+            background = background.primary
         )
     }
 }
