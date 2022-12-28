@@ -12,13 +12,32 @@ import androidx.compose.ui.unit.sp
 import com.github.felipecastilhos.pokedexandroid.core.ui.theme.PokedexAndroidTheme
 import com.github.felipecastilhos.pokedexandroid.core.ui.theme.PokedexTheme
 
-@Preview(name = "Theme Colors", group = "Atoms")
+@Preview(name = "Pokemon", group = "Atoms - Colors")
 @Composable
-fun ThemeColorsShowcase() {
-    PokedexAndroidTheme() {
+fun ColorsPokemonTypeShowkase() {
+    PokedexAndroidTheme {
         Column {
-            Title("Pokémon Type Colors")
             ColorPaletteViewer(pokemonTypeColorsToArray())
+        }
+    }
+}
+
+@Preview(name = "Background", group = "Atoms - Colors")
+@Composable
+fun ColorsBackgroundShowcase() {
+    PokedexAndroidTheme {
+        Column {
+            ColorPaletteViewer(backgroundColorsToArray())
+        }
+    }
+}
+
+@Preview(name = "Content", group = "Atoms - Colors")
+@Composable
+fun ColorsContentShowcase() {
+    PokedexAndroidTheme {
+        Column {
+            ColorPaletteViewer(contentColorsToArray())
         }
     }
 }
@@ -29,12 +48,6 @@ private fun ColorPaletteViewer(colorList: List<Pair<String, Color>>) {
         ColorInfo(title = colorSpec.first, color = colorSpec.second)
     }
 }
-
-@Composable
-private fun Title(text: String) {
-    Text(text = text, fontSize = 22.sp)
-}
-
 
 @Composable
 private fun ColorInfo(title: String, color: Color) {
@@ -77,6 +90,24 @@ private fun pokemonTypeColorsToArray(): MutableList<Pair<String, Color>> {
     colorList.add(Pair("fire", PokedexTheme.colors.pokemonType.fire))
     colorList.add(Pair("eletric", PokedexTheme.colors.pokemonType.eletric))
     colorList.add(Pair("dragon", PokedexTheme.colors.pokemonType.dragon))
+
+    return colorList
+}
+
+@Composable
+private fun backgroundColorsToArray(): MutableList<Pair<String, Color>> {
+    val colorList = mutableListOf<Pair<String, Color>>()
+    colorList.add(Pair("primary", PokedexTheme.colors.background.primary))
+    colorList.add(Pair("surface", PokedexTheme.colors.background.surface))
+
+    return colorList
+}
+
+@Composable
+private fun contentColorsToArray(): MutableList<Pair<String, Color>> {
+    val colorList = mutableListOf<Pair<String, Color>>()
+    colorList.add(Pair("primary", PokedexTheme.colors.content.primary))
+    colorList.add(Pair("overSurface", PokedexTheme.colors.content.overSurface))
 
     return colorList
 }
