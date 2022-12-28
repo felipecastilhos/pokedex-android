@@ -1,6 +1,7 @@
 package com.github.felipecastilhos.pokedexandroid.uicatalog
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Text
@@ -13,6 +14,7 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.github.felipecastilhos.pokedexandroid.core.ui.theme.GrayscalePalette
 import com.github.felipecastilhos.pokedexandroid.core.ui.theme.PokedexAndroidTheme
 import com.github.felipecastilhos.pokedexandroid.core.ui.theme.PokedexTheme
 
@@ -25,7 +27,10 @@ fun TypographyRegularShowcase() {
                 Row(horizontalArrangement = Arrangement.SpaceBetween) {
                     TypographyBox(textStyle.second)
                     Spacer(modifier = Modifier.size(8.dp))
-                    Text(modifier = Modifier.align(Alignment.CenterVertically), text = textStyle.first)
+                    Text(
+                        modifier = Modifier.align(Alignment.CenterVertically),
+                        text = textStyle.first
+                    )
                 }
             }
         }
@@ -41,7 +46,10 @@ fun TypographyBoldShowcase() {
                 Row(horizontalArrangement = Arrangement.SpaceBetween) {
                     TypographyBox(textStyle.second)
                     Spacer(modifier = Modifier.size(8.dp))
-                    Text(modifier = Modifier.align(Alignment.CenterVertically), text = textStyle.first)
+                    Text(
+                        modifier = Modifier.align(Alignment.CenterVertically),
+                        text = textStyle.first
+                    )
                 }
             }
         }
@@ -53,6 +61,11 @@ private fun TypographyBox(textStyle: TextStyle) {
     Box(
         modifier = Modifier
             .size(42.dp)
+            .border(
+                width = 1.dp,
+                color = GrayscalePalette.defaultPalette().darkGray,
+                shape = RoundedCornerShape((10.dp))
+            )
             .clip(RoundedCornerShape((10.dp)))
             .background(PokedexTheme.colors.background.primary)
     ) {
