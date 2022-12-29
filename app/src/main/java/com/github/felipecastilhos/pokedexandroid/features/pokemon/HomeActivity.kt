@@ -10,6 +10,7 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.*
 import com.airbnb.android.showkase.models.Showkase
 import com.github.felipecastilhos.pokedexandroid.PokemonNavGraph
+import com.github.felipecastilhos.pokedexandroid.core.ui.components.Badge
 import com.github.felipecastilhos.pokedexandroid.core.ui.theme.ColorScheme
 import com.github.felipecastilhos.pokedexandroid.core.ui.theme.PokedexAndroidTheme
 import com.github.felipecastilhos.pokedexandroid.core.ui.theme.PokedexTheme
@@ -23,6 +24,9 @@ class HomeActivity : ComponentActivity() {
         setContent {
             PokedexAndroidTheme {
                 PokemonNavGraph()
+                Badge() {
+                    Text(text = "Poison")
+                }
                 Button(onClick = { startActivity(Showkase.getBrowserIntent(this)) }) {
                     Text("Change Schema")
                 }

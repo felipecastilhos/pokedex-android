@@ -1,5 +1,9 @@
 package com.github.felipecastilhos.pokedexandroid.features.pokemon.domain.repository
 
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.graphics.Color
+import com.github.felipecastilhos.pokedexandroid.core.ui.theme.PokedexTheme
+
 class PokemonMockRepository {
     fun pokemonList(): List<Pokemon> =
         mutableListOf(
@@ -59,7 +63,31 @@ enum class PokemonType {
     BUG,
     FIRE,
     ELETRIC,
-    DRAGON
+    DRAGON;
+
+    @Composable
+    fun color(): Color =
+        when(this) {
+            ROCK -> PokedexTheme.colors.pokemonType.rock
+            GHOST -> PokedexTheme.colors.pokemonType.ghost
+            STEEL -> PokedexTheme.colors.pokemonType.steel
+            WATER -> PokedexTheme.colors.pokemonType.water
+            GRASS -> PokedexTheme.colors.pokemonType.grass
+            PSYCHIC -> PokedexTheme.colors.pokemonType.psychic
+            ICE -> PokedexTheme.colors.pokemonType.ice
+            DARK -> PokedexTheme.colors.pokemonType.dark
+            FAIRY -> PokedexTheme.colors.pokemonType.fairy
+            NORMAL -> PokedexTheme.colors.pokemonType.normal
+            FIGHTING -> PokedexTheme.colors.pokemonType.fighting
+            FLYING -> PokedexTheme.colors.pokemonType.flying
+            POISON -> PokedexTheme.colors.pokemonType.poison
+            GROUND -> PokedexTheme.colors.pokemonType.ground
+            BUG -> PokedexTheme.colors.pokemonType.bug
+            FIRE -> PokedexTheme.colors.pokemonType.fire
+            ELETRIC -> PokedexTheme.colors.pokemonType.eletric
+            DRAGON -> PokedexTheme.colors.pokemonType.dragon
+        }
+
 }
 
 

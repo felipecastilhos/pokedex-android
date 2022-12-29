@@ -1,10 +1,15 @@
+@file:OptIn(ExperimentalTextApi::class)
+
 package com.github.felipecastilhos.pokedexandroid.core.ui.theme
 
 import androidx.compose.material.Typography
+import androidx.compose.ui.text.ExperimentalTextApi
+import androidx.compose.ui.text.PlatformTextStyle
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.BaselineShift
 import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.sp
 import com.github.felipecastilhos.pokedexandroid.R
@@ -36,7 +41,8 @@ class PokedexTypography(
             h1 = TextStyle(
                 fontFamily = PokedexFontFamily.poppins,
                 fontWeight = FontWeight.Normal,
-                fontSize = TypographySize.s500
+                fontSize = TypographySize.s500,
+
             ),
             h2 = TextStyle(
                 fontFamily = PokedexFontFamily.poppins,
@@ -79,7 +85,10 @@ class PokedexTypography(
             body2 = TextStyle(
                 fontFamily = PokedexFontFamily.poppins,
                 fontWeight = FontWeight.Bold,
-                fontSize = TypographySize.s200
+                fontSize = TypographySize.s200,
+                platformStyle = PlatformTextStyle(
+                    includeFontPadding = false
+                )
             ),
             subtitle = TextStyle(
                 fontFamily = PokedexFontFamily.poppins,
