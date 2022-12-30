@@ -91,7 +91,7 @@ enum class PokemonType {
 }
 
 
-enum class PokemonMock(pokemonDetails: PokemonDetails) {
+enum class PokemonMock(val pokemonDetails: PokemonDetails) {
     BULBASSAUR(
         PokemonDetails(
             pokedexId = "#001",
