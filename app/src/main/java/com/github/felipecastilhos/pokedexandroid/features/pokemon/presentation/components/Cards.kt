@@ -1,13 +1,10 @@
-package com.github.felipecastilhos.pokedexandroid.uicatalog.components
+package com.github.felipecastilhos.pokedexandroid.features.pokemon.presentation.components
 
 import androidx.annotation.DrawableRes
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.Card
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -17,27 +14,12 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.github.felipecastilhos.pokedexandroid.R
+import com.github.felipecastilhos.pokedexandroid.core.ui.components.CardProperties
+import com.github.felipecastilhos.pokedexandroid.core.ui.components.CardSmall
 import com.github.felipecastilhos.pokedexandroid.core.ui.theme.PokedexAndroidTheme
 import com.github.felipecastilhos.pokedexandroid.core.ui.theme.PokedexTheme
 import com.github.felipecastilhos.pokedexandroid.features.pokemon.domain.repository.PokemonMock
 
-
-private val roundedShape = RoundedCornerShape(8.dp)
-
-@Composable
-fun CardSmall(
-    modifier: Modifier = Modifier,
-    onClick: () -> Unit,
-    content: @Composable () -> Unit
-) {
-    Card(
-        modifier = modifier.
-        requiredWidth(104.dp).clickable(onClick = onClick),
-        shape = roundedShape
-    ) {
-        content.invoke()
-    }
-}
 
 @Composable
 fun PokemonListCard(
@@ -47,7 +29,7 @@ fun PokemonListCard(
     pokemonName: String,
     pokemonTypeColor: Color,
 ) {
-    CardSmall(modifier.border(width = 1.dp, color = pokemonTypeColor, shape = roundedShape).requiredWidth(104.dp), onClick = { /*TODO*/ }) {
+    CardSmall(modifier.border(width = 1.dp, color = pokemonTypeColor, shape = CardProperties.roundedShape), onClick = { /*TODO*/ }) {
         Column(modifier) {
             IndexBadge(indexLabel = indexLabel, color = pokemonTypeColor)
             PokemonCardImage(pokemonImage = image)
@@ -104,29 +86,5 @@ private fun CardFooterLabel(
 }
 
 
-@Preview
-@Composable
-fun CardSmallPreview() {
-    PokedexAndroidTheme {
-        CardSmall(onClick = {}) {
-            Text(text = "Cade essa merda?")
-        }
-    }
-}
-
-@Preview
-@Composable
-fun PokemonListCardPreview() {
-    val mock = PokemonMock.BULBASSAUR.pokemonDetails
-
-    PokedexAndroidTheme {
-        PokemonListCard(
-            indexLabel = mock.pokedexId,
-            image = R.drawable.asset_bulbasaur,
-            pokemonName = mock.name,
-            pokemonTypeColor = mock.types.first().color()
-        )
-    }
-}
 
 

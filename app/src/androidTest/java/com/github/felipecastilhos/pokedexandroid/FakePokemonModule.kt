@@ -2,7 +2,6 @@ package com.github.felipecastilhos.pokedexandroid
 
 import com.github.felipecastilhos.pokedexandroid.core.data.remote.DataSourceError
 import com.github.felipecastilhos.pokedexandroid.features.pokemon.data.datasource.PokemonDataSource
-import com.github.felipecastilhos.pokedexandroid.features.pokemon.data.datasource.PokemonRemoteDataSource
 import com.github.felipecastilhos.pokedexandroid.features.pokemon.data.datasource.models.Pokemon
 import com.github.felipecastilhos.pokedexandroid.features.pokemon.data.datasource.models.PokemonList
 import com.github.felipecastilhos.pokedexandroid.features.pokemon.data.datasource.models.PokemonListEntry
@@ -11,7 +10,7 @@ import com.github.felipecastilhos.pokedexandroid.features.pokemon.data.datasourc
 import com.github.felipecastilhos.pokedexandroid.features.pokemon.data.datasource.models.Specie
 import com.github.felipecastilhos.pokedexandroid.features.pokemon.data.datasource.models.TypeName
 import com.github.felipecastilhos.pokedexandroid.features.pokemon.di.PokemonListModule
-import com.github.felipecastilhos.pokedexandroid.features.pokemon.domain.repository.DefaultPokemonRemoteDataRepository
+import com.github.felipecastilhos.pokedexandroid.features.pokemon.domain.repository.PokemonMockRepository
 import com.github.felipecastilhos.pokedexandroid.features.pokemon.domain.repository.PokemonRepository
 import com.github.felipecastilhos.pokedexandroid.features.pokemon.domain.usecase.PokemonUseCase
 import dagger.Module
@@ -50,10 +49,8 @@ class FakePokemonModule {
      * @param pokemonRemoteDataSource logic how home pokedex repository fetch its pokemon's data
      */
     @Provides
-    fun providesPokemonRepository(
-        pokemonRemoteDataSource: PokemonRemoteDataSource
-    ): PokemonRepository {
-        return DefaultPokemonRemoteDataRepository(pokemonRemoteDataSource)
+    fun providesPokemonRepository(): PokemonMockRepository {
+        return PokemonMockRepository()
     }
 
     /**
@@ -61,7 +58,7 @@ class FakePokemonModule {
      * @param pokemonRemoteDataRepository contains all pokemon related data
      */
     @Provides
-    fun providesPokemonUseCase(pokemonRemoteDataRepository: DefaultPokemonRemoteDataRepository): PokemonUseCase {
+    fun providesPokemonUseCase(pokemonRemoteDataRepository: PokemonMockRepository): PokemonUseCase {
         return PokemonUseCase(pokemonRemoteDataRepository)
     }
 }
