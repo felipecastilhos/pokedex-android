@@ -18,17 +18,17 @@ interface PokemonDataSource {
     suspend fun list(offset: Long, limit: Int): Result<PokemonList>
 }
 
-class PokemonRemoteDataSource @Inject constructor(
-    private val pokemonRestService: PokemonRestService,
-    private val dispatcherProvider: DispatcherProvider
-) : PokemonDataSource {
-    override suspend fun pokemonData(): Result<Pokemon> = withContext(dispatcherProvider.io) {
-        return@withContext pokemonRestService.pokemonData("dragonite")
-    }
-
-    override suspend fun list(offset: Long, limit: Int): Result<PokemonList> =
-        withContext(dispatcherProvider.io) {
-            return@withContext pokemonRestService.list(offset, limit)
-        }
-}
+//class PokemonRemoteDataSource @Inject constructor(
+////    private val pokemonRestService: PokemonRestService,
+//    private val dispatcherProvider: DispatcherProvider
+//) : PokemonDataSource {
+//    override suspend fun pokemonData(): Result<Pokemon> = withContext(dispatcherProvider.io) {
+//        return@withContext pokemonRestService.pokemonData("dragonite")
+//    }
+//
+//    override suspend fun list(offset: Long, limit: Int): Result<PokemonList> =
+//        withContext(dispatcherProvider.io) {
+//            return@withContext pokemonRestService.list(offset, limit)
+//        }
+//}
 

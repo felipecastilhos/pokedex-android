@@ -1,11 +1,12 @@
 package com.github.felipecastilhos.pokedexandroid.features.pokemon.domain.viewmodel
 
+import androidx.annotation.DrawableRes
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.github.felipecastilhos.pokedexandroid.core.coroutines.DispatcherProvider
 import com.github.felipecastilhos.pokedexandroid.core.logs.LogHandler
-import com.github.felipecastilhos.pokedexandroid.features.pokemon.data.datasource.models.PokemonList
-import com.github.felipecastilhos.pokedexandroid.features.pokemon.data.datasource.models.PokemonListEntry
+import com.github.felipecastilhos.pokedexandroid.features.pokemon.domain.repository.Pokemon
+import com.github.felipecastilhos.pokedexandroid.features.pokemon.domain.repository.PokemonType
 import com.github.felipecastilhos.pokedexandroid.features.pokemon.domain.usecase.PokemonUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -39,26 +40,26 @@ class PokemonListViewModel @Inject constructor(
      */
     suspend fun searchPokemon() {
         LogHandler.d("Searching Dragonite")
-        _stateFlow.emit(pokemonUseCase.list(0, 20).toView())
+        _stateFlow.emit(pokemonUseCase.pokemonList().toView())
     }
 }
 
-fun Result<PokemonList>.toView(): PokemonListUiState {
+fun Result<List<Pokemon>>.toView(): PokemonListUiState {
     return if (isSuccess) {
         val pokemonList = getOrNull()
         if (pokemonList == null) {
             PokemonListUiState(isLoading = false, emptyList())
         } else {
-            PokemonListUiState(isLoading = false, pokemonList.results.toUiData())
+            PokemonListUiState(isLoading = false, pokemonList.toUiData())
         }
     } else {
         PokemonListUiState(isLoading = false, pokemons = emptyList())
     }
 }
 
-fun List<PokemonListEntry>.toUiData(): List<PokemonListEntryUiData> {
+fun List<Pokemon>.toUiData(): List<PokemonListEntryUiData> {
     return this.mapIndexed { index, pokemonListEntry ->
-        PokemonListEntryUiData(index, pokemonListEntry.name, thumbUrl(index))
+        PokemonListEntryUiData(index, pokemonListEntry.name, pokemonListEntry.pokemonAsset, pokemonListEntry.type)
 
     }
 }
@@ -74,6 +75,7 @@ data class PokemonListUiState(
 data class PokemonListEntryUiData(
     val pokedexIndex: Int,
     val name: String,
-    val thumbUrl: String
+    @DrawableRes val assetRes: Int,
+    val type: PokemonType
 )
 

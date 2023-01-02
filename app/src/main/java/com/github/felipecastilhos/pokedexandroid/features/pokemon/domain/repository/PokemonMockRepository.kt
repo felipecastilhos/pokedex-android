@@ -1,28 +1,28 @@
 package com.github.felipecastilhos.pokedexandroid.features.pokemon.domain.repository
 
+import androidx.annotation.DrawableRes
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
+import com.github.felipecastilhos.pokedexandroid.R
 import com.github.felipecastilhos.pokedexandroid.core.ui.theme.PokedexTheme
 
 class PokemonMockRepository {
     fun pokemonList(): List<Pokemon> =
         mutableListOf(
-            Pokemon("#001", "Bulbassaur", PokemonType.GRASS),
-            Pokemon("#004", "Charmander", PokemonType.FIRE),
-            Pokemon("#007", "Squirtle", PokemonType.WATER),
-            Pokemon("#012", "Butterfree", PokemonType.BUG),
-            Pokemon("#025", "Pikachu", PokemonType.ELETRIC),
-            Pokemon("#092", "Gastly", PokemonType.GHOST),
-            Pokemon("#132", "Ditto", PokemonType.NORMAL),
-            Pokemon("#152", "Mew", PokemonType.PSYCHIC),
-            Pokemon("#304", "Aron", PokemonType.STEEL),
+            Pokemon("#001", "Bulbassaur", PokemonType.GRASS, R.drawable.asset_bulbasaur),
+            Pokemon("#004", "Charmander", PokemonType.FIRE, R.drawable.asset_charmander),
+            Pokemon("#007", "Squirtle", PokemonType.WATER, R.drawable.asset_squirtle ),
+            Pokemon("#012", "Butterfree", PokemonType.BUG, R.drawable.asset_butterfree),
+            Pokemon("#025", "Pikachu", PokemonType.ELETRIC, R.drawable.asset_pikachu),
+            Pokemon("#092", "Gastly", PokemonType.GHOST, R.drawable.asset_gastly),
+            Pokemon("#132", "Ditto", PokemonType.NORMAL, R.drawable.asset_ditto),
+            Pokemon("#152", "Mew", PokemonType.PSYCHIC, R.drawable.asset_mew),
+            Pokemon("#304", "Aron", PokemonType.STEEL, R.drawable.asset_aron),
         )
-
-
 }
 
 
-data class Pokemon(val pokedexId: String, val name: String, val type: PokemonType)
+data class Pokemon(val pokedexId: String, val name: String, val type: PokemonType, @DrawableRes val pokemonAsset: Int)
 
 data class PokemonDetails(
     val pokedexId: String,

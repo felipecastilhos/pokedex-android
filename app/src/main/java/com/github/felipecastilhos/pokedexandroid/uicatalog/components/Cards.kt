@@ -31,8 +31,8 @@ fun CardSmall(
     content: @Composable () -> Unit
 ) {
     Card(
-        modifier = modifier
-            .clickable(onClick = onClick),
+        modifier = modifier.
+        requiredWidth(104.dp).clickable(onClick = onClick),
         shape = roundedShape
     ) {
         content.invoke()
@@ -47,7 +47,7 @@ fun PokemonListCard(
     pokemonName: String,
     pokemonTypeColor: Color,
 ) {
-    CardSmall(modifier.border(width = 1.dp, color = pokemonTypeColor, shape = roundedShape), onClick = { /*TODO*/ }) {
+    CardSmall(modifier.border(width = 1.dp, color = pokemonTypeColor, shape = roundedShape).requiredWidth(104.dp), onClick = { /*TODO*/ }) {
         Column(modifier) {
             IndexBadge(indexLabel = indexLabel, color = pokemonTypeColor)
             PokemonCardImage(pokemonImage = image)
