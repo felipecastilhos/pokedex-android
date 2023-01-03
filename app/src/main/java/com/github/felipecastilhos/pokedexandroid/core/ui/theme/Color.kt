@@ -64,7 +64,7 @@ data class BackgroundColorGroup(val primary: Color, val surface: Color) {
                 override val darkMode: BackgroundColorGroup
                     get() = BackgroundColorGroup(
                         primary = GrayscalePalette.defaultPalette().darkGray,
-                        surface = GrayscalePalette.defaultPalette().lightGray
+                        surface = GrayscalePalette.defaultPalette().mediumGray
                     )
             }
     }
@@ -139,7 +139,7 @@ data class PokemonTypeColorGroup(
     }
 }
 
-fun ColorScheme.toColors(isDarkMode: Boolean): Colors {
+fun ColorScheme.toMaterialColors(isDarkMode: Boolean): Colors {
     return if (isDarkMode) {
         darkColors(
             primary = pokemonType.ice,
@@ -153,7 +153,8 @@ fun ColorScheme.toColors(isDarkMode: Boolean): Colors {
             primary = pokemonType.ice,
             primaryVariant = pokemonType.ghost,
             secondary = pokemonType.dragon,
-            background = background.primary
+            background = background.primary,
+            surface = background.surface
         )
     }
 }

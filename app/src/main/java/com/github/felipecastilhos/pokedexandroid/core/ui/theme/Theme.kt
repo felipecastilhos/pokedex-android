@@ -4,7 +4,6 @@ import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material.*
 import androidx.compose.runtime.*
 import com.github.felipecastilhos.pokedexandroid.features.pokemon.changeColorSchema
-import kotlin.text.Typography
 
 object PokedexTheme {
     inline val colors: ColorScheme
@@ -40,7 +39,7 @@ fun PokedexAndroidTheme(
     val schema = changeColorSchema(isDarkTheme = darkTheme)
     CompositionLocalProvider(PokedexTheme.LocalColors provides schema) {
         MaterialTheme(
-            colors = colors.toColors(darkTheme),
+            colors = colors.toMaterialColors(darkTheme),
             typography = MaterialTypography,
             shapes = Shapes,
             content = content
