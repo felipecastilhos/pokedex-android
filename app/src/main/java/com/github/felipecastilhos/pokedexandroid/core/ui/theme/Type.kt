@@ -42,27 +42,41 @@ class PokedexTypography(
                 fontFamily = PokedexFontFamily.poppins,
                 fontWeight = FontWeight.Normal,
                 fontSize = TypographySize.s500,
-
+                platformStyle = PlatformTextStyle(
+                    includeFontPadding = false
+                )
             ),
             h2 = TextStyle(
                 fontFamily = PokedexFontFamily.poppins,
                 fontWeight = FontWeight.Normal,
-                fontSize = TypographySize.s400
+                fontSize = TypographySize.s400,
+                platformStyle = PlatformTextStyle(
+                    includeFontPadding = false
+                )
             ),
             body1 = TextStyle(
                 fontFamily = PokedexFontFamily.poppins,
                 fontWeight = FontWeight.Normal,
-                fontSize = TypographySize.s300
+                fontSize = TypographySize.s300,
+                platformStyle = PlatformTextStyle(
+                    includeFontPadding = false
+                )
             ),
             body2 = TextStyle(
                 fontFamily = PokedexFontFamily.poppins,
                 fontWeight = FontWeight.Normal,
-                fontSize = TypographySize.s200
+                fontSize = TypographySize.s200,
+                platformStyle = PlatformTextStyle(
+                    includeFontPadding = false
+                )
             ),
             subtitle = TextStyle(
                 fontFamily = PokedexFontFamily.poppins,
                 fontWeight = FontWeight.Normal,
-                fontSize = TypographySize.s100
+                fontSize = TypographySize.s100,
+                platformStyle = PlatformTextStyle(
+                    includeFontPadding = false
+                )
             ),
         )
 
@@ -70,17 +84,26 @@ class PokedexTypography(
             h1 = TextStyle(
                 fontFamily = PokedexFontFamily.poppins,
                 fontWeight = FontWeight.Bold,
-                fontSize = TypographySize.s500
+                fontSize = TypographySize.s500,
+                platformStyle = PlatformTextStyle(
+                    includeFontPadding = false
+                )
             ),
             h2 = TextStyle(
                 fontFamily = PokedexFontFamily.poppins,
                 fontWeight = FontWeight.Bold,
-                fontSize = TypographySize.s400
+                fontSize = TypographySize.s400,
+                platformStyle = PlatformTextStyle(
+                    includeFontPadding = false
+                )
             ),
             body1 = TextStyle(
                 fontFamily = PokedexFontFamily.poppins,
                 fontWeight = FontWeight.Bold,
-                fontSize = TypographySize.s300
+                fontSize = TypographySize.s300,
+                platformStyle = PlatformTextStyle(
+                    includeFontPadding = false
+                )
             ),
             body2 = TextStyle(
                 fontFamily = PokedexFontFamily.poppins,
@@ -93,7 +116,10 @@ class PokedexTypography(
             subtitle = TextStyle(
                 fontFamily = PokedexFontFamily.poppins,
                 fontWeight = FontWeight.Bold,
-                fontSize = TypographySize.s100
+                fontSize = TypographySize.s100,
+                platformStyle = PlatformTextStyle(
+                    includeFontPadding = false
+                )
             ),
         )
     }
