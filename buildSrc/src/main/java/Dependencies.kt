@@ -25,6 +25,7 @@ object DependencyVersions {
     const val navigatioNCompose = "2.5.0"
     const val hiltNavigationCompose = "1.0.0"
     const val showkaze = "1.0.0-beta17"
+    const val constraintLayoutCompose = "1.0.1"
 }
 
 /**
@@ -69,6 +70,7 @@ sealed class Dependencies {
             "androidx.hilt:hilt-navigation-compose:${DependencyVersions.hiltNavigationCompose}"
         const val showkase = "com.airbnb.android:showkase:${DependencyVersions.showkaze}"
         const val showkaseProcessor = "com.airbnb.android:showkase-processor:${DependencyVersions.showkaze}"
+        const val constraintLayoutCompose = "androidx.constraintlayout:constraintlayout-compose:${DependencyVersions.constraintLayoutCompose}"
     }
 
     object Tests {
