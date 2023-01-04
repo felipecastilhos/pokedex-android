@@ -14,6 +14,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.github.felipecastilhos.pokedexandroid.core.ui.components.DividerVertical
 import com.github.felipecastilhos.pokedexandroid.core.ui.theme.GrayscalePalette
 import com.github.felipecastilhos.pokedexandroid.core.ui.theme.PokedexAndroidTheme
 import com.github.felipecastilhos.pokedexandroid.core.ui.theme.PokedexTheme
@@ -33,12 +34,12 @@ fun AboutPanelLayout(
         Box(modifier = Modifier, contentAlignment = Alignment.Center) {
             startSlot.invoke()
         }
-        VerticalDivider()
+        DividerVertical()
         Spacer(Modifier.width(12.dp))
         Box(modifier = Modifier, contentAlignment = Alignment.Center) {
             middleSlot.invoke()
         }
-        VerticalDivider()
+        DividerVertical()
         Spacer(Modifier.width(12.dp))
         Box(modifier = Modifier, contentAlignment = Alignment.TopEnd) {
             endSlot.invoke()
@@ -112,16 +113,4 @@ fun AboutPanelInfo(information: @Composable () -> Unit, informationTitle: String
             color = GrayscalePalette.defaultPalette().mediumGray,
         )
     }
-}
-
-@Composable
-private fun VerticalDivider(
-    modifier: Modifier = Modifier,
-    color: Color = GrayscalePalette.defaultPalette().mediumGray
-) {
-    Divider(
-        modifier
-            .fillMaxHeight()
-            .width(1.dp), color = color
-    )
 }
