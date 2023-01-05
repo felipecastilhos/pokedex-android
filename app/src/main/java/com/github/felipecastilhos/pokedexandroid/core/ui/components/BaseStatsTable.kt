@@ -7,14 +7,14 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.github.felipecastilhos.pokedexandroid.core.ui.theme.PokedexAndroidTheme
+import com.github.felipecastilhos.pokedexandroid.core.ui.theme.GrayscalePalette
 import com.github.felipecastilhos.pokedexandroid.core.ui.theme.PokedexTheme
 
 @Composable
 fun BaseStatsTable(
-    textColor: Color = PokedexTheme.colors.content.primary,
+    labelColor: Color = PokedexTheme.colors.content.primary,
+    valueColor: Color = PokedexTheme.colors.content.primary,
     modifier: Modifier = Modifier,
     stats: List<BaseStatsTableEntry>,
     barColor: Color
@@ -27,15 +27,15 @@ fun BaseStatsTable(
                     text = it.statsName,
                     textAlign = TextAlign.End,
                     style = PokedexTheme.typography.bold.body1,
-                    color = textColor
+                    color = labelColor
                 )
                 Spacer(Modifier.width(8.dp))
-                DividerVertical()
+                DividerVertical(color = GrayscalePalette.defaultPalette().lightGray)
                 Spacer(Modifier.width(8.dp))
                 Text(
-                    it.statsValue.toString(),
+                    "%03d".format(it.statsValue.toInt()),
                     style = PokedexTheme.typography.regular.body1,
-                    color = textColor
+                    color = valueColor
                 )
                 Spacer(Modifier.width(8.dp))
                 ProgressBar(
