@@ -35,8 +35,8 @@ fun DependencyHandlerScope.jetpackComposeLibraries() {
     implementation(Dependencies.AndroidLifecycle.viewModelCompose)
     debugImplementation(Dependencies.JetpackCompose.composeUiTooling)
     implementation(Dependencies.JetpackCompose.showkase)
-    kapt(Dependencies.JetpackCompose.showkaseProcessor)
     implementation(Dependencies.JetpackCompose.constraintLayoutCompose)
+    kapt(Dependencies.JetpackCompose.showkaseProcessor)
 }
 
 /**
