@@ -20,14 +20,18 @@ import com.github.felipecastilhos.pokedexandroid.core.ui.theme.PokedexTheme
 
 @Composable
 fun BackTopAppBar(
+    modifier: Modifier = Modifier,
+    onBackClick: () -> Unit,
     title: String,
+    actions: @Composable RowScope.() -> Unit,
     contentColor: Color = PokedexTheme.colors.content.primary,
     backgroundColor: Color = PokedexTheme.colors.background.primary,
-    onBackClick: () -> Unit
 ) {
     PokedexTopAppBar(
+        modifier = modifier,
         title = { TopAppBarTitle(title = title, textColor = contentColor) },
-        navigationIcon = { NavigationBackIcon(onNavigationBackClick = onBackClick) },
+        actions = actions,
+        navigationIcon = { NavigationBackIcon(onNavigationBackClick = onBackClick, iconColor = contentColor) },
         backgroundColor = backgroundColor,
     )
 }
@@ -53,6 +57,7 @@ fun HomeTopAppBar(
             }
         },
         backgroundColor = backgroundColor,
+        actions = {}
     )
 }
 
@@ -63,6 +68,7 @@ fun PokedexTopAppBar(
     elevation: Dp = 0.dp,
     title: @Composable () -> Unit,
     navigationIcon: @Composable () -> Unit,
+    actions: @Composable RowScope.() -> Unit,
     backgroundColor: Color
 ) {
     TopAppBar(
@@ -70,7 +76,8 @@ fun PokedexTopAppBar(
         title = title,
         navigationIcon = navigationIcon,
         backgroundColor = backgroundColor,
-        elevation = elevation
+        elevation = elevation,
+        actions = actions
     )
 }
 
@@ -152,8 +159,6 @@ fun TopAppBarIconPreview() {
 @Composable
 fun BackTopAppBarPreview() {
     PokedexAndroidTheme {
-        BackTopAppBar(title = "Pokédex") {
-
-        }
+        BackTopAppBar(title = "Pokédex", onBackClick = {}, actions = {})
     }
 }
