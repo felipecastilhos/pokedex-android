@@ -32,6 +32,7 @@ fun PokedexTopAppBarPreview() {
                 }
             },
             backgroundColor = PokedexTheme.colors.background.primary,
+            actions = {}
         )
     }
 }
