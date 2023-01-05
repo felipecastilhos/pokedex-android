@@ -46,7 +46,7 @@ data class ContentColorGroup(val primary: Color, val overSurface: Color) {
                 override val darkMode: ContentColorGroup
                     get() = ContentColorGroup(
                         primary = GrayscalePalette.defaultPalette().white,
-                        overSurface = GrayscalePalette.defaultPalette().white
+                        overSurface = GrayscalePalette.defaultPalette().lightGray
                     )
             }
     }
