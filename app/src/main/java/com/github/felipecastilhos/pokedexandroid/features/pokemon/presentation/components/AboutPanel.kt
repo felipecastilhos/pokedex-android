@@ -22,24 +22,25 @@ import com.github.felipecastilhos.pokedexandroid.core.ui.theme.PokedexTheme
 
 @Composable
 fun AboutPanelLayout(
+    modifier: Modifier = Modifier,
     startSlot: @Composable () -> Unit,
     middleSlot: @Composable () -> Unit,
-    endSlot: @Composable () -> Unit
+    endSlot: @Composable () -> Unit,
+    dividerColor: Color = GrayscalePalette.defaultPalette().lightGray
 ) {
     Row(
-        modifier = Modifier
+        modifier = modifier
             .height(52.dp)
-            .width(290.dp)
     ) {
         Box(modifier = Modifier, contentAlignment = Alignment.Center) {
             startSlot.invoke()
         }
-        DividerVertical()
+        DividerVertical(color = dividerColor)
         Spacer(Modifier.width(12.dp))
         Box(modifier = Modifier, contentAlignment = Alignment.Center) {
             middleSlot.invoke()
         }
-        DividerVertical()
+        DividerVertical(color = dividerColor)
         Spacer(Modifier.width(12.dp))
         Box(modifier = Modifier, contentAlignment = Alignment.TopEnd) {
             endSlot.invoke()
@@ -110,7 +111,7 @@ fun AboutPanelInfo(information: @Composable () -> Unit, informationTitle: String
             text = informationTitle,
             textAlign = TextAlign.Center,
             style = PokedexTheme.typography.regular.body2,
-            color = GrayscalePalette.defaultPalette().mediumGray,
+            color = PokedexTheme.colors.content.primary,
         )
     }
 }
