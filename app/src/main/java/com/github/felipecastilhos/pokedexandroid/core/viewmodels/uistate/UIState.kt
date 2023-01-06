@@ -1,4 +1,4 @@
-package com.github.felipecastilhos.pokedexandroid.core.ui.uistate
+package com.github.felipecastilhos.pokedexandroid.core.viewmodels.uistate
 
 interface UiState
 

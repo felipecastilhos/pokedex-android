@@ -1,4 +1,4 @@
-package com.github.felipecastilhos.pokedexandroid.features.pokemon.presentation.components.screens
+package com.github.felipecastilhos.pokedexandroid.features.pokemon.presentation.screens
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background

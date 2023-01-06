@@ -4,7 +4,7 @@ import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
 import com.github.felipecastilhos.pokedexandroid.features.pokemon.PokemonDetailScreen
-import com.github.felipecastilhos.pokedexandroid.features.pokemon.PokemonSearchScreen
+import com.github.felipecastilhos.pokedexandroid.features.pokemon.presentation.screens.PokemonSearchScreen
 
 /**
  * Screens used in [PokemonDestinations]
