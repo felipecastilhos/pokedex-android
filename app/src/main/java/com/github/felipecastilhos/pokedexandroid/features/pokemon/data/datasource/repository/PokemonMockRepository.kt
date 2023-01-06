@@ -204,7 +204,7 @@ enum class PokemonMock(val pokemonDetails: PokemonDetails) {
     GASTLY(
         PokemonDetails(
             pokedexId = "#092",
-            name = "Gasly",
+            name = "Gastly",
             types = mutableListOf(PokemonType.GHOST, PokemonType.POISON),
             weight = "0,1 kg",
             height = "1,3 m",
