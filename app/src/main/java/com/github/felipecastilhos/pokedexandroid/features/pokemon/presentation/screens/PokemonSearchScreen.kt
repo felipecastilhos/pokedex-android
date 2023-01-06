@@ -12,26 +12,22 @@ import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
-import androidx.hilt.navigation.compose.hiltViewModel
 import com.github.felipecastilhos.pokedexandroid.core.ui.components.HomeTopAppBar
 import com.github.felipecastilhos.pokedexandroid.core.ui.theme.PokedexTheme
 import com.github.felipecastilhos.pokedexandroid.features.pokemon.domain.viewmodel.PokemonListEntryUiData
-import com.github.felipecastilhos.pokedexandroid.features.pokemon.domain.viewmodel.PokemonListViewModel
+import com.github.felipecastilhos.pokedexandroid.features.pokemon.domain.viewmodel.PokemonListUiState
 import com.github.felipecastilhos.pokedexandroid.features.pokemon.presentation.components.PokemonListCard
 
 @Composable
 fun PokemonSearchScreen(
     modifier: Modifier = Modifier.background(PokedexTheme.colors.background.primary),
-    viewModel: PokemonListViewModel = hiltViewModel(),
-    onNavigateToPokemonDetails: () -> Unit
+    onNavigateToPokemonDetails: (Int) -> Unit,
+    uiState: PokemonListUiState,
 ) {
-    val viewState = viewModel.stateFlow.collectAsState().value
-
-    viewState.apply {
+    uiState.apply {
         if (isLoading) {
             LoadingScreen()
         } else {
@@ -52,7 +48,7 @@ fun PokemonSearchScreen(
 fun PokenonSearchList(
     modifier: Modifier = Modifier,
     pokemons: List<PokemonListEntryUiData>,
-    onNavigateToPokemonDetails: () -> Unit
+    onNavigateToPokemonDetails: (Int) -> Unit
 ) {
     LazyVerticalGrid(
         modifier = Modifier
@@ -67,7 +63,8 @@ fun PokenonSearchList(
                 indexLabel = "#${pokemon.pokedexIndex}",
                 image = pokemon.assetRes,
                 pokemonName = pokemon.name,
-                pokemonTypeColor = pokemon.type.color()
+                pokemonTypeColor = pokemon.type.color(),
+                onClick = { onNavigateToPokemonDetails.invoke(pokemon.id) }
             )
         }
     }

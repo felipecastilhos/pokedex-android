@@ -17,7 +17,8 @@ fun PokemonListCardPreview() {
             indexLabel = mock.pokedexId,
             image = R.drawable.asset_bulbasaur,
             pokemonName = mock.name,
-            pokemonTypeColor = mock.types.first().color()
+            pokemonTypeColor = mock.types.first().color(),
+            onClick = {}
         )
     }
 }

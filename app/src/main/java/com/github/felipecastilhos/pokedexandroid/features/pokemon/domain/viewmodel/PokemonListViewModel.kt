@@ -59,7 +59,13 @@ fun Result<List<Pokemon>>.toView(): PokemonListUiState {
 
 fun List<Pokemon>.toUiData(): List<PokemonListEntryUiData> {
     return this.mapIndexed { index, pokemonListEntry ->
-        PokemonListEntryUiData(index, pokemonListEntry.name, pokemonListEntry.pokemonAsset, pokemonListEntry.type)
+        PokemonListEntryUiData(
+            id = index,
+            pokedexIndex = pokemonListEntry.pokedexId,
+            name = pokemonListEntry.name,
+            assetRes = pokemonListEntry.pokemonAsset,
+            type = pokemonListEntry.type
+        )
 
     }
 }
@@ -73,7 +79,8 @@ data class PokemonListUiState(
 )
 
 data class PokemonListEntryUiData(
-    val pokedexIndex: Int,
+    val id: Int,
+    val pokedexIndex: String,
     val name: String,
     @DrawableRes val assetRes: Int,
     val type: PokemonType

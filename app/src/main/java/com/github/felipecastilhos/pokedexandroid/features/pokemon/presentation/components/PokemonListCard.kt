@@ -4,7 +4,13 @@ import androidx.annotation.DrawableRes
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -20,6 +26,7 @@ import com.github.felipecastilhos.pokedexandroid.core.ui.theme.PokedexTheme
 @Composable
 fun PokemonListCard(
     modifier: Modifier = Modifier,
+    onClick: () -> Unit,
     indexLabel: String,
     @DrawableRes image: Int,
     pokemonName: String,
@@ -30,7 +37,8 @@ fun PokemonListCard(
             width = 1.dp,
             color = pokemonTypeColor,
             shape = CardProperties.roundedShape
-        ), onClick = { /*TODO*/ }) {
+        ), onClick = onClick
+    ) {
         Column(modifier) {
             IndexBadge(indexLabel = indexLabel, color = pokemonTypeColor)
             PokemonCardImage(pokemonImage = image)
@@ -45,9 +53,11 @@ private fun IndexBadge(
     indexLabel: String,
     color: Color,
 ) {
-    Box(modifier = modifier
-        .width(104.dp)
-        .padding(horizontal = 8.dp)) {
+    Box(
+        modifier = modifier
+            .width(104.dp)
+            .padding(horizontal = 8.dp)
+    ) {
         Text(
             modifier = Modifier.fillMaxWidth(),
             text = indexLabel,

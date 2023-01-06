@@ -2,7 +2,15 @@ package com.github.felipecastilhos.pokedexandroid.features.pokemon.presentation.
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.ColumnScope
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxHeight
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
@@ -35,7 +43,8 @@ import com.github.felipecastilhos.pokedexandroid.features.pokemon.presentation.c
 fun PokemonDetailScreen(
     modifier: Modifier = Modifier,
     backgroundColor: Color = PokedexTheme.colors.background.primary,
-    pokemonDetails: PokemonDetails
+    pokemonDetails: PokemonDetails,
+    onBackClick: () -> Unit
 ) {
     val typeColor = pokemonDetails.types.first().color()
 
@@ -58,7 +67,7 @@ fun PokemonDetailScreen(
         BackTopAppBar(modifier = Modifier.constrainAs(topbar) {
             top.linkTo(parent.top)
         },
-            onBackClick = { },
+            onBackClick = onBackClick,
             title = pokemonDetails.name,
             contentColor = PokedexTheme.colors.content.overSurface,
             backgroundColor = Color.Transparent,
@@ -86,7 +95,7 @@ fun PokemonDetailScreen(
                     start.linkTo(parent.start, margin = 80.dp)
                     end.linkTo(parent.end, margin = 80.dp)
                 },
-            painter = painterResource(id = R.drawable.asset_bulbasaur),
+            painter = painterResource(id = pokemonDetails.image),
             contentDescription = null
         )
 
@@ -220,7 +229,7 @@ private fun Stats.toStatsTableEntry(): List<BaseStatsTableEntry> {
     )
 }
 
-@Preview
+@Preview(name="Pokemon Detail", group = "Screen")
 @Composable
 fun PokemonDetailScreenPreview() {
     PokedexAndroidTheme {
@@ -235,8 +244,10 @@ fun PokemonDetailScreenPreview() {
                 aboutDescription = "There is a plant seed on its back right from the day this Pokémon is born. The seed slowly grows larger.",
                 baseStats = Stats(
                     hp = 45, atk = 49, def = 49, satk = 65, sdef = 65, spd = 45
-                )
-            )
+                ),
+                image = R.drawable.asset_bulbasaur
+            ),
+            onBackClick = {}
         )
     }
 }

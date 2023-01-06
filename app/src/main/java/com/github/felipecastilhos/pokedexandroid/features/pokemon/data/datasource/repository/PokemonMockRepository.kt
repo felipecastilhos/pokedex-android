@@ -11,7 +11,7 @@ class PokemonMockRepository {
         mutableListOf(
             Pokemon("#001", "Bulbassaur", PokemonType.GRASS, R.drawable.asset_bulbasaur),
             Pokemon("#004", "Charmander", PokemonType.FIRE, R.drawable.asset_charmander),
-            Pokemon("#007", "Squirtle", PokemonType.WATER, R.drawable.asset_squirtle ),
+            Pokemon("#007", "Squirtle", PokemonType.WATER, R.drawable.asset_squirtle),
             Pokemon("#012", "Butterfree", PokemonType.BUG, R.drawable.asset_butterfree),
             Pokemon("#025", "Pikachu", PokemonType.ELETRIC, R.drawable.asset_pikachu),
             Pokemon("#092", "Gastly", PokemonType.GHOST, R.drawable.asset_gastly),
@@ -19,10 +19,18 @@ class PokemonMockRepository {
             Pokemon("#152", "Mew", PokemonType.PSYCHIC, R.drawable.asset_mew),
             Pokemon("#304", "Aron", PokemonType.STEEL, R.drawable.asset_aron),
         )
+
+
+    fun pokemonDetail(index: Int): PokemonDetails = PokemonMock.values()[index].pokemonDetails
 }
 
 
-data class Pokemon(val pokedexId: String, val name: String, val type: PokemonType, @DrawableRes val pokemonAsset: Int)
+data class Pokemon(
+    val pokedexId: String,
+    val name: String,
+    val type: PokemonType,
+    @DrawableRes val pokemonAsset: Int
+)
 
 data class PokemonDetails(
     val pokedexId: String,
@@ -32,7 +40,8 @@ data class PokemonDetails(
     val height: String,
     val moves: List<String>,
     val aboutDescription: String,
-    val baseStats: Stats
+    val baseStats: Stats,
+    @DrawableRes val image: Int
 )
 
 
@@ -67,7 +76,7 @@ enum class PokemonType {
 
     @Composable
     fun color(): Color =
-        when(this) {
+        when (this) {
             ROCK -> PokedexTheme.colors.pokemonType.rock
             GHOST -> PokedexTheme.colors.pokemonType.ghost
             STEEL -> PokedexTheme.colors.pokemonType.steel
@@ -108,7 +117,8 @@ enum class PokemonMock(val pokemonDetails: PokemonDetails) {
                 satk = 65,
                 sdef = 65,
                 spd = 45
-            )
+            ),
+            image = R.drawable.asset_bulbasaur
         )
     ),
     CHARMANDER(
@@ -127,7 +137,8 @@ enum class PokemonMock(val pokemonDetails: PokemonDetails) {
                 satk = 60,
                 sdef = 50,
                 spd = 65
-            )
+            ),
+            image = R.drawable.asset_charmander
         )
     ),
     SQUIRTLE(
@@ -146,7 +157,8 @@ enum class PokemonMock(val pokemonDetails: PokemonDetails) {
                 satk = 50,
                 sdef = 64,
                 spd = 43
-            )
+            ),
+            image = R.drawable.asset_squirtle
         )
     ),
     BUTTERFREE(
@@ -165,7 +177,8 @@ enum class PokemonMock(val pokemonDetails: PokemonDetails) {
                 satk = 90,
                 sdef = 80,
                 spd = 70
-            )
+            ),
+            image = R.drawable.asset_butterfree
         )
     ),
     PIKACHU(
@@ -184,7 +197,8 @@ enum class PokemonMock(val pokemonDetails: PokemonDetails) {
                 satk = 50,
                 sdef = 50,
                 spd = 90
-            )
+            ),
+            image = R.drawable.asset_pikachu
         )
     ),
     GASTLY(
@@ -203,7 +217,8 @@ enum class PokemonMock(val pokemonDetails: PokemonDetails) {
                 satk = 100,
                 sdef = 35,
                 spd = 80
-            )
+            ),
+            image = R.drawable.asset_gastly
         )
     ),
     DITTO(
@@ -222,7 +237,8 @@ enum class PokemonMock(val pokemonDetails: PokemonDetails) {
                 satk = 48,
                 sdef = 48,
                 spd = 48
-            )
+            ),
+            image = R.drawable.asset_ditto
         )
     ),
     MEW(
@@ -241,7 +257,8 @@ enum class PokemonMock(val pokemonDetails: PokemonDetails) {
                 satk = 100,
                 sdef = 100,
                 spd = 100
-            )
+            ),
+            image = R.drawable.asset_mew
         )
     ),
     ARON(
@@ -260,7 +277,8 @@ enum class PokemonMock(val pokemonDetails: PokemonDetails) {
                 satk = 40,
                 sdef = 40,
                 spd = 30
-            )
+            ),
+            image = R.drawable.asset_aron
         )
     ),
 }
