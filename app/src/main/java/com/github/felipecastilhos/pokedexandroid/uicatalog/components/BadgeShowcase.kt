@@ -8,7 +8,7 @@ import com.github.felipecastilhos.pokedexandroid.core.ui.components.PokemonTypeB
 import com.github.felipecastilhos.pokedexandroid.core.ui.components.TextBadge
 import com.github.felipecastilhos.pokedexandroid.core.ui.theme.PokedexAndroidTheme
 import com.github.felipecastilhos.pokedexandroid.core.ui.theme.PokedexTheme
-import com.github.felipecastilhos.pokedexandroid.features.pokemon.domain.repository.PokemonType
+import com.github.felipecastilhos.pokedexandroid.features.pokemon.data.datasource.repository.PokemonType
 
 @Preview(name = "Badge", group = "Badge")
 @Composable

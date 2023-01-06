@@ -1,4 +1,4 @@
-package com.github.felipecastilhos.pokedexandroid.features.pokemon.domain.repository
+package com.github.felipecastilhos.pokedexandroid.features.pokemon.data.datasource.repository
 
 import com.github.felipecastilhos.pokedexandroid.features.pokemon.data.datasource.models.Pokemon
 import com.github.felipecastilhos.pokedexandroid.features.pokemon.data.datasource.PokemonDataSource

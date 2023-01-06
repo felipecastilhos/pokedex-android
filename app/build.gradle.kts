@@ -8,7 +8,7 @@ plugins {
 
 android {
     compileSdk = BuildConfigVersions.compileSdk
-
+    namespace="com.github.felipecastilhos.pokedexandroid"
     defaultConfig {
         applicationId = "com.github.felipecastilhos.pokedexandroid"
         minSdk = BuildConfigVersions

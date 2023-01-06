@@ -13,7 +13,7 @@ import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.github.felipecastilhos.pokedexandroid.core.ui.theme.PokedexTheme
-import com.github.felipecastilhos.pokedexandroid.features.pokemon.domain.repository.PokemonType
+import com.github.felipecastilhos.pokedexandroid.features.pokemon.data.datasource.repository.PokemonType
 
 @Composable
 fun Badge(
