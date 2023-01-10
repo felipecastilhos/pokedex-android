@@ -11,17 +11,15 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.unit.Dp
-import androidx.compose.ui.unit.dp
 import com.github.felipecastilhos.pokedexandroid.core.ui.theme.PokedexTheme
-import com.github.felipecastilhos.pokedexandroid.features.pokemon.data.datasource.repository.PokemonType
 
 @Composable
 fun Badge(
     modifier: Modifier = Modifier,
-    shape: Shape = RoundedCornerShape(10.dp),
-    backgroundColor: Color = Color(0xFFFFFFFF),
-    horizontalPadding: Dp = 8.dp,
-    verticalPadding: Dp = 2.dp,
+    shape: Shape = RoundedCornerShape(BadgeDefaults.badgeRadius()),
+    backgroundColor: Color = BadgeDefaults.backgroundColor(),
+    horizontalPadding: Dp = BadgeDefaults.horizontalPadding(),
+    verticalPadding: Dp = BadgeDefaults.verticalPadding(),
     content: @Composable () -> Unit
 ) {
     Box(
@@ -37,23 +35,25 @@ fun Badge(
 @Composable
 fun TextBadge(
     modifier: Modifier = Modifier,
-    textColor: Color = Color(0xFF000000),
-    backgroundColor: Color = Color(0xFFFFFFFF),
+    textColor: Color = BadgeDefaults.contentColor(),
+    backgroundColor: Color = BadgeDefaults.backgroundColor(),
     text: String
 ) {
     Badge(modifier = modifier, backgroundColor = backgroundColor) {
         Text(text = text, style = PokedexTheme.typography.bold.body2, color = textColor)
     }
-
 }
 
-@Composable
-fun PokemonTypeBadge(modifier: Modifier = Modifier, type: PokemonType) {
-    TextBadge(
-        modifier = modifier,
-        text = type.name.lowercase().capitalize(),
-        textColor = PokedexTheme.colors.content.overSurface,
-        backgroundColor = type.color()
-    )
+object BadgeDefaults {
+    @Composable
+    fun verticalPadding() = PokedexTheme.spacings.s100
+    @Composable
+    fun horizontalPadding() = PokedexTheme.spacings.s300
+    @Composable
+    fun badgeRadius() = PokedexTheme.radius.s500
+    @Composable
+    fun backgroundColor() = PokedexTheme.colors.background.surface
+    @Composable
+    fun contentColor() = PokedexTheme.colors.content.overSurface
 }
 

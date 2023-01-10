@@ -12,11 +12,16 @@ import com.github.felipecastilhos.pokedexandroid.core.ui.theme.GrayscalePalette
 @Composable
 fun DividerVertical(
     modifier: Modifier = Modifier,
-    color: Color = GrayscalePalette.defaultPalette().mediumGray
+    color: Color = DividerDefaults.color
 ) {
     Divider(
         modifier
             .fillMaxHeight()
-            .width(1.dp), color = color
+            .width(DividerDefaults.verticalWidth), color = color
     )
+}
+
+object DividerDefaults {
+    val color = GrayscalePalette.defaultPalette().mediumGray
+    val verticalWidth = 1.dp
 }

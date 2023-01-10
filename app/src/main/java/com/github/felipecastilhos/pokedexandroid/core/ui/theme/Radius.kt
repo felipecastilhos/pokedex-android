@@ -11,6 +11,6 @@ class Radius(
     val s500: Dp
 ) {
     companion object {
-        fun regular() = Radius(s300 = 2.dp, s400 = 4.dp, s500 = 8.dp)
+        fun regular() = Radius(s300 = 4.dp, s400 = 8.dp, s500 = 10.dp)
     }
 }

@@ -8,6 +8,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.github.felipecastilhos.pokedexandroid.core.ui.components.BackTopAppBar
 import com.github.felipecastilhos.pokedexandroid.core.ui.components.PokedexTopAppBar
 import com.github.felipecastilhos.pokedexandroid.core.ui.components.TopAppBarIcon
 import com.github.felipecastilhos.pokedexandroid.core.ui.components.TopAppBarTitle
@@ -34,5 +35,15 @@ fun PokedexTopAppBarPreview() {
             backgroundColor = PokedexTheme.colors.background.primary,
             actions = {}
         )
+    }
+}
+
+
+
+@Preview(name = "Pokedex TopAppBar", group = "TopAppBar Back Action")
+@Composable
+fun BackTopAppBarPreview() {
+    PokedexAndroidTheme {
+        BackTopAppBar(title = "Pokédex", onBackClick = {}, actions = {})
     }
 }

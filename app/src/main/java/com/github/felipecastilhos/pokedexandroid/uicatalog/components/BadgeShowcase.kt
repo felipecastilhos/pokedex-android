@@ -4,11 +4,11 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
 import com.github.felipecastilhos.pokedexandroid.core.ui.components.Badge
-import com.github.felipecastilhos.pokedexandroid.core.ui.components.PokemonTypeBadge
 import com.github.felipecastilhos.pokedexandroid.core.ui.components.TextBadge
 import com.github.felipecastilhos.pokedexandroid.core.ui.theme.PokedexAndroidTheme
 import com.github.felipecastilhos.pokedexandroid.core.ui.theme.PokedexTheme
 import com.github.felipecastilhos.pokedexandroid.features.pokemon.data.datasource.repository.PokemonType
+import com.github.felipecastilhos.pokedexandroid.features.pokemon.presentation.components.PokemonTypeBadge
 
 @Preview(name = "Badge", group = "Badge")
 @Composable

@@ -1,9 +1,15 @@
 package com.github.felipecastilhos.pokedexandroid.core.ui.components
 
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.*
-import androidx.compose.material.*
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.RowScope
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.wrapContentHeight
+import androidx.compose.material.IconButton
+import androidx.compose.material.Text
+import androidx.compose.material.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -12,10 +18,9 @@ import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import com.github.felipecastilhos.pokedexandroid.core.ui.theme.PokedexAndroidTheme
+import com.github.felipecastilhos.pokedexandroid.core.ui.components.TopAppBarDefaults.iconStartPadding
 import com.github.felipecastilhos.pokedexandroid.core.ui.theme.PokedexTheme
 
 @Composable
@@ -24,14 +29,19 @@ fun BackTopAppBar(
     onBackClick: () -> Unit,
     title: String,
     actions: @Composable RowScope.() -> Unit,
-    contentColor: Color = PokedexTheme.colors.content.primary,
-    backgroundColor: Color = PokedexTheme.colors.background.primary,
+    contentColor: Color = TopAppBarDefaults.contentColor(),
+    backgroundColor: Color = TopAppBarDefaults.backgroundColor(),
 ) {
     PokedexTopAppBar(
         modifier = modifier,
         title = { TopAppBarTitle(title = title, textColor = contentColor) },
         actions = actions,
-        navigationIcon = { NavigationBackIcon(onNavigationBackClick = onBackClick, iconColor = contentColor) },
+        navigationIcon = {
+            NavigationBackIcon(
+                onNavigationBackClick = onBackClick,
+                iconColor = contentColor
+            )
+        },
         backgroundColor = backgroundColor,
     )
 }
@@ -41,18 +51,18 @@ fun HomeTopAppBar(
     title: String,
     modifier: Modifier = Modifier,
     iconPainter: Painter,
-    contentColor: Color = PokedexTheme.colors.content.primary,
-    backgroundColor: Color = PokedexTheme.colors.background.primary,
+    contentColor: Color = TopAppBarDefaults.contentColor(),
+    backgroundColor: Color = TopAppBarDefaults.backgroundColor(),
 ) {
     PokedexTopAppBar(
         modifier = modifier,
         title = { TopAppBarTitle(title = title, textColor = contentColor) },
         navigationIcon = {
             Row {
-                Spacer(Modifier.width(16.dp))
+                Spacer(Modifier.width(iconStartPadding()))
                 TopAppBarIcon(
                     iconPainter = iconPainter,
-                    iconColor = PokedexTheme.colors.content.primary
+                    iconColor = contentColor
                 )
             }
         },
@@ -84,8 +94,8 @@ fun PokedexTopAppBar(
 @Composable
 fun TopAppBarTitle(
     modifier: Modifier = Modifier,
-    textColor: Color = PokedexTheme.colors.content.primary,
-    style: TextStyle = PokedexTheme.typography.bold.h1,
+    textColor: Color = TopAppBarDefaults.contentColor(),
+    style: TextStyle = TopAppBarDefaults.titleTextStyle(),
     title: String,
 ) {
     Text(
@@ -100,8 +110,8 @@ fun TopAppBarTitle(
 @Composable
 private fun NavigationBackIcon(
     onNavigationBackClick: () -> Unit,
-    iconPainter: Painter = painterResource(id = PokedexTheme.icons.arrow_left),
-    iconColor: Color = PokedexTheme.colors.content.primary
+    iconPainter: Painter = painterResource(id = TopAppBarDefaults.backIcon()),
+    iconColor: Color = TopAppBarDefaults.contentColor()
 ) {
     TopAppBarIconButton(
         iconPainter = iconPainter,
@@ -144,21 +154,18 @@ fun TopAppBarIconButton(
     }
 }
 
-@Preview
-@Composable
-fun TopAppBarIconPreview() {
-    PokedexAndroidTheme {
-        HomeTopAppBar(
-            title = "Pokedex",
-            iconPainter = painterResource(id = PokedexTheme.icons.pokeball),
-        )
-    }
+
+object TopAppBarDefaults {
+    @Composable
+    fun contentColor() = PokedexTheme.colors.content.primary
+    @Composable
+    fun backgroundColor() = PokedexTheme.colors.background.primary
+    @Composable
+    fun iconStartPadding() = PokedexTheme.spacings.s400
+    @Composable
+    fun titleTextStyle() = PokedexTheme.typography.bold.h1
+    @Composable
+    fun backIcon() = PokedexTheme.icons.arrow_left
 }
 
-@Preview
-@Composable
-fun BackTopAppBarPreview() {
-    PokedexAndroidTheme {
-        BackTopAppBar(title = "Pokédex", onBackClick = {}, actions = {})
-    }
-}
+

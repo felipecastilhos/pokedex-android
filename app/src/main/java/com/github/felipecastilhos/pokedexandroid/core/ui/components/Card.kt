@@ -8,7 +8,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.github.felipecastilhos.pokedexandroid.core.ui.components.CardDefaults.roundedShape
-import com.github.felipecastilhos.pokedexandroid.core.ui.components.CardDefaults.smallCardWidth
 import com.github.felipecastilhos.pokedexandroid.core.ui.theme.PokedexTheme
 
 @Composable
@@ -19,9 +18,9 @@ fun CardSmall(
 ) {
     Card(
         modifier = modifier
-            .requiredWidth(smallCardWidth)
+            .requiredWidth(CardDefaults.smallCardWidth)
             .clickable(onClick = onClick),
-        shape = roundedShape, backgroundColor = PokedexTheme.colors.background.surface
+        shape = roundedShape, backgroundColor = CardDefaults.backgroundColor()
     ) {
         content.invoke()
     }
@@ -30,4 +29,5 @@ fun CardSmall(
 object CardDefaults {
     val roundedShape = RoundedCornerShape(8.dp)
     val smallCardWidth = 104.dp
+    @Composable fun backgroundColor() =  PokedexTheme.colors.background.surface
 }
