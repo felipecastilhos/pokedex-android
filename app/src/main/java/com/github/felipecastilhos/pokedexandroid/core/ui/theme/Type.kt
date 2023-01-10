@@ -3,30 +3,33 @@
 package com.github.felipecastilhos.pokedexandroid.core.ui.theme
 
 import androidx.compose.material.Typography
+import androidx.compose.runtime.Composable
 import androidx.compose.ui.text.ExperimentalTextApi
 import androidx.compose.ui.text.PlatformTextStyle
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.style.BaselineShift
 import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.sp
 import com.github.felipecastilhos.pokedexandroid.R
 
 // Set of Material typography styles to start with
-val MaterialTypography = Typography(
-    h1 = PokedexTypographyScheme.bold.h1,
-    h3 = PokedexTypographyScheme.bold.h2,
-    body1 = PokedexTypographyScheme.regular.body1
+
+@Composable
+fun PokedexTypographyScheme.toMaterialTypography()  = Typography(
+    h1 = PokedexTheme.typography.bold.h1,
+    h3 = PokedexTheme.typography.bold.h2,
+    body1 = PokedexTheme.typography.regular.body1
 )
 
-sealed class PokedexTypographyScheme(
+class PokedexTypographyScheme(
     val regular: PokedexTypography,
     val bold: PokedexTypography
 ) {
-    companion object :
-        PokedexTypographyScheme(regular = PokedexTypography.regular, bold = PokedexTypography.bold)
+    companion object {
+        fun default() = PokedexTypographyScheme(regular = PokedexTypography.regular, bold = PokedexTypography.bold)
+    }
 }
 
 class PokedexTypography(

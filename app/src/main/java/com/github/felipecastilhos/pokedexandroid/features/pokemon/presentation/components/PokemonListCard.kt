@@ -18,7 +18,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
-import com.github.felipecastilhos.pokedexandroid.core.ui.components.CardProperties
+import com.github.felipecastilhos.pokedexandroid.core.ui.components.CardDefaults
 import com.github.felipecastilhos.pokedexandroid.core.ui.components.CardSmall
 import com.github.felipecastilhos.pokedexandroid.core.ui.theme.PokedexTheme
 
@@ -36,7 +36,7 @@ fun PokemonListCard(
         modifier.border(
             width = 1.dp,
             color = pokemonTypeColor,
-            shape = CardProperties.roundedShape
+            shape = CardDefaults.roundedShape
         ), onClick = onClick
     ) {
         Column(modifier) {
@@ -103,6 +103,7 @@ private fun CardFooterLabel(
         )
     }
 }
+
 
 
 

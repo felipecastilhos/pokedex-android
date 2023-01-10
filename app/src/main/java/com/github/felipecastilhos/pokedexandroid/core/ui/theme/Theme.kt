@@ -1,8 +1,10 @@
 package com.github.felipecastilhos.pokedexandroid.core.ui.theme
 
 import androidx.compose.foundation.isSystemInDarkTheme
-import androidx.compose.material.*
-import androidx.compose.runtime.*
+import androidx.compose.material.MaterialTheme
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.CompositionLocalProvider
+import androidx.compose.runtime.compositionLocalOf
 import com.github.felipecastilhos.pokedexandroid.features.pokemon.changeColorSchema
 
 object PokedexTheme {
@@ -15,16 +17,30 @@ object PokedexTheme {
     inline val icons: IconScheme
         @Composable get() = LocalIcons.current
 
+    inline val spacings: Spacing
+        @Composable get() = LocalSpacings.current
+
+    inline val radius: Radius
+        @Composable get() = LocalRadius.current
+
     val LocalColors = compositionLocalOf {
         ColorScheme.regularLightModeColorSchema()
     }
 
     val LocalTypography = compositionLocalOf {
-        PokedexTypographyScheme
+        PokedexTypographyScheme.default()
     }
 
     val LocalIcons = compositionLocalOf {
         IconScheme()
+    }
+
+    val LocalSpacings = compositionLocalOf {
+        Spacing.regular()
+    }
+
+    val LocalRadius = compositionLocalOf {
+        Radius.regular()
     }
 }
 
@@ -37,10 +53,14 @@ fun PokedexAndroidTheme(
     content: @Composable () -> Unit
 ) {
     val schema = changeColorSchema(isDarkTheme = darkTheme)
-    CompositionLocalProvider(PokedexTheme.LocalColors provides schema) {
+    CompositionLocalProvider(
+        PokedexTheme.LocalColors provides schema,
+        PokedexTheme.LocalIcons provides iconScheme,
+        PokedexTheme.LocalTypography provides typographyScheme
+    ) {
         MaterialTheme(
             colors = colors.toMaterialColors(darkTheme),
-            typography = MaterialTypography,
+            typography = typographyScheme.toMaterialTypography(),
             shapes = Shapes,
             content = content
         )
