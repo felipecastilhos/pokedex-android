@@ -29,7 +29,6 @@ import com.github.felipecastilhos.pokedexandroid.R
 import com.github.felipecastilhos.pokedexandroid.core.ui.components.BackTopAppBar
 import com.github.felipecastilhos.pokedexandroid.core.ui.components.BaseStatsTable
 import com.github.felipecastilhos.pokedexandroid.core.ui.components.BaseStatsTableEntry
-import com.github.felipecastilhos.pokedexandroid.core.ui.components.PokemonTypeBadge
 import com.github.felipecastilhos.pokedexandroid.core.ui.theme.PokedexAndroidTheme
 import com.github.felipecastilhos.pokedexandroid.core.ui.theme.PokedexTheme
 import com.github.felipecastilhos.pokedexandroid.features.pokemon.data.datasource.repository.PokemonDetails
@@ -38,6 +37,7 @@ import com.github.felipecastilhos.pokedexandroid.features.pokemon.data.datasourc
 import com.github.felipecastilhos.pokedexandroid.features.pokemon.presentation.components.AboutPanelIconInfo
 import com.github.felipecastilhos.pokedexandroid.features.pokemon.presentation.components.AboutPanelLayout
 import com.github.felipecastilhos.pokedexandroid.features.pokemon.presentation.components.AboutPanelListInfo
+import com.github.felipecastilhos.pokedexandroid.features.pokemon.presentation.components.PokemonTypeBadge
 
 @Composable
 fun PokemonDetailScreen(

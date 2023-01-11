@@ -3,8 +3,18 @@ package com.github.felipecastilhos.pokedexandroid.core.ui.theme
 import androidx.compose.material.Colors
 import androidx.compose.material.darkColors
 import androidx.compose.material.lightColors
+import androidx.compose.runtime.compositionLocalOf
 import androidx.compose.ui.graphics.Color
 
+/**
+ * ColorScheme represents the system of all color context group handled by the application.
+ *
+ * To create a light set of colors using the baseline values, use regularLightModeColorSchema To create a dark set of colors using the baseline values, use regularDarkModeColorSchema
+ *
+ * @param background contains all background color context
+ * @param content contains colors to be used for content
+ * @param pokemonType contains colors of pokemon types
+ */
 class ColorScheme(
     var background: BackgroundColorGroup,
     var content: ContentColorGroup,
@@ -25,15 +35,27 @@ class ColorScheme(
     }
 }
 
+/**
+ * [ColorGroup] is a interface of contexts that an group of color need to represent inside the application
+ */
 interface ColorGroup<T> {
     val regular: ColorMode<T>
 }
 
+/**
+ * [ColorMode] represents all modes a group need to implement to work with the design system language
+ */
 interface ColorMode<T> {
     val lightMode: T
     val darkMode: T
 }
 
+/**
+ * [ContentColorGroup] contains colors to be used for contents, like Texts and Icons.
+ *
+ * @param primary is the most often used color for contents. Use this as default for majority of texts, has high contrast with the primary background color.
+ * @param overSurface is used to tint content that are displayed over an surface, like Badges and colored background layouts.
+ */
 data class ContentColorGroup(val primary: Color, val overSurface: Color) {
     internal companion object : ColorGroup<ContentColorGroup> {
         override val regular: ColorMode<ContentColorGroup>
@@ -52,6 +74,12 @@ data class ContentColorGroup(val primary: Color, val overSurface: Color) {
     }
 }
 
+/**
+ * [BackgroundColorGroup] contains colors for background of the application.
+ *
+ * @param primary used often to tint background of the screen
+ * @param surface used to tint things to create effect that they are above the primary surface
+ */
 data class BackgroundColorGroup(val primary: Color, val surface: Color) {
     internal companion object : ColorGroup<BackgroundColorGroup> {
         override val regular: ColorMode<BackgroundColorGroup>
@@ -70,6 +98,9 @@ data class BackgroundColorGroup(val primary: Color, val surface: Color) {
     }
 }
 
+/**
+ * [PokemonTypeColorGroup] contains colors of Pokémon types. Use this to indicate what type is the Skill or Pokemon
+ */
 data class PokemonTypeColorGroup(
     val rock: Color,
     val ghost: Color,
@@ -139,6 +170,9 @@ data class PokemonTypeColorGroup(
     }
 }
 
+/**
+ * Transform the Pokedex Color Scheme to the Material Design Color Scheme.
+ */
 fun ColorScheme.toMaterialColors(isDarkMode: Boolean): Colors {
     return if (isDarkMode) {
         darkColors(
@@ -159,6 +193,9 @@ fun ColorScheme.toMaterialColors(isDarkMode: Boolean): Colors {
     }
 }
 
+/**
+ * The Grayscale palette used for the Colors groups.
+ */
 open class GrayscalePalette(
     val darkGray: Color,
     val mediumGray: Color,
@@ -176,5 +213,14 @@ open class GrayscalePalette(
         )
     }
 }
-
-
+/**
+ * CompositionLocal used to pass [Colors] down the tree.
+ *
+ * Setting the value here is typically done as part of [PokedexTheme], which will
+ * automatically handle efficiently updating any changed radius values without causing unnecessary
+ * recompositions..
+ * To retrieve the current value of this CompositionLocal, use [PokedexTheme.colors].
+ */
+val LocalColors = compositionLocalOf {
+    ColorScheme.regularLightModeColorSchema()
+}

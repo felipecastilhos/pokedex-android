@@ -5,6 +5,8 @@ import androidx.compose.material.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.compositionLocalOf
+import com.github.felipecastilhos.pokedexandroid.core.ui.theme.PokedexTheme.LocalIcons
+import com.github.felipecastilhos.pokedexandroid.core.ui.theme.PokedexTheme.LocalTypography
 import com.github.felipecastilhos.pokedexandroid.features.pokemon.changeColorSchema
 
 object PokedexTheme {
@@ -23,9 +25,7 @@ object PokedexTheme {
     inline val radius: Radius
         @Composable get() = LocalRadius.current
 
-    val LocalColors = compositionLocalOf {
-        ColorScheme.regularLightModeColorSchema()
-    }
+
 
     val LocalTypography = compositionLocalOf {
         PokedexTypographyScheme.default()
@@ -33,14 +33,6 @@ object PokedexTheme {
 
     val LocalIcons = compositionLocalOf {
         IconScheme()
-    }
-
-    val LocalSpacings = compositionLocalOf {
-        Spacing.regular()
-    }
-
-    val LocalRadius = compositionLocalOf {
-        Radius.regular()
     }
 }
 
@@ -54,9 +46,9 @@ fun PokedexAndroidTheme(
 ) {
     val schema = changeColorSchema(isDarkTheme = darkTheme)
     CompositionLocalProvider(
-        PokedexTheme.LocalColors provides schema,
-        PokedexTheme.LocalIcons provides iconScheme,
-        PokedexTheme.LocalTypography provides typographyScheme
+        LocalColors provides schema,
+        LocalIcons provides iconScheme,
+        LocalTypography provides typographyScheme
     ) {
         MaterialTheme(
             colors = colors.toMaterialColors(darkTheme),

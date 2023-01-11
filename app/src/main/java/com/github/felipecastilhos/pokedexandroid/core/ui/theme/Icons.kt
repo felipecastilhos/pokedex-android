@@ -3,6 +3,9 @@ package com.github.felipecastilhos.pokedexandroid.core.ui.theme
 import androidx.annotation.DrawableRes
 import com.github.felipecastilhos.pokedexandroid.R
 
+/**
+ * Icons used in the Pokedex Application
+ */
 class IconScheme(
     @DrawableRes val pokeball: Int = R.drawable.ic_pokeball,
     @DrawableRes val arrow_left: Int = R.drawable.ic_arrow_left,
