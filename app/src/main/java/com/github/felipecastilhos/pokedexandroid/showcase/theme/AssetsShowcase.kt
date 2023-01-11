@@ -1,4 +1,4 @@
-package com.github.felipecastilhos.pokedexandroid.uicatalog
+package com.github.felipecastilhos.pokedexandroid.showcase
 
 import androidx.annotation.DrawableRes
 import androidx.compose.foundation.Image

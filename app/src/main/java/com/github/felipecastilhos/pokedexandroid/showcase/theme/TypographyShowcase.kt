@@ -1,4 +1,4 @@
-package com.github.felipecastilhos.pokedexandroid.uicatalog.atoms
+package com.github.felipecastilhos.pokedexandroid.showcase.theme
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border

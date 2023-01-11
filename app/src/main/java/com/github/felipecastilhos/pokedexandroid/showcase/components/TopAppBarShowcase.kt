@@ -1,4 +1,4 @@
-package com.github.felipecastilhos.pokedexandroid.uicatalog.components
+package com.github.felipecastilhos.pokedexandroid.showcase.components
 
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
