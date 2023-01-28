@@ -11,8 +11,8 @@ import androidx.navigation.navArgument
 import com.github.felipecastilhos.pokedexandroid.PokemonDestinationsArgs.POKEMON_DETAIL_ID_ARGS
 import com.github.felipecastilhos.pokedexandroid.features.pokemon.domain.viewmodel.PokemonDetailViewModel
 import com.github.felipecastilhos.pokedexandroid.features.pokemon.domain.viewmodel.PokemonListViewModel
-import com.github.felipecastilhos.pokedexandroid.features.pokemon.presentation.screens.PokemonDetailScreen
-import com.github.felipecastilhos.pokedexandroid.features.pokemon.presentation.screens.PokemonSearchScreen
+import com.github.felipecastilhos.pokedexandroid.features.pokemon.ui.screens.PokemonDetailScreen
+import com.github.felipecastilhos.pokedexandroid.features.pokemon.ui.screens.PokemonSearchScreen
 import kotlinx.coroutines.runBlocking
 
 /**

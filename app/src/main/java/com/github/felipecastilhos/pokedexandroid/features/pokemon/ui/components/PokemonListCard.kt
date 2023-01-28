@@ -1,4 +1,4 @@
-package com.github.felipecastilhos.pokedexandroid.features.pokemon.presentation.components
+package com.github.felipecastilhos.pokedexandroid.features.pokemon.ui.components
 
 import androidx.annotation.DrawableRes
 import androidx.compose.foundation.Image
