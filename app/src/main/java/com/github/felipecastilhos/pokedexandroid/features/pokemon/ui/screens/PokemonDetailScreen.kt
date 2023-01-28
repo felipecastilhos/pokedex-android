@@ -31,9 +31,9 @@ import com.github.felipecastilhos.pokedexandroid.core.ui.components.BaseStatsTab
 import com.github.felipecastilhos.pokedexandroid.core.ui.components.BaseStatsTableEntry
 import com.github.felipecastilhos.pokedexandroid.core.ui.theme.PokedexAndroidTheme
 import com.github.felipecastilhos.pokedexandroid.core.ui.theme.PokedexTheme
-import com.github.felipecastilhos.pokedexandroid.features.pokemon.data.datasource.repository.PokemonDetails
-import com.github.felipecastilhos.pokedexandroid.features.pokemon.data.datasource.repository.PokemonType
-import com.github.felipecastilhos.pokedexandroid.features.pokemon.data.datasource.repository.Stats
+import com.github.felipecastilhos.pokedexandroid.features.pokemon.domain.repository.PokemonDetails
+import com.github.felipecastilhos.pokedexandroid.features.pokemon.domain.repository.PokemonType
+import com.github.felipecastilhos.pokedexandroid.features.pokemon.domain.repository.Stats
 import com.github.felipecastilhos.pokedexandroid.features.pokemon.ui.components.AboutPanelIconInfo
 import com.github.felipecastilhos.pokedexandroid.features.pokemon.ui.components.AboutPanelLayout
 import com.github.felipecastilhos.pokedexandroid.features.pokemon.ui.components.AboutPanelListInfo

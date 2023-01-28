@@ -1,7 +1,7 @@
 package com.github.felipecastilhos.pokedexandroid.features.pokemon.di
 
-import com.github.felipecastilhos.pokedexandroid.features.pokemon.data.datasource.repository.PokemonMockRepository
-import com.github.felipecastilhos.pokedexandroid.features.pokemon.data.datasource.repository.PokemonRepository
+import com.github.felipecastilhos.pokedexandroid.features.pokemon.domain.repository.PokemonMockRepository
+import com.github.felipecastilhos.pokedexandroid.features.pokemon.domain.repository.PokemonRepository
 import com.github.felipecastilhos.pokedexandroid.features.pokemon.domain.usecase.PokemonUseCase
 import dagger.Module
 import dagger.Provides

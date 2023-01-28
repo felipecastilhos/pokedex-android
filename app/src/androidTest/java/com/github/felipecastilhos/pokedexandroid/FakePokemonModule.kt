@@ -10,8 +10,8 @@ import com.github.felipecastilhos.pokedexandroid.features.pokemon.data.datasourc
 import com.github.felipecastilhos.pokedexandroid.features.pokemon.data.datasource.models.Specie
 import com.github.felipecastilhos.pokedexandroid.features.pokemon.data.datasource.models.TypeName
 import com.github.felipecastilhos.pokedexandroid.features.pokemon.di.PokemonListModule
-import com.github.felipecastilhos.pokedexandroid.features.pokemon.data.datasource.repository.PokemonMockRepository
-import com.github.felipecastilhos.pokedexandroid.features.pokemon.data.datasource.repository.PokemonRepository
+import com.github.felipecastilhos.pokedexandroid.features.pokemon.domain.repository.PokemonMockRepository
+import com.github.felipecastilhos.pokedexandroid.features.pokemon.domain.repository.PokemonRepository
 import com.github.felipecastilhos.pokedexandroid.features.pokemon.domain.usecase.PokemonUseCase
 import dagger.Module
 import dagger.Provides

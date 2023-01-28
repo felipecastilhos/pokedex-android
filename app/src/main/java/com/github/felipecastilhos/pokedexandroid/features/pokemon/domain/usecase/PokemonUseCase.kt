@@ -1,8 +1,8 @@
 package com.github.felipecastilhos.pokedexandroid.features.pokemon.domain.usecase
 
-import com.github.felipecastilhos.pokedexandroid.features.pokemon.data.datasource.repository.Pokemon
-import com.github.felipecastilhos.pokedexandroid.features.pokemon.data.datasource.repository.PokemonDetails
-import com.github.felipecastilhos.pokedexandroid.features.pokemon.data.datasource.repository.PokemonMockRepository
+import com.github.felipecastilhos.pokedexandroid.features.pokemon.domain.repository.Pokemon
+import com.github.felipecastilhos.pokedexandroid.features.pokemon.domain.repository.PokemonDetails
+import com.github.felipecastilhos.pokedexandroid.features.pokemon.domain.repository.PokemonMockRepository
 import javax.inject.Inject
 
 /**

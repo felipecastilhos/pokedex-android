@@ -1,4 +1,4 @@
-package com.github.felipecastilhos.pokedexandroid.features.pokemon.data.datasource.repository
+package com.github.felipecastilhos.pokedexandroid.features.pokemon.domain.repository
 
 import androidx.annotation.DrawableRes
 import androidx.compose.runtime.Composable
