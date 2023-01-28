@@ -42,14 +42,13 @@ import com.github.felipecastilhos.pokedexandroid.features.pokemon.ui.components.
 @Composable
 fun PokemonDetailScreen(
     modifier: Modifier = Modifier,
-    backgroundColor: Color = PokedexTheme.colors.background.primary,
     pokemonDetails: PokemonDetails,
     onBackClick: () -> Unit
 ) {
     val typeColor = pokemonDetails.types.first().color()
 
     ConstraintLayout(
-        modifier = Modifier
+        modifier = modifier
             .background(typeColor)
             .fillMaxHeight()
     ) {

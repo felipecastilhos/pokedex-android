@@ -1,6 +1,5 @@
 package com.github.felipecastilhos.pokedexandroid.features.pokemon.ui.screens
 
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -23,9 +22,9 @@ import com.github.felipecastilhos.pokedexandroid.features.pokemon.ui.components.
 
 @Composable
 fun PokemonSearchScreen(
-    modifier: Modifier = Modifier.background(PokedexTheme.colors.background.primary),
     onNavigateToPokemonDetails: (Int) -> Unit,
     uiState: PokemonListUiState,
+    modifier: Modifier = Modifier
 ) {
     uiState.apply {
         if (isLoading) {
@@ -51,7 +50,7 @@ fun PokenonSearchList(
     onNavigateToPokemonDetails: (Int) -> Unit
 ) {
     LazyVerticalGrid(
-        modifier = Modifier
+        modifier = modifier
             .fillMaxWidth(),
         verticalArrangement = Arrangement.spacedBy(8.dp),
         columns = GridCells.Fixed(3)

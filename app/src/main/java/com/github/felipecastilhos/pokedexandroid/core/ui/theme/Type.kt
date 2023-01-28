@@ -83,6 +83,7 @@ class PokedexTypography(
             ),
         )
 
+        @OptIn(ExperimentalTextApi::class)
         val bold = PokedexTypography(
             h1 = TextStyle(
                 fontFamily = PokedexFontFamily.poppins,

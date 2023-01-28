@@ -2,5 +2,4 @@
     <string name="app_name">Pokédex Android</string>
 
     <string name="server_unexpected_error">Ops, algo deu errado</string>
-    <string name="server_no_response">Sem conexão com o servidor, tente novamente mais tarde</string>
 </resources>

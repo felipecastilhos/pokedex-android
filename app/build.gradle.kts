@@ -58,7 +58,7 @@ android {
 }
 
 dependencies {
-    testImplementation("androidx.test.ext:junit-ktx:1.1.3")
+    testImplementation("androidx.test.ext:junit-ktx:1.1.5")
 
     // Common libraries
     jetpackCoreLibraries()

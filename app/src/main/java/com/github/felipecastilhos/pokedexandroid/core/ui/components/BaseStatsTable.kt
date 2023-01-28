@@ -16,11 +16,11 @@ import com.github.felipecastilhos.pokedexandroid.core.ui.theme.PokedexTheme
 
 @Composable
 fun BaseStatsTable(
+    stats: List<BaseStatsTableEntry>,
+    barColor: Color,
+    modifier: Modifier = Modifier,
     labelColor: Color = BaseStatsTableDefaults.contentColor(),
     valueColor: Color = BaseStatsTableDefaults.contentColor(),
-    modifier: Modifier = Modifier,
-    stats: List<BaseStatsTableEntry>,
-    barColor: Color
 ) {
     Column(modifier = modifier) {
         stats.forEach {
