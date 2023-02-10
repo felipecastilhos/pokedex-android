@@ -1,6 +1,6 @@
 package com.github.felipecastilhos.pokedexandroid
 
-import com.github.felipecastilhos.pokedexandroid.features.pokemon.data.datasource.models.*
+import com.github.felipecastilhos.pokedexandroid.features.pokemon.data.source.models.*
 import com.github.felipecastilhos.pokedexandroid.features.pokemon.domain.repository.DefaultPokemonRemoteDataRepository
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runTest

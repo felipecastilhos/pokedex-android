@@ -1,14 +1,14 @@
 package com.github.felipecastilhos.pokedexandroid
 
 import com.github.felipecastilhos.pokedexandroid.core.data.remote.DataSourceError
-import com.github.felipecastilhos.pokedexandroid.features.pokemon.data.datasource.PokemonDataSource
-import com.github.felipecastilhos.pokedexandroid.features.pokemon.data.datasource.models.Pokemon
-import com.github.felipecastilhos.pokedexandroid.features.pokemon.data.datasource.models.PokemonList
-import com.github.felipecastilhos.pokedexandroid.features.pokemon.data.datasource.models.PokemonListEntry
-import com.github.felipecastilhos.pokedexandroid.features.pokemon.data.datasource.models.PokemonType
-import com.github.felipecastilhos.pokedexandroid.features.pokemon.data.datasource.models.PokemonTypes
-import com.github.felipecastilhos.pokedexandroid.features.pokemon.data.datasource.models.Specie
-import com.github.felipecastilhos.pokedexandroid.features.pokemon.data.datasource.models.TypeName
+import com.github.felipecastilhos.pokedexandroid.features.pokemon.data.source.PokemonDataSource
+import com.github.felipecastilhos.pokedexandroid.features.pokemon.data.source.models.Pokemon
+import com.github.felipecastilhos.pokedexandroid.features.pokemon.data.source.models.PokemonList
+import com.github.felipecastilhos.pokedexandroid.features.pokemon.data.source.models.PokemonListEntry
+import com.github.felipecastilhos.pokedexandroid.features.pokemon.data.source.models.PokemonType
+import com.github.felipecastilhos.pokedexandroid.features.pokemon.data.source.models.PokemonTypes
+import com.github.felipecastilhos.pokedexandroid.features.pokemon.data.source.models.Specie
+import com.github.felipecastilhos.pokedexandroid.features.pokemon.data.source.models.TypeName
 import com.github.felipecastilhos.pokedexandroid.features.pokemon.di.PokemonListModule
 import com.github.felipecastilhos.pokedexandroid.features.pokemon.domain.repository.PokemonMockRepository
 import com.github.felipecastilhos.pokedexandroid.features.pokemon.domain.repository.PokemonRepository

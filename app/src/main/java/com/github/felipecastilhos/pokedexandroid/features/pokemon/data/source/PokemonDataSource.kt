@@ -1,14 +1,7 @@
-package com.github.felipecastilhos.pokedexandroid.features.pokemon.data.datasource
+package com.github.felipecastilhos.pokedexandroid.features.pokemon.data.source
 
-import com.github.felipecastilhos.pokedexandroid.core.coroutines.DispatcherProvider
-import com.github.felipecastilhos.pokedexandroid.features.pokemon.data.datasource.models.Pokemon
-import com.github.felipecastilhos.pokedexandroid.features.pokemon.data.datasource.models.PokemonList
-import com.github.felipecastilhos.pokedexandroid.features.pokemon.data.datasource.remote.PokemonRestService
-import kotlinx.coroutines.withContext
-import retrofit2.http.GET
-import retrofit2.http.Path
-import retrofit2.http.Query
-import javax.inject.Inject
+import com.github.felipecastilhos.pokedexandroid.features.pokemon.data.source.models.Pokemon
+import com.github.felipecastilhos.pokedexandroid.features.pokemon.data.source.models.PokemonList
 
 /**
  * [PokemonDataSource] is an interface for all remote data source queries

@@ -1,4 +1,4 @@
-package com.github.felipecastilhos.pokedexandroid.features.pokemon.data.datasource.models
+package com.github.felipecastilhos.pokedexandroid.features.pokemon.data.source.models
 
 /**
  * Pokemon list model from the remote data source

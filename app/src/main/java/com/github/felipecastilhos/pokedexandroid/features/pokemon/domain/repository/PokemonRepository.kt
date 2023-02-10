@@ -1,8 +1,8 @@
 package com.github.felipecastilhos.pokedexandroid.features.pokemon.domain.repository
 
-import com.github.felipecastilhos.pokedexandroid.features.pokemon.data.datasource.PokemonDataSource
-import com.github.felipecastilhos.pokedexandroid.features.pokemon.data.datasource.models.Pokemon
-import com.github.felipecastilhos.pokedexandroid.features.pokemon.data.datasource.models.PokemonList
+import com.github.felipecastilhos.pokedexandroid.features.pokemon.data.source.PokemonDataSource
+import com.github.felipecastilhos.pokedexandroid.features.pokemon.data.source.models.Pokemon
+import com.github.felipecastilhos.pokedexandroid.features.pokemon.data.source.models.PokemonList
 import javax.inject.Inject
 
 /**

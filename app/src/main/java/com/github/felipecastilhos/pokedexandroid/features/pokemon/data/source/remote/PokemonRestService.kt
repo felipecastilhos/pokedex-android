@@ -1,7 +1,7 @@
-package com.github.felipecastilhos.pokedexandroid.features.pokemon.data.datasource.remote
+package com.github.felipecastilhos.pokedexandroid.features.pokemon.data.source.remote
 
-import com.github.felipecastilhos.pokedexandroid.features.pokemon.data.datasource.models.Pokemon
-import com.github.felipecastilhos.pokedexandroid.features.pokemon.data.datasource.models.PokemonList
+import com.github.felipecastilhos.pokedexandroid.features.pokemon.data.source.models.Pokemon
+import com.github.felipecastilhos.pokedexandroid.features.pokemon.data.source.models.PokemonList
 import retrofit2.http.GET
 import retrofit2.http.Path
 import retrofit2.http.Query

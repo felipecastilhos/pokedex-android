@@ -1,9 +1,9 @@
 package com.github.felipecastilhos.pokedexandroid
 
 import com.github.felipecastilhos.pokedexandroid.core.data.remote.DataSourceError
-import com.github.felipecastilhos.pokedexandroid.features.pokemon.data.datasource.models.Pokemon
-import com.github.felipecastilhos.pokedexandroid.features.pokemon.data.datasource.PokemonDataSource
-import com.github.felipecastilhos.pokedexandroid.features.pokemon.data.datasource.models.PokemonList
+import com.github.felipecastilhos.pokedexandroid.features.pokemon.data.source.models.Pokemon
+import com.github.felipecastilhos.pokedexandroid.features.pokemon.data.source.PokemonDataSource
+import com.github.felipecastilhos.pokedexandroid.features.pokemon.data.source.models.PokemonList
 
 class FakePokemonDataSource(private val pokemon: Pokemon, private val pokemonList: PokemonList) : PokemonDataSource {
     override suspend fun pokemonData(): Result<Pokemon> {
