@@ -11,7 +11,7 @@ import androidx.navigation.compose.rememberNavController
 fun PokemonNavGraph(
     modifier: Modifier = Modifier,
     navController: NavHostController = rememberNavController(),
-    startDestination: String = PokemonDestinations.SEARCH_ROUTE,
+    startDestination: String = PokemonDestinations.SEARCH,
     navActions: PokemonNavigationActions = remember(navController) {
         PokemonNavigationActions(navController)
     }

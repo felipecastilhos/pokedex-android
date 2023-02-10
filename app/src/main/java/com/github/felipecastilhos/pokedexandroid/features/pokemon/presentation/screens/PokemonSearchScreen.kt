@@ -11,21 +11,25 @@ import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
 import com.github.felipecastilhos.pokedexandroid.core.ui.components.HomeTopAppBar
 import com.github.felipecastilhos.pokedexandroid.core.ui.theme.PokedexTheme
 import com.github.felipecastilhos.pokedexandroid.features.pokemon.presentation.components.PokemonListCard
 import com.github.felipecastilhos.pokedexandroid.features.pokemon.presentation.viewmodel.PokemonListEntryUiData
-import com.github.felipecastilhos.pokedexandroid.features.pokemon.presentation.viewmodel.PokemonListUiState
+import com.github.felipecastilhos.pokedexandroid.features.pokemon.presentation.viewmodel.PokemonListViewModel
 
 @Composable
 fun PokemonSearchScreen(
     onNavigateToPokemonDetails: (Int) -> Unit,
-    uiState: PokemonListUiState,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    viewModel: PokemonListViewModel = hiltViewModel(),
 ) {
+    val uiState = viewModel.stateFlow.collectAsState().value
+
     uiState.apply {
         if (isLoading) {
             LoadingScreen()

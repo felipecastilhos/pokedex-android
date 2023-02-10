@@ -14,6 +14,7 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -25,7 +26,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.constraintlayout.compose.ConstraintLayout
 import androidx.constraintlayout.compose.Dimension
-import com.github.felipecastilhos.pokedexandroid.R
+import androidx.hilt.navigation.compose.hiltViewModel
 import com.github.felipecastilhos.pokedexandroid.core.ui.components.BackTopAppBar
 import com.github.felipecastilhos.pokedexandroid.core.ui.components.BaseStatsTable
 import com.github.felipecastilhos.pokedexandroid.core.ui.components.BaseStatsTableEntry
@@ -38,14 +39,17 @@ import com.github.felipecastilhos.pokedexandroid.features.pokemon.presentation.c
 import com.github.felipecastilhos.pokedexandroid.features.pokemon.presentation.components.AboutPanelLayout
 import com.github.felipecastilhos.pokedexandroid.features.pokemon.presentation.components.AboutPanelListInfo
 import com.github.felipecastilhos.pokedexandroid.features.pokemon.presentation.components.PokemonTypeBadge
+import com.github.felipecastilhos.pokedexandroid.features.pokemon.presentation.viewmodel.PokemonDetailViewModel
 
 @Composable
 fun PokemonDetailScreen(
     modifier: Modifier = Modifier,
-    pokemonDetails: PokemonDetails,
+    viewModel: PokemonDetailViewModel = hiltViewModel(),
     onBackClick: () -> Unit
 ) {
-    val typeColor = pokemonDetails.types.first().color()
+    val pokemonDetails = viewModel.state.collectAsState().value.pokemonDetail
+    val typeColor =
+        pokemonDetails?.types?.first()?.color() ?: PokedexTheme.colors.background.primary
 
     ConstraintLayout(
         modifier = modifier
@@ -53,64 +57,68 @@ fun PokemonDetailScreen(
             .fillMaxHeight()
     ) {
         val (topbar, pokeballBackgroundImage, pokemonImage, pokemonInfoCard, infoContent) = createRefs()
-        Image(
-            modifier = Modifier.constrainAs(pokeballBackgroundImage) {
-                top.linkTo(parent.top)
-                end.linkTo(parent.end)
-            },
-            painter = painterResource(PokedexTheme.icons.pokeball),
-            alpha = 0.1F,
-            colorFilter = ColorFilter.tint(PokedexTheme.colors.content.overSurface),
-            contentDescription = null
-        )
-        BackTopAppBar(modifier = Modifier.constrainAs(topbar) {
-            top.linkTo(parent.top)
-        },
-            onBackClick = onBackClick,
-            title = pokemonDetails.name,
-            contentColor = PokedexTheme.colors.content.overSurface,
-            backgroundColor = Color.Transparent,
-            actions = {
-                Text(pokemonDetails.pokedexId, color = PokedexTheme.colors.content.overSurface)
-            })
-
-        Box(modifier = Modifier
-            .clip(RoundedCornerShape(8.dp))
-            .background(PokedexTheme.colors.background.primary)
-            .constrainAs(pokemonInfoCard) {
-                top.linkTo(pokeballBackgroundImage.bottom, margin = 8.dp)
-                bottom.linkTo(parent.bottom, margin = 4.dp)
-                start.linkTo(parent.start, margin = 4.dp)
-                end.linkTo(parent.end, margin = 4.dp)
-                width = Dimension.fillToConstraints
-                height = Dimension.fillToConstraints
-            })
-
-        Image(
-            modifier = Modifier
-                .size(200.dp)
-                .constrainAs(pokemonImage) {
-                    top.linkTo(topbar.bottom, margin = 24.dp)
-                    start.linkTo(parent.start, margin = 80.dp)
-                    end.linkTo(parent.end, margin = 80.dp)
-                },
-            painter = painterResource(id = pokemonDetails.image),
-            contentDescription = null
-        )
-
-        PokemonInfoContent(
-            modifier = Modifier
-                .constrainAs(infoContent) {
-                    top.linkTo(pokemonImage.bottom)
-                    start.linkTo(parent.start)
+        if (pokemonDetails != null) {
+            Image(
+                modifier = Modifier.constrainAs(pokeballBackgroundImage) {
+                    top.linkTo(parent.top)
                     end.linkTo(parent.end)
-                    width = Dimension.fillToConstraints
-                }
-                .padding(horizontal = 20.dp),
-            pokemonDetails = pokemonDetails,
-            primaryColor = typeColor
-        )
+                },
+                painter = painterResource(PokedexTheme.icons.pokeball),
+                alpha = 0.1F,
+                colorFilter = ColorFilter.tint(PokedexTheme.colors.content.overSurface),
+                contentDescription = null
+            )
+            BackTopAppBar(modifier = Modifier.constrainAs(topbar) {
+                top.linkTo(parent.top)
+            },
+                onBackClick = onBackClick,
+                title = pokemonDetails.name,
+                contentColor = PokedexTheme.colors.content.overSurface,
+                backgroundColor = Color.Transparent,
+                actions = {
+                    Text(
+                        pokemonDetails.pokedexId,
+                        color = PokedexTheme.colors.content.overSurface
+                    )
+                })
 
+            Box(modifier = Modifier
+                .clip(RoundedCornerShape(8.dp))
+                .background(PokedexTheme.colors.background.primary)
+                .constrainAs(pokemonInfoCard) {
+                    top.linkTo(pokeballBackgroundImage.bottom, margin = 8.dp)
+                    bottom.linkTo(parent.bottom, margin = 4.dp)
+                    start.linkTo(parent.start, margin = 4.dp)
+                    end.linkTo(parent.end, margin = 4.dp)
+                    width = Dimension.fillToConstraints
+                    height = Dimension.fillToConstraints
+                })
+
+            Image(
+                modifier = Modifier
+                    .size(200.dp)
+                    .constrainAs(pokemonImage) {
+                        top.linkTo(topbar.bottom, margin = 24.dp)
+                        start.linkTo(parent.start, margin = 80.dp)
+                        end.linkTo(parent.end, margin = 80.dp)
+                    },
+                painter = painterResource(id = pokemonDetails.image),
+                contentDescription = null
+            )
+
+            PokemonInfoContent(
+                modifier = Modifier
+                    .constrainAs(infoContent) {
+                        top.linkTo(pokemonImage.bottom)
+                        start.linkTo(parent.start)
+                        end.linkTo(parent.end)
+                        width = Dimension.fillToConstraints
+                    }
+                    .padding(horizontal = 20.dp),
+                pokemonDetails = pokemonDetails,
+                primaryColor = typeColor
+            )
+        }
 
     }
 }
@@ -228,25 +236,12 @@ private fun Stats.toStatsTableEntry(): List<BaseStatsTableEntry> {
     )
 }
 
-@Preview(name="Pokemon Detail", group = "Screen")
+@Preview(name = "Pokemon Detail", group = "Screen")
 @Composable
 fun PokemonDetailScreenPreview() {
     PokedexAndroidTheme {
-        PokemonDetailScreen(
-            pokemonDetails = PokemonDetails(
-                pokedexId = "#001",
-                name = "Bulbassaur",
-                types = mutableListOf(PokemonType.GRASS, PokemonType.POISON),
-                weight = "6,9 kg",
-                height = "0,7 m",
-                moves = mutableListOf("Chlorophyll", "Overgrow"),
-                aboutDescription = "There is a plant seed on its back right from the day this Pokémon is born. The seed slowly grows larger.",
-                baseStats = Stats(
-                    hp = 45, atk = 49, def = 49, satk = 65, sdef = 65, spd = 45
-                ),
-                image = R.drawable.asset_bulbasaur
-            ),
-            onBackClick = {}
-        )
+        /**
+         * TODO: add preview mocking the view model
+         */
     }
 }
