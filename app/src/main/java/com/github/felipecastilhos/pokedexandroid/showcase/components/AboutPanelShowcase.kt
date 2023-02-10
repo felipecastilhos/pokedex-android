@@ -5,9 +5,9 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import com.github.felipecastilhos.pokedexandroid.core.ui.theme.PokedexAndroidTheme
 import com.github.felipecastilhos.pokedexandroid.core.ui.theme.PokedexTheme
-import com.github.felipecastilhos.pokedexandroid.features.pokemon.ui.components.AboutPanelIconInfo
-import com.github.felipecastilhos.pokedexandroid.features.pokemon.ui.components.AboutPanelLayout
-import com.github.felipecastilhos.pokedexandroid.features.pokemon.ui.components.AboutPanelListInfo
+import com.github.felipecastilhos.pokedexandroid.features.pokemon.presentation.components.AboutPanelIconInfo
+import com.github.felipecastilhos.pokedexandroid.features.pokemon.presentation.components.AboutPanelLayout
+import com.github.felipecastilhos.pokedexandroid.features.pokemon.presentation.components.AboutPanelListInfo
 
 @Preview(name = "About panel", group = "About Panel")
 @Composable

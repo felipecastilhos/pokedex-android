@@ -5,7 +5,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.github.felipecastilhos.pokedexandroid.R
 import com.github.felipecastilhos.pokedexandroid.core.ui.theme.PokedexAndroidTheme
 import com.github.felipecastilhos.pokedexandroid.features.pokemon.domain.repository.PokemonMock
-import com.github.felipecastilhos.pokedexandroid.features.pokemon.ui.components.PokemonListCard
+import com.github.felipecastilhos.pokedexandroid.features.pokemon.presentation.components.PokemonListCard
 
 @Preview("Pokemon List Card" , group = "Cards")
 @Composable

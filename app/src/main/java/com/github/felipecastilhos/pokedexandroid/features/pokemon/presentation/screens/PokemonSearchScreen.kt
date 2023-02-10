@@ -1,4 +1,4 @@
-package com.github.felipecastilhos.pokedexandroid.features.pokemon.ui.screens
+package com.github.felipecastilhos.pokedexandroid.features.pokemon.presentation.screens
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -16,9 +16,9 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import com.github.felipecastilhos.pokedexandroid.core.ui.components.HomeTopAppBar
 import com.github.felipecastilhos.pokedexandroid.core.ui.theme.PokedexTheme
-import com.github.felipecastilhos.pokedexandroid.features.pokemon.domain.viewmodel.PokemonListEntryUiData
-import com.github.felipecastilhos.pokedexandroid.features.pokemon.domain.viewmodel.PokemonListUiState
-import com.github.felipecastilhos.pokedexandroid.features.pokemon.ui.components.PokemonListCard
+import com.github.felipecastilhos.pokedexandroid.features.pokemon.presentation.components.PokemonListCard
+import com.github.felipecastilhos.pokedexandroid.features.pokemon.presentation.viewmodel.PokemonListEntryUiData
+import com.github.felipecastilhos.pokedexandroid.features.pokemon.presentation.viewmodel.PokemonListUiState
 
 @Composable
 fun PokemonSearchScreen(
