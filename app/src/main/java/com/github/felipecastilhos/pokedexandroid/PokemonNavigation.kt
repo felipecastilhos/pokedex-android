@@ -9,10 +9,10 @@ import androidx.navigation.NavType
 import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
 import com.github.felipecastilhos.pokedexandroid.PokemonDestinationsArgs.POKEMON_DETAIL_ID_ARGS
-import com.github.felipecastilhos.pokedexandroid.features.pokemon.presentation.viewmodel.PokemonDetailViewModel
-import com.github.felipecastilhos.pokedexandroid.features.pokemon.presentation.viewmodel.PokemonListViewModel
 import com.github.felipecastilhos.pokedexandroid.features.pokemon.presentation.screens.PokemonDetailScreen
 import com.github.felipecastilhos.pokedexandroid.features.pokemon.presentation.screens.PokemonSearchScreen
+import com.github.felipecastilhos.pokedexandroid.features.pokemon.presentation.viewmodel.PokemonDetailViewModel
+import com.github.felipecastilhos.pokedexandroid.features.pokemon.presentation.viewmodel.PokemonListViewModel
 import kotlinx.coroutines.runBlocking
 
 /**
@@ -39,12 +39,6 @@ object PokemonDestinations {
 }
 
 class PokemonNavigationActions(private val navController: NavController) {
-    fun navigateToSearch() {
-        navController.navigate(PokemonDestinations.SEARCH_ROUTE) {
-            launchSingleTop = true
-        }
-    }
-
     fun navigateToDetails(pokemonId: Int) {
         navController.navigate("${PokemonDestinations.DETAIL_ROUTE}/$pokemonId") {
             launchSingleTop = true
