@@ -1,4 +1,4 @@
-package com.github.felipecastilhos.pokedexandroid.features.pokemon.presentation.viewmodel
+package com.github.felipecastilhos.pokedexandroid.features.pokemon.presentation.list.viewmodel
 
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -48,7 +48,7 @@ class PokemonDetailViewModel @Inject constructor(
     }
 
     init {
-        index = savedStateHandle.get<String>(PokemonDestinationsArgs.POKEMON_DETAIL_ID_ARGS)?.toInt().orZero()
+        index = savedStateHandle.get<String>(PokemonDestinationsArgs.POKEMON_DETAIL_ID_ARG)?.toInt().orZero()
         searchPokemon(index)
     }
 

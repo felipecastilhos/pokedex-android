@@ -1,4 +1,4 @@
-package com.github.felipecastilhos.pokedexandroid.features.pokemon.presentation.screens
+package com.github.felipecastilhos.pokedexandroid.features.pokemon.presentation.list.ui.screens
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -39,7 +39,7 @@ import com.github.felipecastilhos.pokedexandroid.features.pokemon.presentation.c
 import com.github.felipecastilhos.pokedexandroid.features.pokemon.presentation.components.AboutPanelLayout
 import com.github.felipecastilhos.pokedexandroid.features.pokemon.presentation.components.AboutPanelListInfo
 import com.github.felipecastilhos.pokedexandroid.features.pokemon.presentation.components.PokemonTypeBadge
-import com.github.felipecastilhos.pokedexandroid.features.pokemon.presentation.viewmodel.PokemonDetailViewModel
+import com.github.felipecastilhos.pokedexandroid.features.pokemon.presentation.list.viewmodel.PokemonDetailViewModel
 
 @Composable
 fun PokemonDetailScreen(

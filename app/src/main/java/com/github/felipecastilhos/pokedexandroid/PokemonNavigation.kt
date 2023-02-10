@@ -4,9 +4,9 @@ import androidx.activity.compose.LocalOnBackPressedDispatcherOwner
 import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
-import com.github.felipecastilhos.pokedexandroid.PokemonDestinationsArgs.POKEMON_DETAIL_ID_ARGS
-import com.github.felipecastilhos.pokedexandroid.features.pokemon.presentation.screens.PokemonDetailScreen
-import com.github.felipecastilhos.pokedexandroid.features.pokemon.presentation.screens.PokemonSearchScreen
+import com.github.felipecastilhos.pokedexandroid.PokemonDestinationsArgs.POKEMON_DETAIL_ID_ARG
+import com.github.felipecastilhos.pokedexandroid.features.pokemon.presentation.list.PokemonSearchScreen
+import com.github.felipecastilhos.pokedexandroid.features.pokemon.presentation.list.ui.screens.PokemonDetailScreen
 
 /**
  * Screens used in [PokemonDestinations]
@@ -20,7 +20,7 @@ private object PokemonScreens {
  * Arguments used in [PokemonDestinations] routes
  */
 object PokemonDestinationsArgs {
-    const val POKEMON_DETAIL_ID_ARGS = "pokemonDetailId"
+    const val POKEMON_DETAIL_ID_ARG = "pokemonDetailId"
 }
 
 /**
@@ -28,7 +28,7 @@ object PokemonDestinationsArgs {
  */
 object PokemonDestinations {
     const val SEARCH = PokemonScreens.POKEMON_SEARCH
-    const val DETAIL = "${PokemonScreens.POKEMON_DETAILS}/{$POKEMON_DETAIL_ID_ARGS}"
+    const val DETAIL = "${PokemonScreens.POKEMON_DETAILS}/{$POKEMON_DETAIL_ID_ARG}"
 }
 
 class PokemonNavigationActions(private val navController: NavController) {

@@ -1,4 +1,4 @@
-package com.github.felipecastilhos.pokedexandroid.features.pokemon.presentation.viewmodel
+package com.github.felipecastilhos.pokedexandroid.features.pokemon.presentation.list
 
 import androidx.annotation.DrawableRes
 import androidx.lifecycle.ViewModel
