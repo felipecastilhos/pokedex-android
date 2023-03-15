@@ -22,15 +22,14 @@ import com.github.felipecastilhos.pokedexandroid.core.ui.components.CardDefaults
 import com.github.felipecastilhos.pokedexandroid.core.ui.components.CardSmall
 import com.github.felipecastilhos.pokedexandroid.core.ui.theme.PokedexTheme
 
-
 @Composable
 fun PokemonListCard(
-    modifier: Modifier = Modifier,
     onClick: () -> Unit,
     indexLabel: String,
     @DrawableRes image: Int,
     pokemonName: String,
     pokemonTypeColor: Color,
+    modifier: Modifier = Modifier,
 ) {
     CardSmall(
         modifier.border(
@@ -49,9 +48,9 @@ fun PokemonListCard(
 
 @Composable
 private fun IndexBadge(
-    modifier: Modifier = Modifier,
     indexLabel: String,
     color: Color,
+    modifier: Modifier = Modifier,
 ) {
     Box(
         modifier = modifier
@@ -69,7 +68,7 @@ private fun IndexBadge(
 }
 
 @Composable
-private fun PokemonCardImage(modifier: Modifier = Modifier, @DrawableRes pokemonImage: Int) {
+private fun PokemonCardImage(@DrawableRes pokemonImage: Int, modifier: Modifier = Modifier) {
     Row(modifier = modifier) {
         CardImageMargin()
         Image(
