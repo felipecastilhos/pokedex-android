@@ -7,7 +7,7 @@ import com.github.felipecastilhos.pokedexandroid.features.pokemon.domain.reposit
 import java.util.*
 
 @Composable
-fun PokemonTypeBadge(modifier: Modifier = Modifier, type: PokemonType) {
+fun PokemonTypeBadge(type: PokemonType, modifier: Modifier = Modifier) {
     TextBadge(
         modifier = modifier,
         text = type.name.lowercase().capitalize(locale = Locale.ROOT),

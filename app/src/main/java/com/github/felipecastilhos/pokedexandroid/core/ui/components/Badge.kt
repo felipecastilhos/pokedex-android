@@ -34,10 +34,10 @@ fun Badge(
 
 @Composable
 fun TextBadge(
+    text: String,
     modifier: Modifier = Modifier,
     textColor: Color = BadgeDefaults.contentColor(),
     backgroundColor: Color = BadgeDefaults.backgroundColor(),
-    text: String
 ) {
     Badge(modifier = modifier, backgroundColor = backgroundColor) {
         Text(text = text, style = PokedexTheme.typography.bold.body2, color = textColor)

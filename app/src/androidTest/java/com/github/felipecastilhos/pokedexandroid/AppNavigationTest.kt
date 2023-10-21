@@ -32,14 +32,14 @@ class AppNavigationTest {
     @Test
     fun search_screen() {
         setContent()
-        composeTestRule.onNodeWithText("Bulbassauro").assertIsDisplayed()
+        composeTestRule.onNodeWithText("Bulbassaur").assertIsDisplayed()
     }
 
     @Test
     fun search_screen_navigate_to_pokemon_detail() {
         setContent()
-        composeTestRule.onNodeWithText("Bulbassauro").performClick()
-        composeTestRule.onNodeWithText("Some details here").assertIsDisplayed()
+        composeTestRule.onNodeWithText("Bulbassaur").performClick()
+        composeTestRule.onNodeWithText("About").assertIsDisplayed()
     }
 
     private fun setContent() {
